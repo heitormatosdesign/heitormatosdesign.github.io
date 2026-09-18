@@ -137,6 +137,8 @@ em {
 
 .logo {
 
+    font-family: var(--fonte-principal);
+
     font-size: 18px;
 
     font-weight: 700;
@@ -195,18 +197,7 @@ em {
    MENU MOBILE
 ========================================================= */
 
-.mobile-menu a,
-.mobile-menu a:link,
-.mobile-menu a:visited {
-    font-family: "Albert Sans", sans-serif !important;
-    font-size: 42px;
-    font-weight: 500;
-    line-height: 1;
-    color: var(--texto);
-    text-decoration: none;
-    transition: opacity .3s;
-}
-   /* =========================
+/* =========================
    MENU LATERAL
 ========================== */
 
@@ -247,6 +238,10 @@ em {
 }
 
 
+/* =========================
+   MENU ABERTO
+========================== */
+
 body.menu-open .mobile-menu {
 
     transform: translateX(0);
@@ -260,7 +255,7 @@ body.menu-open .mobile-menu {
 
 .mobile-menu a {
 
-    font-family: var(--fonte-principal);
+    font-family: "Albert Sans", sans-serif !important;
 
     font-size: 30px;
 
@@ -292,26 +287,88 @@ body.menu-open .mobile-menu {
 
 
 /* =========================
+   FUNDO ESCURO
+========================== */
+
+.menu-overlay {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, .4);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    z-index: 10000;
+
+    transition:
+        opacity .45s ease,
+        visibility .45s ease;
+
+}
+
+
+body.menu-open .menu-overlay {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+/* =========================
    BOTÃO MENU SANDUÍCHE
 ========================== */
 
 .menu-toggle {
 
-    font-family: var(--fonte-principal);
-
     display: none;
+
+    font-family: var(--fonte-principal);
 
 }
 
 
 @media (max-width: 768px) {
 
+    /* =========================
+       HEADER MOBILE
+    ========================== */
+
     .header {
 
         position: relative;
 
+        width: calc(100% - 30px);
+
+        height: 70px;
+
     }
 
+
+    .desktop-nav {
+
+        display: none;
+
+    }
+
+
+    .header-contact {
+
+        display: none;
+
+    }
+
+
+    /* =========================
+       BOTÃO MENU
+    ========================== */
 
     .menu-toggle {
 
@@ -369,28 +426,6 @@ body.menu-open .mobile-menu {
     }
 
 
-    body.menu-open .menu-toggle span:nth-child(1) {
-
-        transform: translateY(7px) rotate(45deg);
-
-    }
-
-
-    body.menu-open .menu-toggle span:nth-child(2) {
-
-        opacity: 0;
-
-    }
-
-
-    body.menu-open .menu-toggle span:nth-child(3) {
-
-        transform: translateY(-7px) rotate(-45deg);
-
-    }
-
-}
-
     /* =========================
        FUNDO ESCURO
     ========================== */
@@ -398,31 +433,6 @@ body.menu-open .mobile-menu {
     .menu-overlay {
 
         display: block;
-
-        position: fixed;
-
-        inset: 0;
-
-        background: rgba(0, 0, 0, .4);
-
-        opacity: 0;
-
-        visibility: hidden;
-
-        z-index: 10000;
-
-        transition:
-            opacity .45s ease,
-            visibility .45s ease;
-
-    }
-
-
-    body.menu-open .menu-overlay {
-
-        opacity: 1;
-
-        visibility: visible;
 
     }
 
@@ -455,36 +465,7 @@ body.menu-open .mobile-menu {
 
     }
 
-
-    /* =========================
-       HEADER MOBILE
-    ========================== */
-
-    .header {
-
-        width: calc(100% - 30px);
-
-        height: 70px;
-
-    }
-
-
-    .desktop-nav {
-
-        display: none;
-
-    }
-
-
-    .header-contact {
-
-        display: none;
-
-    }
-
 }
-
-
 /* =========================================================
    HERO
 ========================================================= */
