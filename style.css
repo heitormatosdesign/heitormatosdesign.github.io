@@ -76,6 +76,8 @@ body {
     font-family: var(--fonte-principal);
 
     line-height: 1.5;
+   
+   font-synthesis: none;
 
 }
 
