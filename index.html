@@ -26,6 +26,26 @@
 
 </head>
 
+    <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const menuOverlay = document.querySelector('.menu-overlay');
+
+    function closeMenu() {
+        document.body.classList.remove('menu-open');
+    }
+
+    menuToggle.addEventListener('click', () => {
+        document.body.classList.toggle('menu-open');
+    });
+
+    menuOverlay.addEventListener('click', closeMenu);
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+</script>
+    
 <body>
 
 
@@ -52,6 +72,21 @@
             Vamos conversar
         </a>
 
+        <button class="menu-toggle" aria-label="Abrir menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<nav class="mobile-menu">
+    <a href="#projetos">Projetos</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+</nav>
+
+<div class="menu-overlay"></div>
+        
     </header>
 
 
