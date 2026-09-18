@@ -195,70 +195,17 @@ em {
    MENU MOBILE
 ========================================================= */
 
-.menu-toggle {
-
-    display: none;
-
+.mobile-menu a,
+.mobile-menu a:link,
+.mobile-menu a:visited {
+    font-family: "Albert Sans", sans-serif !important;
+    font-size: 42px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--texto);
+    text-decoration: none;
+    transition: opacity .3s;
 }
-
-
-.mobile-menu {
-
-    display: none;
-
-}
-
-
-.menu-overlay {
-
-    display: none;
-
-}
-
-
-@media (max-width: 768px) {
-  .header {
-    position: relative;
-  }
-
-  .menu-toggle {
-    display: flex;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    margin: 0;
-    border: none;
-    background: transparent;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 9999;
-  }
-}
-
-    .menu-toggle span {
-
-        display: block;
-
-        width: 22px;
-
-        height: 2px;
-
-        background: var(--texto);
-
-        transition:
-            transform .3s ease,
-            opacity .3s ease;
-
-    }
-
-
    /* =========================
    MENU LATERAL
 ========================== */
