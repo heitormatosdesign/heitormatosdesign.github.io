@@ -1373,3 +1373,53 @@ nav a:hover {
     }
 
 }
+
+/* =========================
+   MENU SANDUÍCHE MOBILE
+========================== */
+
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: flex;
+
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        width: 42px;
+        height: 42px;
+
+        padding: 0;
+        margin: 0;
+
+        border: none;
+        background: transparent;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        cursor: pointer;
+        z-index: 9999;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+
+        background: var(--texto);
+
+        transition: 
+            transform .3s ease,
+            opacity .3s ease;
+    }
+
+}
