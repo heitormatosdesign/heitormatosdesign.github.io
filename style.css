@@ -259,90 +259,190 @@ em {
     }
 
 
-    /* =========================
-       MENU LATERAL
-    ========================== */
+   /* =========================
+   MENU LATERAL
+========================== */
 
-    .mobile-menu {
+.mobile-menu {
+
+    display: flex;
+
+    position: fixed;
+
+    top: 0;
+
+    right: 0;
+
+    width: 85%;
+
+    max-width: 400px;
+
+    height: 100vh;
+
+    padding: 120px 30px 40px;
+
+    background: var(--fundo);
+
+    flex-direction: column;
+
+    z-index: 10001;
+
+    transform: translateX(100%);
+
+    transition:
+        transform .45s cubic-bezier(
+            .77,
+            0,
+            .18,
+            1
+        );
+
+}
+
+
+body.menu-open .mobile-menu {
+
+    transform: translateX(0);
+
+}
+
+
+/* =========================
+   LINKS DO MENU
+========================== */
+
+.mobile-menu a {
+
+    font-family: var(--fonte-principal);
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    color: var(--texto);
+
+    text-decoration: none;
+
+    transition: opacity .3s;
+
+}
+
+
+.mobile-menu a:hover {
+
+    opacity: .5;
+
+}
+
+
+.mobile-menu a + a {
+
+    margin-top: 25px;
+
+}
+
+
+/* =========================
+   BOTÃO MENU SANDUÍCHE
+========================== */
+
+.menu-toggle {
+
+    font-family: var(--fonte-principal);
+
+    display: none;
+
+}
+
+
+@media (max-width: 768px) {
+
+    .header {
+
+        position: relative;
+
+    }
+
+
+    .menu-toggle {
 
         display: flex;
 
-        position: fixed;
-
-        top: 0;
+        position: absolute;
 
         right: 0;
 
-        width: 85%;
+        top: 50%;
 
-        max-width: 400px;
+        transform: translateY(-50%);
 
-        height: 100vh;
+        width: 42px;
 
-        padding: 120px 30px 40px;
+        height: 42px;
 
-        background: var(--fundo);
+        padding: 0;
+
+        margin: 0;
+
+        border: none;
+
+        background: transparent;
 
         flex-direction: column;
 
-        z-index: 10001;
+        align-items: center;
 
-        transform: translateX(100%);
+        justify-content: center;
+
+        gap: 5px;
+
+        cursor: pointer;
+
+        z-index: 10002;
+
+    }
+
+
+    .menu-toggle span {
+
+        display: block;
+
+        width: 22px;
+
+        height: 2px;
+
+        background: var(--texto);
 
         transition:
-            transform .45s cubic-bezier(
-                .77,
-                0,
-                .18,
-                1
-            );
+            transform .3s ease,
+            opacity .3s ease;
 
     }
 
 
-    body.menu-open .mobile-menu {
+    body.menu-open .menu-toggle span:nth-child(1) {
 
-        transform: translateX(0);
-
-    }
-
-
-    /* =========================
-       LINKS DO MENU
-    ========================== */
-
-    .mobile-menu a {
-
-        font-family: var(--fonte-principal);
-
-        font-size: 42px;
-
-        font-weight: 500;
-
-        line-height: 1;
-
-        color: var(--texto);
-
-        text-decoration: none;
-
-        transition: opacity .3s;
+        transform: translateY(7px) rotate(45deg);
 
     }
 
 
-    .mobile-menu a:hover {
+    body.menu-open .menu-toggle span:nth-child(2) {
 
-        opacity: .5;
-
-    }
-
-
-    .mobile-menu a + a {
-
-        margin-top: 25px;
+        opacity: 0;
 
     }
 
+
+    body.menu-open .menu-toggle span:nth-child(3) {
+
+        transform: translateY(-7px) rotate(-45deg);
+
+    }
+
+}
 
     /* =========================
        FUNDO ESCURO
@@ -1543,9 +1643,4 @@ em {
 
     }
 
-}
-
-.mobile-menu,
-.mobile-menu a {
-  font-family: var(--fonte-principal);
 }
