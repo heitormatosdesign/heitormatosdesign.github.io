@@ -24,23 +24,18 @@
     --borda: #cdd8d7;
 
 
+    /* =========================
+       FONTES
+    ========================== */
 
-/* =========================
-   FONTES
-========================== */
+    --fonte-principal:
+        "Albert Sans",
+        sans-serif;
 
-/* Fonte dos textos */
+    --fonte-titulo:
+        "Playfair Display",
+        serif;
 
---fonte-principal:
-    "Albert Sans",
-    sans-serif;
-
-
-/* Fonte dos títulos */
-
---fonte-titulo:
-    "Playfair Display",
-    serif;
 
     /* =========================
        TAMANHO
@@ -51,7 +46,6 @@
 }
 
 
-
 /* =========================================================
    RESET
 ========================================================= */
@@ -60,6 +54,7 @@
 
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 
 }
@@ -112,7 +107,6 @@ em {
 }
 
 
-
 /* =========================================================
    HEADER
 ========================================================= */
@@ -136,6 +130,8 @@ em {
 
     border-bottom: 1px solid var(--borda);
 
+    position: relative;
+
 }
 
 
@@ -157,7 +153,7 @@ em {
 }
 
 
-nav {
+.desktop-nav {
 
     display: flex;
 
@@ -166,7 +162,7 @@ nav {
 }
 
 
-nav a {
+.desktop-nav a {
 
     font-size: 13px;
 
@@ -175,7 +171,7 @@ nav a {
 }
 
 
-nav a:hover {
+.desktop-nav a:hover {
 
     opacity: .5;
 
@@ -194,122 +190,271 @@ nav a:hover {
 
 }
 
-/* =========================
-   MENU MOBILE
-========================== */
 
-.menu-toggle,
-.mobile-menu,
-.menu-overlay {
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+.menu-toggle {
+
     display: none;
+
 }
 
-@media (max-width: 768px) {
+
+.mobile-menu {
+
+    display: none;
+
+}
+
+
+.menu-overlay {
+
+    display: none;
+
+}
+
+
+@media (max-width: 800px) {
+
+
+    /* =========================
+       BOTÃO SANDUÍCHE
+    ========================== */
 
     .menu-toggle {
+
         display: flex;
+
+        position: absolute;
+
+        top: 50%;
+
+        right: 0;
+
+        transform: translateY(-50%);
+
         width: 40px;
+
         height: 40px;
+
         padding: 0;
+
         border: none;
+
         background: transparent;
 
         flex-direction: column;
+
         align-items: center;
+
         justify-content: center;
+
         gap: 5px;
 
         cursor: pointer;
-        z-index: 1001;
+
+        z-index: 10002;
+
     }
+
 
     .menu-toggle span {
+
+        display: block;
+
         width: 22px;
+
         height: 2px;
+
         background: var(--texto);
-        transition: transform .3s ease, opacity .3s ease;
+
+        transition:
+            transform .3s ease,
+            opacity .3s ease;
+
     }
 
 
-    /* MENU */
+    /* =========================
+       MENU LATERAL
+    ========================== */
 
     .mobile-menu {
+
         display: flex;
 
         position: fixed;
+
         top: 0;
+
         right: 0;
 
-        width: 80%;
-        max-width: 360px;
+        width: 85%;
+
+        max-width: 400px;
+
         height: 100vh;
 
-        padding: 100px 30px 40px;
+        padding: 120px 30px 40px;
 
         background: var(--fundo);
 
         flex-direction: column;
-        gap: 25px;
+
+        z-index: 10001;
 
         transform: translateX(100%);
-        transition: transform .4s ease;
 
-        z-index: 1000;
+        transition:
+            transform .45s cubic-bezier(
+                .77,
+                0,
+                .18,
+                1
+            );
+
     }
+
+
+    body.menu-open .mobile-menu {
+
+        transform: translateX(0);
+
+    }
+
+
+    /* =========================
+       LINKS DO MENU
+    ========================== */
 
     .mobile-menu a {
-        font-family: var(--fonte-principal);
-        font-size: 1.5rem;
+
+        font-family: var(--fonte-titulo);
+
+        font-size: 42px;
+
+        font-weight: 500;
+
+        line-height: 1;
+
         color: var(--texto);
+
         text-decoration: none;
+
+        transition: opacity .3s;
+
     }
 
 
-    /* FUNDO ESCURO */
+    .mobile-menu a:hover {
+
+        opacity: .5;
+
+    }
+
+
+    .mobile-menu a + a {
+
+        margin-top: 25px;
+
+    }
+
+
+    /* =========================
+       FUNDO ESCURO
+    ========================== */
 
     .menu-overlay {
+
         display: block;
 
         position: fixed;
+
         inset: 0;
 
-        background: rgba(0, 0, 0, .35);
+        background: rgba(0, 0, 0, .4);
 
         opacity: 0;
+
         visibility: hidden;
 
-        transition: opacity .4s ease, visibility .4s ease;
+        z-index: 10000;
 
-        z-index: 999;
+        transition:
+            opacity .45s ease,
+            visibility .45s ease;
+
     }
 
 
-    /* MENU ABERTO */
+    body.menu-open .menu-overlay {
 
-    .menu-open .mobile-menu {
-        transform: translateX(0);
-    }
-
-    .menu-open .menu-overlay {
         opacity: 1;
+
         visibility: visible;
+
     }
 
 
-    /* X */
+    /* =========================
+       BOTÃO → X
+    ========================== */
 
-    .menu-open .menu-toggle span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
+    body.menu-open .menu-toggle span:nth-child(1) {
+
+        transform:
+            translateY(7px)
+            rotate(45deg);
+
     }
 
-    .menu-open .menu-toggle span:nth-child(2) {
+
+    body.menu-open .menu-toggle span:nth-child(2) {
+
         opacity: 0;
+
     }
 
-    .menu-open .menu-toggle span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
+
+    body.menu-open .menu-toggle span:nth-child(3) {
+
+        transform:
+            translateY(-7px)
+            rotate(-45deg);
+
     }
+
+
+    /* =========================
+       HEADER MOBILE
+    ========================== */
+
+    .header {
+
+        width: calc(100% - 30px);
+
+        height: 70px;
+
+    }
+
+
+    .desktop-nav {
+
+        display: none;
+
+    }
+
+
+    .header-contact {
+
+        display: none;
+
+    }
+
 }
+
 
 /* =========================================================
    HERO
@@ -405,7 +550,6 @@ nav a:hover {
 }
 
 
-
 /* =========================================================
    BOTÕES
 ========================================================= */
@@ -448,30 +592,49 @@ nav a:hover {
 
 
 .button.light {
+
     background: #ffffff;
+
     color: #111111;
+
     border: none;
+
     border-radius: 10px;
-    transition: 
+
+    transition:
         transform .3s ease,
         background-color .3s ease,
         color .3s ease;
+
 }
+
 
 .button.light img {
+
     width: 30px;
+
     height: 30px;
+
     transition: transform .3s ease;
+
 }
+
 
 .button.light:hover {
+
     background: #42c553;
+
     color: #ffffff;
+
     transform: scale(1.05);
+
 }
 
+
 .button.light:hover img {
+
     transform: scale(1.08);
+
 }
 
 
@@ -493,7 +656,6 @@ nav a:hover {
     padding-bottom: 5px;
 
 }
-
 
 
 /* =========================================================
@@ -540,7 +702,6 @@ nav a:hover {
 }
 
 
-
 /* =========================================================
    APRESENTAÇÃO
 ========================================================= */
@@ -576,7 +737,6 @@ nav a:hover {
     margin-bottom: 25px;
 
 }
-
 
 
 /* =========================================================
@@ -660,7 +820,6 @@ nav a:hover {
     font-size: 20px;
 
 }
-
 
 
 /* =========================================================
@@ -792,7 +951,6 @@ nav a:hover {
 }
 
 
-
 /* =========================================================
    COMO POSSO AJUDAR
 ========================================================= */
@@ -867,7 +1025,6 @@ nav a:hover {
 }
 
 
-
 /* =========================================================
    PROCESSO
 ========================================================= */
@@ -937,7 +1094,6 @@ nav a:hover {
     font-size: 13px;
 
 }
-
 
 
 /* =========================================================
@@ -1039,7 +1195,6 @@ nav a:hover {
 }
 
 
-
 /* =========================================================
    CTA
 ========================================================= */
@@ -1100,7 +1255,6 @@ nav a:hover {
     font-size: 15px;
 
 }
-
 
 
 /* =========================================================
@@ -1170,41 +1324,37 @@ nav a:hover {
 
 
 .footer-icons a {
+
     width: 30px;
+
     height: 30px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border: none;
 
+    background: transparent;
+
     transition: transform .3s ease;
+
 }
+
 
 .footer-icons a:hover {
-    transform: scale(1.6);
-}
 
-
-.footer-icons a {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
     background: transparent;
-    transition: transform .3s ease;
-}
 
-.footer-icons a:hover {
-    background: transparent;
     transform: scale(1.2);
+
 }
 
 
 .footer-icons img {
+
     width: 30px;
 
     height: 30px;
@@ -1214,35 +1364,11 @@ nav a:hover {
 }
 
 
-
 /* =========================================================
    CELULAR
 ========================================================= */
 
 @media (max-width: 800px) {
-
-
-    .header {
-
-        width: calc(100% - 30px);
-
-        height: 70px;
-
-    }
-
-
-    nav {
-
-        display: none;
-
-    }
-
-
-    .header-contact {
-
-        display: none;
-
-    }
 
 
     .hero {
@@ -1372,54 +1498,67 @@ nav a:hover {
 
     }
 
-}
 
-/* =========================
-   MENU SANDUÍCHE MOBILE
-========================== */
+    .service {
 
-.menu-toggle {
-    display: none;
-}
+        grid-template-columns:
+            40px
+            1fr
+            25px;
 
-@media (max-width: 768px) {
+        gap: 15px;
 
-    .menu-toggle {
-        display: flex;
-
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-
-        width: 42px;
-        height: 42px;
-
-        padding: 0;
-        margin: 0;
-
-        border: none;
-        background: transparent;
-
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-
-        cursor: pointer;
-        z-index: 9999;
     }
 
-    .menu-toggle span {
-        display: block;
-        width: 22px;
-        height: 2px;
 
-        background: var(--texto);
+    .service h3 {
 
-        transition: 
-            transform .3s ease,
-            opacity .3s ease;
+        font-size: 21px;
+
+    }
+
+
+    .service p {
+
+        font-size: 13px;
+
+    }
+
+
+    .problem {
+
+        grid-template-columns:
+            30px
+            1fr;
+
+    }
+
+
+    .process-item {
+
+        min-height: 200px;
+
+    }
+
+
+    .process-item > span {
+
+        margin-bottom: 40px;
+
+    }
+
+
+    .cta {
+
+        padding: 100px 20px;
+
+    }
+
+
+    .cta h2 {
+
+        font-size: 52px;
+
     }
 
 }

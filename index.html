@@ -4,26 +4,36 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Heitor Matos | Design, Branding e Direção de Arte</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Heitor Matos — Design, Branding e Direção de Arte</title>
 
     <meta
         name="description"
-        content="Design, branding e direção de arte para marcas que buscam uma comunicação visual clara, consistente e estratégica."
+        content="Heitor Matos — Designer, diretor de arte e especialista em identidade visual, branding e comunicação."
     >
 
-    <!-- FONTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100..900&family=Playfair+Display:wght@400..900&display=swap"
         rel="stylesheet"
     >
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
@@ -31,25 +41,36 @@
 <body>
 
 
-    <!-- =========================
+    <!-- =====================================================
          HEADER
-    ========================== -->
+    ====================================================== -->
 
     <header class="header">
 
         <a href="#" class="logo">
-            HEITOR.
+            HEITOR<span>.</span>
         </a>
 
 
-        <!-- NAVEGAÇÃO DESKTOP -->
+        <!-- MENU DESKTOP -->
 
         <nav class="desktop-nav">
 
-            <a href="#projetos">Projetos</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
+            <a href="#projetos">
+                Projetos
+            </a>
+
+            <a href="#servicos">
+                Serviços
+            </a>
+
+            <a href="#sobre">
+                Sobre
+            </a>
+
+            <a href="#contato">
+                Contato
+            </a>
 
         </nav>
 
@@ -70,6 +91,7 @@
             class="menu-toggle"
             aria-label="Abrir menu"
             aria-expanded="false"
+            type="button"
         >
 
             <span></span>
@@ -81,76 +103,69 @@
     </header>
 
 
-
-    <!-- =========================
+    <!-- =====================================================
          MENU MOBILE
-    ========================== -->
+    ====================================================== -->
 
     <div class="menu-overlay"></div>
 
+
     <nav class="mobile-menu">
 
-        <div class="mobile-menu-top">
+        <a href="#projetos">
+            Projetos
+        </a>
 
-            <span>MENU</span>
+        <a href="#servicos">
+            Serviços
+        </a>
 
-            <button class="menu-close" aria-label="Fechar menu">
-                ×
-            </button>
+        <a href="#sobre">
+            Sobre
+        </a>
 
-        </div>
-
-
-        <div class="mobile-menu-links">
-
-            <a href="#projetos">Projetos</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
-
-        </div>
-
-
-        <div class="mobile-menu-bottom">
-
-            <span>Design · Branding · Direção de Arte</span>
-
-        </div>
+        <a href="#contato">
+            Contato
+        </a>
 
     </nav>
 
 
-
-    <!-- =========================
+    <!-- =====================================================
          HERO
-    ========================== -->
+    ====================================================== -->
 
     <main>
 
         <section class="hero">
 
-            <div class="hero-content">
+            <span class="eyebrow">
+                DESIGN · BRANDING · DIREÇÃO DE ARTE
+            </span>
 
-                <p class="eyebrow">
-                    DESIGN · BRANDING · DIREÇÃO DE ARTE
-                </p>
 
-                <h1>
-                    Design que dá forma
-                    <em>à estratégia.</em>
-                </h1>
+            <h1>
+                Design que dá forma à <em>estratégia.</em>
+            </h1>
 
-                <p class="hero-description">
-                    Crio identidades, sistemas visuais e projetos de comunicação
-                    para marcas que precisam transformar ideias em presença.
+
+            <div class="hero-bottom">
+
+                <p>
+                    Crio identidades, experiências e sistemas visuais
+                    para marcas que precisam comunicar com clareza,
+                    consistência e personalidade.
                 </p>
 
 
                 <div class="hero-buttons">
 
-                    <a href="#projetos" class="button dark">
+                    <a
+                        href="#projetos"
+                        class="button dark"
+                    >
                         Ver projetos
-                        <span>↘</span>
+                        <span>↗</span>
                     </a>
 
 
@@ -179,270 +194,402 @@
         </section>
 
 
+        <!-- =================================================
+             APRESENTAÇÃO
+        ================================================== -->
 
-        <!-- =========================
-             INTRO
-        ========================== -->
+        <section class="section">
 
-        <section class="intro">
+            <span class="section-label">
+                01 — APRESENTAÇÃO
+            </span>
 
-            <div class="section-label">
-                01 — SOBRE O TRABALHO
+
+            <div class="two-columns">
+
+                <div>
+
+                    <h2>
+                        Design não é apenas aparência.
+                    </h2>
+
+                </div>
+
+
+                <div class="text">
+
+                    <p>
+                        Meu trabalho parte do entendimento do negócio,
+                        do público e do contexto para transformar
+                        estratégias em soluções visuais.
+                    </p>
+
+                    <p>
+                        Atuo entre design, branding e direção de arte,
+                        criando sistemas que ajudam marcas a se
+                        posicionarem de forma mais clara e consistente.
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="intro-text">
+        </section>
+
+
+        <!-- =================================================
+             SERVIÇOS
+        ================================================== -->
+
+        <section
+            class="section services"
+            id="servicos"
+        >
+
+            <span class="section-label">
+                02 — SERVIÇOS
+            </span>
+
+
+            <h2>
+                O que eu faço.
+            </h2>
+
+
+            <div class="service-list">
+
+
+                <div class="service">
+
+                    <span>
+                        01
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Identidade & Branding
+                        </h3>
+
+                        <p>
+                            Identidade visual, posicionamento,
+                            sistemas de marca e materiais de
+                            aplicação.
+                        </p>
+
+                    </div>
+
+                    <strong>
+                        ↗
+                    </strong>
+
+                </div>
+
+
+                <div class="service">
+
+                    <span>
+                        02
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Direção de Arte
+                        </h3>
+
+                        <p>
+                            Conceito visual, campanhas, linguagem
+                            gráfica e direção criativa.
+                        </p>
+
+                    </div>
+
+                    <strong>
+                        ↗
+                    </strong>
+
+                </div>
+
+
+                <div class="service">
+
+                    <span>
+                        03
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Design Recorrente
+                        </h3>
+
+                        <p>
+                            Suporte visual contínuo para marcas
+                            que precisam de consistência no dia a dia.
+                        </p>
+
+                    </div>
+
+                    <strong>
+                        ↗
+                    </strong>
+
+                </div>
+
+
+                <div class="service">
+
+                    <span>
+                        04
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Institucional & Comercial
+                        </h3>
+
+                        <p>
+                            Apresentações, materiais institucionais,
+                            catálogos e peças para comunicação.
+                        </p>
+
+                    </div>
+
+                    <strong>
+                        ↗
+                    </strong>
+
+                </div>
+
+
+                <div class="service">
+
+                    <span>
+                        05
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Eventos & Projetos Especiais
+                        </h3>
+
+                        <p>
+                            Identidade visual, materiais e
+                            desdobramentos para eventos e projetos.
+                        </p>
+
+                    </div>
+
+                    <strong>
+                        ↗
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PROJETOS
+        ================================================== -->
+
+        <section
+            class="section"
+            id="projetos"
+        >
+
+            <span class="section-label">
+                03 — PROJETOS
+            </span>
+
+
+            <div class="projects-title">
 
                 <h2>
-                    Mais do que criar peças,
-                    <em>construo sistemas.</em>
+                    Projetos em destaque.
                 </h2>
 
                 <p>
-                    Meu trabalho parte da combinação entre design,
-                    estratégia e direção de arte. A intenção é criar
-                    soluções visuais que tenham sentido para a marca
-                    e funcionem de verdade na comunicação.
+                    Uma seleção de trabalhos desenvolvidos
+                    entre estratégia, design e comunicação.
                 </p>
 
             </div>
 
-        </section>
+
+            <div class="project-grid">
 
 
-
-        <!-- =========================
-             SERVIÇOS
-        ========================== -->
-
-        <section class="services" id="servicos">
-
-            <div class="section-label">
-                02 — SERVIÇOS
-            </div>
-
-
-            <div class="services-list">
-
-                <a href="#" class="service-item">
-
-                    <span class="service-number">01</span>
-
-                    <h3>
-                        Identidade & Branding
-                    </h3>
-
-                    <span class="service-arrow">↗</span>
-
-                </a>
-
-
-                <a href="#" class="service-item">
-
-                    <span class="service-number">02</span>
-
-                    <h3>
-                        Direção de Arte
-                    </h3>
-
-                    <span class="service-arrow">↗</span>
-
-                </a>
-
-
-                <a href="#" class="service-item">
-
-                    <span class="service-number">03</span>
-
-                    <h3>
-                        Design Recorrente
-                    </h3>
-
-                    <span class="service-arrow">↗</span>
-
-                </a>
-
-
-                <a href="#" class="service-item">
-
-                    <span class="service-number">04</span>
-
-                    <h3>
-                        Institucional & Comercial
-                    </h3>
-
-                    <span class="service-arrow">↗</span>
-
-                </a>
-
-
-                <a href="#" class="service-item">
-
-                    <span class="service-number">05</span>
-
-                    <h3>
-                        Eventos & Projetos Especiais
-                    </h3>
-
-                    <span class="service-arrow">↗</span>
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             PROJETOS
-        ========================== -->
-
-        <section class="projects" id="projetos">
-
-            <div class="section-heading">
-
-                <div class="section-label">
-                    03 — PROJETOS
-                </div>
-
-                <h2>
-                    Trabalho que
-                    <em>fala por si.</em>
-                </h2>
-
-            </div>
-
-
-            <div class="projects-grid">
-
-                <a href="#" class="project-card project-large">
+                <article class="project project-big">
 
                     <div class="project-image">
-                        <span>Imagem do projeto</span>
+                        PROJETO
                     </div>
 
                     <div class="project-info">
 
-                        <span>
-                            Branding
-                        </span>
+                        <div>
 
-                        <h3>
-                            Projeto em destaque
-                        </h3>
+                            <small>
+                                BRANDING
+                            </small>
+
+                            <h3>
+                                Projeto em destaque
+                            </h3>
+
+                        </div>
+
+                        <strong>
+                            ↗
+                        </strong>
 
                     </div>
 
-                </a>
+                </article>
 
 
-                <a href="#" class="project-card">
+                <article class="project">
 
                     <div class="project-image">
-                        <span>Imagem do projeto</span>
+                        PROJETO
                     </div>
 
                     <div class="project-info">
 
-                        <span>
-                            Direção de Arte
-                        </span>
+                        <div>
 
-                        <h3>
-                            Projeto em destaque
-                        </h3>
+                            <small>
+                                DIREÇÃO DE ARTE
+                            </small>
+
+                            <h3>
+                                Projeto
+                            </h3>
+
+                        </div>
+
+                        <strong>
+                            ↗
+                        </strong>
 
                     </div>
 
-                </a>
+                </article>
 
 
-                <a href="#" class="project-card">
+                <article class="project">
 
                     <div class="project-image">
-                        <span>Imagem do projeto</span>
+                        PROJETO
                     </div>
 
                     <div class="project-info">
 
-                        <span>
-                            Design
-                        </span>
+                        <div>
 
-                        <h3>
-                            Projeto em destaque
-                        </h3>
+                            <small>
+                                DESIGN
+                            </small>
 
-                    </div>
+                            <h3>
+                                Projeto
+                            </h3>
 
-                </a>
+                        </div>
 
-
-                <a href="#" class="project-card project-large">
-
-                    <div class="project-image">
-                        <span>Imagem do projeto</span>
-                    </div>
-
-                    <div class="project-info">
-
-                        <span>
-                            Institucional
-                        </span>
-
-                        <h3>
-                            Projeto em destaque
-                        </h3>
+                        <strong>
+                            ↗
+                        </strong>
 
                     </div>
 
-                </a>
+                </article>
 
             </div>
 
         </section>
 
 
-
-        <!-- =========================
+        <!-- =================================================
              COMO POSSO AJUDAR
-        ========================== -->
+        ================================================== -->
 
         <section class="problems">
 
-            <div class="section-label">
-                04 — COMO POSSO AJUDAR
-            </div>
+            <div class="section-inner">
 
+                <span class="section-label">
+                    04 — COMO POSSO AJUDAR
+                </span>
 
-            <div class="problems-content">
 
                 <h2>
-                    Sua marca precisa
-                    <em>de direção?</em>
+                    Sua marca precisa de mais clareza?
                 </h2>
 
 
                 <div class="problem-list">
 
-                    <div class="problem-item">
-                        <span>01</span>
-                        <p>Sua comunicação visual não é consistente.</p>
+
+                    <div class="problem">
+
+                        <span>
+                            01
+                        </span>
+
+                        <p>
+                            Sua identidade visual não acompanha
+                            o posicionamento da marca?
+                        </p>
+
                     </div>
 
-                    <div class="problem-item">
-                        <span>02</span>
-                        <p>Sua marca cresceu, mas a identidade não acompanhou.</p>
+
+                    <div class="problem">
+
+                        <span>
+                            02
+                        </span>
+
+                        <p>
+                            Sua comunicação visual parece
+                            inconsistente entre os canais?
+                        </p>
+
                     </div>
 
-                    <div class="problem-item">
-                        <span>03</span>
-                        <p>Você precisa transformar uma ideia em um projeto visual.</p>
+
+                    <div class="problem">
+
+                        <span>
+                            03
+                        </span>
+
+                        <p>
+                            Sua equipe precisa de mais organização
+                            para produzir materiais?
+                        </p>
+
                     </div>
 
-                    <div class="problem-item">
-                        <span>04</span>
-                        <p>Existe muita demanda visual e pouca direção.</p>
+
+                    <div class="problem">
+
+                        <span>
+                            04
+                        </span>
+
+                        <p>
+                            Você precisa transformar uma estratégia
+                            em uma comunicação visual concreta?
+                        </p>
+
                     </div>
 
                 </div>
@@ -452,48 +599,130 @@
         </section>
 
 
-
-        <!-- =========================
+        <!-- =================================================
              PROCESSO
-        ========================== -->
+        ================================================== -->
 
-        <section class="process">
+        <section class="section process">
 
-            <div class="section-label">
+            <span class="section-label">
                 05 — PROCESSO
-            </div>
+            </span>
 
 
-            <div class="process-list">
+            <h2>
+                Do problema à solução.
+            </h2>
+
+
+            <div class="process-grid">
+
 
                 <div class="process-item">
-                    <span>01</span>
-                    <h3>Entendimento</h3>
+
+                    <span>
+                        01
+                    </span>
+
+                    <h3>
+                        Entendimento
+                    </h3>
+
+                    <p>
+                        Entender o contexto, objetivo
+                        e necessidade do projeto.
+                    </p>
+
                 </div>
 
-                <div class="process-item">
-                    <span>02</span>
-                    <h3>Estratégia</h3>
-                </div>
 
                 <div class="process-item">
-                    <span>03</span>
-                    <h3>Conceito</h3>
+
+                    <span>
+                        02
+                    </span>
+
+                    <h3>
+                        Estratégia
+                    </h3>
+
+                    <p>
+                        Organizar informações e definir
+                        direcionamentos.
+                    </p>
+
                 </div>
 
-                <div class="process-item">
-                    <span>04</span>
-                    <h3>Desenvolvimento</h3>
-                </div>
 
                 <div class="process-item">
-                    <span>05</span>
-                    <h3>Refinamento</h3>
+
+                    <span>
+                        03
+                    </span>
+
+                    <h3>
+                        Conceito
+                    </h3>
+
+                    <p>
+                        Transformar estratégia em
+                        conceito visual.
+                    </p>
+
                 </div>
 
+
                 <div class="process-item">
-                    <span>06</span>
-                    <h3>Entrega</h3>
+
+                    <span>
+                        04
+                    </span>
+
+                    <h3>
+                        Desenvolvimento
+                    </h3>
+
+                    <p>
+                        Construir a solução e seus
+                        principais elementos.
+                    </p>
+
+                </div>
+
+
+                <div class="process-item">
+
+                    <span>
+                        05
+                    </span>
+
+                    <h3>
+                        Refinamento
+                    </h3>
+
+                    <p>
+                        Ajustar detalhes e garantir
+                        consistência.
+                    </p>
+
+                </div>
+
+
+                <div class="process-item">
+
+                    <span>
+                        06
+                    </span>
+
+                    <h3>
+                        Entrega
+                    </h3>
+
+                    <p>
+                        Organizar e entregar os arquivos
+                        necessários para aplicação.
+                    </p>
+
                 </div>
 
             </div>
@@ -501,42 +730,69 @@
         </section>
 
 
-
-        <!-- =========================
+        <!-- =================================================
              SOBRE
-        ========================== -->
+        ================================================== -->
 
-        <section class="about" id="sobre">
+        <section
+            class="section"
+            id="sobre"
+        >
 
-            <div class="section-label">
+            <span class="section-label">
                 06 — SOBRE
-            </div>
+            </span>
 
 
             <div class="about-grid">
 
-                <div class="about-image">
-                    <span>Foto</span>
+
+                <div class="about-photo">
+                    FOTO
                 </div>
 
 
-                <div class="about-text">
+                <div class="about-content">
 
                     <h2>
-                        Heitor Matos
+                        Heitor Matos.
                     </h2>
 
-                    <p>
-                        Designer e publicitário, atuo na construção de
-                        identidades, projetos visuais e soluções de
-                        comunicação.
+
+                    <p class="about-highlight">
+                        Designer e profissional de comunicação
+                        com atuação em design, branding,
+                        direção de arte e projetos institucionais.
                     </p>
 
+
                     <p>
-                        Minha experiência passa por branding, direção
-                        de arte, design gráfico, comunicação institucional
-                        e projetos especiais.
+                        Minha experiência transita entre criação,
+                        estratégia e execução. Gosto de entender
+                        como as coisas funcionam e transformar
+                        ideias em soluções visuais organizadas.
                     </p>
+
+
+                    <div class="tags">
+
+                        <span>
+                            Branding
+                        </span>
+
+                        <span>
+                            Direção de Arte
+                        </span>
+
+                        <span>
+                            Design
+                        </span>
+
+                        <span>
+                            Comunicação
+                        </span>
+
+                    </div>
 
                 </div>
 
@@ -545,21 +801,29 @@
         </section>
 
 
+        <!-- =================================================
+             CTA
+        ================================================== -->
 
-        <!-- =========================
-             CONTATO
-        ========================== -->
+        <section
+            class="cta"
+            id="contato"
+        >
 
-        <section class="contact" id="contato">
+            <span>
+                07 — VAMOS CONVERSAR
+            </span>
 
-            <p class="eyebrow">
-                VAMOS CONVERSAR?
-            </p>
 
             <h2>
-                Vamos dar forma ao seu
-                <em>próximo projeto?</em>
+                Vamos dar forma ao seu próximo projeto?
             </h2>
+
+
+            <p>
+                Conte um pouco sobre o que você precisa
+                e vamos entender juntos o melhor caminho.
+            </p>
 
 
             <a
@@ -576,7 +840,9 @@
 
                 Falar pelo WhatsApp
 
-                <span>↗</span>
+                <span>
+                    ↗
+                </span>
 
             </a>
 
@@ -585,23 +851,37 @@
     </main>
 
 
-
-    <!-- =========================
+    <!-- =====================================================
          FOOTER
-    ========================== -->
+    ====================================================== -->
 
     <footer class="footer">
 
-        <div class="footer-logo">
-            HEITOR.
+        <div class="footer-top">
+
+            <div>
+
+                <a
+                    href="#"
+                    class="logo"
+                >
+                    HEITOR<span>.</span>
+                </a>
+
+                <p>
+                    Design, branding e direção de arte.
+                </p>
+
+            </div>
+
         </div>
 
 
-        <div class="footer-content">
+        <div class="footer-bottom">
 
-            <p>
-                Design · Branding · Direção de Arte
-            </p>
+            <span>
+                © 2026 Heitor Matos
+            </span>
 
 
             <div class="footer-icons">
@@ -612,10 +892,12 @@
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
                 >
+
                     <img
                         src="imagens/linkedin.svg"
                         alt="LinkedIn"
                     >
+
                 </a>
 
 
@@ -625,10 +907,12 @@
                     rel="noopener noreferrer"
                     aria-label="Behance"
                 >
+
                     <img
                         src="imagens/behance.svg"
                         alt="Behance"
                     >
+
                 </a>
 
 
@@ -638,81 +922,113 @@
                     rel="noopener noreferrer"
                     aria-label="WhatsApp"
                 >
+
                     <img
                         src="imagens/whatsapp.svg"
                         alt="WhatsApp"
                     >
+
                 </a>
 
             </div>
 
         </div>
 
-
-        <div class="footer-bottom">
-
-            © 2026 Heitor Matos
-
-        </div>
-
     </footer>
 
 
-
-    <!-- =========================
-         JAVASCRIPT MENU
-    ========================== -->
+    <!-- =====================================================
+         MENU SCRIPT
+    ====================================================== -->
 
     <script>
 
-        const menuToggle = document.querySelector(".menu-toggle");
-        const menuClose = document.querySelector(".menu-close");
-        const mobileMenu = document.querySelector(".mobile-menu");
-        const menuOverlay = document.querySelector(".menu-overlay");
-        const mobileLinks = document.querySelectorAll(".mobile-menu a");
+        const menuToggle =
+            document.querySelector(".menu-toggle");
+
+        const mobileMenu =
+            document.querySelector(".mobile-menu");
+
+        const menuOverlay =
+            document.querySelector(".menu-overlay");
 
 
-        function openMenu() {
+        function abrirMenu() {
 
             document.body.classList.add("menu-open");
 
-            menuToggle.setAttribute("aria-expanded", "true");
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "true"
+            );
 
         }
 
 
-        function closeMenu() {
+        function fecharMenu() {
 
             document.body.classList.remove("menu-open");
 
-            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
         }
 
 
-        menuToggle.addEventListener("click", openMenu);
+        menuToggle.addEventListener(
+            "click",
+            () => {
 
-        menuClose.addEventListener("click", closeMenu);
+                if (
+                    document.body.classList.contains(
+                        "menu-open"
+                    )
+                ) {
 
-        menuOverlay.addEventListener("click", closeMenu);
+                    fecharMenu();
 
+                } else {
 
-        mobileLinks.forEach(link => {
+                    abrirMenu();
 
-            link.addEventListener("click", closeMenu);
-
-        });
-
-
-        document.addEventListener("keydown", event => {
-
-            if (event.key === "Escape") {
-
-                closeMenu();
+                }
 
             }
+        );
 
-        });
+
+        menuOverlay.addEventListener(
+            "click",
+            fecharMenu
+        );
+
+
+        mobileMenu
+            .querySelectorAll("a")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    fecharMenu
+                );
+
+            });
+
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (event.key === "Escape") {
+
+                    fecharMenu();
+
+                }
+
+            }
+        );
 
     </script>
 
