@@ -1506,7 +1506,18 @@ em {
 
     }
 
+.mobile-break {
+    display: none;
+}
 
+@media (max-width: 768px) {
+
+    .mobile-break {
+        display: inline;
+    }
+
+}
+   
     .hero-bottom p {
 
         margin-bottom: 30px;
