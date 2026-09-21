@@ -1,115 +1,77 @@
 /* =========================================================
-   MENU MOBILE
+   ANIMAÇÕES DO SITE
 ========================================================= */
 
-const menuToggle = document.querySelector(".menu-toggle");
-const mobileMenu = document.querySelector(".mobile-menu");
-const menuOverlay = document.querySelector(".menu-overlay");
 
+/* ---------------------------------------------------------
+   REVELAR ELEMENTOS AO ROLAR A PÁGINA
+--------------------------------------------------------- */
 
-function abrirMenu() {
+const elementos = document.querySelectorAll(
+    '.section, .service, .project, .process-item, .about-content, .problem'
+);
 
-    document.body.classList.add("menu-open");
+const observer = new IntersectionObserver(
+    (entries) => {
 
-    menuToggle.setAttribute(
-        "aria-expanded",
-        "true"
-    );
+        entries.forEach((entry) => {
 
-}
+            if (entry.isIntersecting) {
 
+                entry.target.classList.add('reveal');
 
-function fecharMenu() {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, 50);
 
-    document.body.classList.remove("menu-open");
+                observer.unobserve(entry.target);
 
-    menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-    );
+            }
 
-}
+        });
 
-
-/* =========================================================
-   ABRIR / FECHAR MENU
-========================================================= */
-
-menuToggle.addEventListener("click", () => {
-
-    const menuAberto =
-        document.body.classList.contains("menu-open");
-
-    if (menuAberto) {
-
-        fecharMenu();
-
-    } else {
-
-        abrirMenu();
-
+    },
+    {
+        threshold: 0.1
     }
+);
+
+
+elementos.forEach((elemento) => {
+    observer.observe(elemento);
+});
+
+
+/* ---------------------------------------------------------
+   FECHAR LINKS DE PROJETO SEM URL
+--------------------------------------------------------- */
+
+const projetos = document.querySelectorAll('.project');
+
+projetos.forEach((projeto) => {
+
+    projeto.addEventListener('click', function(event) {
+
+        const link = projeto.getAttribute('href');
+
+        if (link === '#') {
+            event.preventDefault();
+        }
+
+    });
 
 });
 
 
-/* =========================================================
-   FECHAR AO CLICAR NO FUNDO
-========================================================= */
+/* ---------------------------------------------------------
+   ANO AUTOMÁTICO DO RODAPÉ
+--------------------------------------------------------- */
 
-menuOverlay.addEventListener(
-    "click",
-    fecharMenu
-);
+const ano = document.querySelector('.footer-bottom span');
 
+if (ano) {
 
-/* =========================================================
-   FECHAR AO CLICAR EM UM LINK
-========================================================= */
+    ano.textContent =
+        `© ${new Date().getFullYear()} Heitor Matos`;
 
-mobileMenu
-    .querySelectorAll("a")
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            fecharMenu
-        );
-
-    });
-
-
-/* =========================================================
-   FECHAR COM ESC
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (event.key === "Escape") {
-
-            fecharMenu();
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   EVITA O MENU FICAR ABERTO AO VOLTAR PARA DESKTOP
-========================================================= */
-
-window.addEventListener(
-    "resize",
-    () => {
-
-        if (window.innerWidth > 800) {
-
-            fecharMenu();
-
-        }
-
-    }
-);
+}

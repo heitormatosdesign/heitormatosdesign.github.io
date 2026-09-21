@@ -76,8 +76,6 @@ body {
     font-family: var(--fonte-principal);
 
     line-height: 1.5;
-   
-   font-synthesis: none;
 
 }
 
@@ -110,6 +108,7 @@ em {
 
 
 /* =========================================================
+ /* =========================================================
    HEADER
 ========================================================= */
 
@@ -168,6 +167,8 @@ em {
 
 .desktop-nav a {
 
+    font-family: var(--fonte-principal);
+
     font-size: 13px;
 
     transition: opacity .3s;
@@ -184,6 +185,8 @@ em {
 
 .header-contact {
 
+    font-family: var(--fonte-principal);
+
     font-size: 12px;
 
     font-weight: 600;
@@ -196,180 +199,117 @@ em {
 
 
 /* =========================================================
-   MENU MOBILE
+   TÍTULO DO HERO
 ========================================================= */
 
-/* =========================
-   MENU LATERAL
-========================== */
+.hero-title {
 
-.mobile-menu {
+    font-size: clamp(64px, 8vw, 130px);
 
-    display: flex;
+    font-weight: 400;
 
-    position: fixed;
-
-    top: 0;
-
-    right: 0;
-
-    width: 85%;
-
-    max-width: 400px;
-
-    height: 100vh;
-
-    padding: 120px 30px 40px;
-
-    background: var(--fundo);
-
-    flex-direction: column;
-
-    z-index: 10001;
-
-    transform: translateX(100%);
-
-    transition:
-        transform .45s cubic-bezier(
-            .77,
-            0,
-            .18,
-            1
-        );
+    line-height: 0.95;
 
 }
 
 
-/* =========================
-   MENU ABERTO
-========================== */
+/* DESIGN QUE DÁ FORMA À */
 
-body.menu-open .mobile-menu {
+.hero-title-line:first-child {
 
-    transform: translateX(0);
+    display: block;
 
-}
+    font-family: var(--fonte-principal);
 
+    font-weight: 400;
 
-/* =========================
-   LINKS DO MENU
-========================== */
-
-.mobile-menu a {
-
-    font-family: "Albert Sans", sans-serif !important;
-
-    font-size: 30px;
-
-    font-weight: 500;
-
-    line-height: 1;
-
-    color: var(--texto);
-
-    text-decoration: none;
-
-    transition: opacity .3s;
+    white-space: nowrap;
 
 }
 
 
-.mobile-menu a:hover {
+/* ESTRATÉGIA */
 
-    opacity: .5;
+.hero-title-highlight {
+
+    position: relative;
+
+    display: inline-block;
+
+    width: fit-content;
+
+    margin-top: 30px;
+
+    z-index: 1;
 
 }
 
 
-.mobile-menu a + a {
+.hero-title-highlight::before {
 
-    margin-top: 25px;
+    content: "";
 
-}
-
-
-/* =========================
-   FUNDO ESCURO
-========================== */
-
-.menu-overlay {
-
-    display: none;
-
-    position: fixed;
+    position: absolute;
 
     inset: 0;
 
-    background: rgba(0, 0, 0, .4);
+    background: #002839;
 
-    opacity: 0;
+    transform: skewX(-12deg);
 
-    visibility: hidden;
-
-    z-index: 10000;
-
-    transition:
-        opacity .45s ease,
-        visibility .45s ease;
+    z-index: -1;
 
 }
 
 
-body.menu-open .menu-overlay {
+.hero-title-highlight em {
 
-    opacity: 1;
+    display: block;
 
-    visibility: visible;
+    padding: 4px 20px 8px;
+
+    color: #FFFFFF;
+
+    font-family: var(--fonte-titulo);
+
+    font-style: italic;
+
+    font-weight: 400;
+
+    white-space: nowrap;
 
 }
 
-
-/* =========================
-   BOTÃO MENU SANDUÍCHE
-========================== */
+/* =========================================================
+   MENU MOBILE
+========================================================= */
 
 .menu-toggle {
 
     display: none;
 
-    font-family: var(--fonte-principal);
+}
+
+
+.mobile-menu {
+
+    display: none;
 
 }
 
 
-@media (max-width: 768px) {
+.menu-overlay {
 
-    /* =========================
-       HEADER MOBILE
-    ========================== */
+    display: none;
 
-    .header {
-
-        position: relative;
-
-        width: calc(100% - 30px);
-
-        height: 70px;
-
-    }
+}
 
 
-    .desktop-nav {
-
-        display: none;
-
-    }
-
-
-    .header-contact {
-
-        display: none;
-
-    }
+@media (max-width: 800px) {
 
 
     /* =========================
-       BOTÃO MENU
+       BOTÃO SANDUÍCHE
     ========================== */
 
     .menu-toggle {
@@ -378,19 +318,17 @@ body.menu-open .menu-overlay {
 
         position: absolute;
 
-        right: 0;
-
         top: 50%;
+
+        right: 0;
 
         transform: translateY(-50%);
 
-        width: 42px;
+        width: 40px;
 
-        height: 42px;
+        height: 40px;
 
         padding: 0;
-
-        margin: 0;
 
         border: none;
 
@@ -429,12 +367,122 @@ body.menu-open .menu-overlay {
 
 
     /* =========================
+       MENU LATERAL
+    ========================== */
+
+    .mobile-menu {
+
+        display: flex;
+
+        position: fixed;
+
+        top: 0;
+
+        right: 0;
+
+        width: 85%;
+
+        max-width: 400px;
+
+        height: 100vh;
+
+        padding: 120px 30px 40px;
+
+        background: var(--fundo);
+
+        flex-direction: column;
+
+        z-index: 10001;
+
+        transform: translateX(100%);
+
+        transition:
+            transform .45s cubic-bezier(
+                .77,
+                0,
+                .18,
+                1
+            );
+
+    }
+
+
+    body.menu-open .mobile-menu {
+
+        transform: translateX(0);
+
+    }
+
+
+    /* =========================
+       LINKS DO MENU
+    ========================== */
+
+    .mobile-menu a {
+
+        font-family: var(--fonte-titulo);
+
+        font-size: 42px;
+
+        font-weight: 500;
+
+        line-height: 1;
+
+        color: var(--texto);
+
+        text-decoration: none;
+
+        transition: opacity .3s;
+
+    }
+
+
+    .mobile-menu a:hover {
+
+        opacity: .5;
+
+    }
+
+
+    .mobile-menu a + a {
+
+        margin-top: 25px;
+
+    }
+
+
+    /* =========================
        FUNDO ESCURO
     ========================== */
 
     .menu-overlay {
 
         display: block;
+
+        position: fixed;
+
+        inset: 0;
+
+        background: rgba(0, 0, 0, .4);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        z-index: 10000;
+
+        transition:
+            opacity .45s ease,
+            visibility .45s ease;
+
+    }
+
+
+    body.menu-open .menu-overlay {
+
+        opacity: 1;
+
+        visibility: visible;
 
     }
 
@@ -467,7 +515,36 @@ body.menu-open .menu-overlay {
 
     }
 
+
+    /* =========================
+       HEADER MOBILE
+    ========================== */
+
+    .header {
+
+        width: calc(100% - 30px);
+
+        height: 70px;
+
+    }
+
+
+    .desktop-nav {
+
+        display: none;
+
+    }
+
+
+    .header-contact {
+
+        display: none;
+
+    }
+
 }
+
+
 /* =========================================================
    HERO
 ========================================================= */
@@ -508,20 +585,43 @@ body.menu-open .menu-overlay {
 }
 
 
-.hero h1 {
+.hero-title {
+    font-family: var(--fonte-titulo);
+    font-size: 130px;
+    font-weight: 400;
+    line-height: 0.95;
+}
 
-    max-width: 1100px;
+.hero-title-line {
+    display: block;
+    white-space: nowrap;
+    font-weight: 400;
+}
 
-    font-size: clamp(
-        65px,
-        10vw,
-        150px
-    );
+.hero-title-highlight {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+    z-index: 1;
+}
 
-    line-height: .86;
+.hero-title-highlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #002839;
+    transform: skewX(-12deg);
+    z-index: -1;
+}
 
-    letter-spacing: -.07em;
-
+.hero-title-highlight em {
+    display: block;
+    padding: 4px 20px 8px;
+    color: #FFFFFF;
+    font-family: var(--fonte-titulo);
+    font-style: italic;
+    font-weight: 400;
+    white-space: nowrap;
 }
 
 
@@ -1572,5 +1672,6 @@ body.menu-open .menu-overlay {
         font-size: 52px;
 
     }
+
 
 }
