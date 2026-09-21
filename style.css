@@ -1481,7 +1481,6 @@ em {
 
 @media (max-width: 800px) {
 
-
     .hero {
 
         width: calc(100% - 30px);
@@ -1500,24 +1499,27 @@ em {
     }
 
 
+    .hero-title-line:first-child {
+
+        white-space: normal;
+
+    }
+
+
+    .mobile-break {
+
+        display: block;
+
+    }
+
+
     .hero-bottom {
 
         display: block;
 
     }
 
-.mobile-break {
-    display: none;
-}
 
-@media (max-width: 768px) {
-
-    .mobile-break {
-        display: inline;
-    }
-
-}
-   
     .hero-bottom p {
 
         margin-bottom: 30px;
@@ -1682,6 +1684,5 @@ em {
         font-size: 52px;
 
     }
-
 
 }
