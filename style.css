@@ -245,19 +245,15 @@ em {
 
 
 .hero-title-highlight::before {
-
     content: "";
-
     position: absolute;
-
-    inset: 0;
-
+    top: -10px;
+    bottom: -10px;
+    left: 0;
+    right: 0;
     background: #002839;
-
     transform: skewX(-12deg);
-
     z-index: -1;
-
 }
 
 
