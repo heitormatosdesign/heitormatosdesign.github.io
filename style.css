@@ -198,88 +198,6 @@ em {
 
 
 /* =========================================================
-   TÍTULO DO HERO
-========================================================= */
-
-.hero-title {
-
-    font-size: clamp(64px, 8vw, 130px);
-
-    font-weight: 400;
-
-    line-height: 0.95;
-
-    max-width: 70%;
-
-}
-
-
-/* DESIGN QUE DÁ FORMA À */
-
-.hero-title-line:first-child {
-
-    display: block;
-
-    font-family: var(--fonte-principal);
-
-    font-weight: 400;
-
-    white-space: normal;
-
-}
-
-
-/* ESTRATÉGIA */
-
-.hero-title-highlight {
-
-    position: relative;
-
-    display: inline-block;
-
-    width: fit-content;
-
-    margin-top: 20px;
-
-    z-index: 1;
-
-}
-
-
-.hero-title-highlight::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    right: 0;
-
-    top: -20px;
-
-    height: calc(100% + 20px);
-
-    background: #002839;
-
-    transform: skewX(-12deg);
-
-    z-index: -1;
-
-}
-
-
-.hero-title-highlight em {
-    display: block;
-    padding: 4px 20px 25px;
-    color: #FFFFFF;
-    font-family: var(--fonte-titulo);
-    font-style: italic;
-    font-weight: 400;
-    white-space: nowrap;
-}
-
-/* =========================================================
    MENU MOBILE
 ========================================================= */
 
@@ -585,42 +503,85 @@ em {
 
 
 .hero-title {
-    font-family: var(--fonte-titulo);
-    font-size: 130px;
+
+    font-family: var(--fonte-principal);
+
+    font-size: clamp(64px, 8vw, 130px);
+
     font-weight: 400;
-    line-height: 0.95;
+
+    line-height: .95;
+
+    max-width: 70%;
+
 }
+
 
 .hero-title-line {
+
     display: block;
+
     white-space: nowrap;
+
     font-weight: 400;
+
 }
+
 
 .hero-title-highlight {
+
     position: relative;
+
     display: inline-block;
+
     width: fit-content;
+
+    margin-top: 20px;
+
     z-index: 1;
+
 }
+
 
 .hero-title-highlight::before {
+
     content: "";
+
     position: absolute;
-    inset: 0;
+
+    left: 0;
+
+    right: 0;
+
+    top: -20px;
+
+    bottom: 0;
+
     background: #002839;
+
     transform: skewX(-12deg);
+
     z-index: -1;
+
 }
 
+
 .hero-title-highlight em {
+
     display: block;
-    padding: 4px 20px 8px;
+
+    padding: 4px 20px 25px;
+
     color: #FFFFFF;
+
     font-family: var(--fonte-titulo);
+
     font-style: italic;
+
     font-weight: 400;
+
     white-space: nowrap;
+
 }
 
 
@@ -1492,7 +1453,9 @@ em {
     }
 
 
-    .hero h1 {
+    .hero-title {
+
+        max-width: 100%;
 
         font-size: 58px;
 
@@ -1501,14 +1464,14 @@ em {
 
     .hero-title-line:first-child {
 
-        white-space: normal;
+        white-space: nowrap;
 
     }
 
 
     .mobile-break {
 
-        display: block;
+        display: inline;
 
     }
 
