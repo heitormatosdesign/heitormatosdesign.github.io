@@ -1439,6 +1439,7 @@ em {
 /* =========================================================
    CELULAR
 ========================================================= */
+
 @media (max-width: 800px) {
 
     .hero {
@@ -1461,8 +1462,10 @@ em {
     }
 
     .hero-title-highlight::before {
-        top: 0;
-        height: 100%;
+        top: -2px;
+        height: calc(100% + 8px);
+        left: -2px;
+        right: -8px;
     }
 
     .hero-title-highlight em {
@@ -1538,10 +1541,7 @@ em {
     }
 
     .service {
-        grid-template-columns:
-            40px
-            1fr
-            25px;
+        grid-template-columns: 40px 1fr 25px;
         gap: 15px;
     }
 
@@ -1554,9 +1554,7 @@ em {
     }
 
     .problem {
-        grid-template-columns:
-            30px
-            1fr;
+        grid-template-columns: 30px 1fr;
     }
 
     .process-item {
