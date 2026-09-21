@@ -209,6 +209,8 @@ em {
 
     line-height: 0.95;
 
+    max-width: 70%;
+
 }
 
 
@@ -222,7 +224,7 @@ em {
 
     font-weight: 400;
 
-    white-space: nowrap;
+    white-space: normal;
 
 }
 
@@ -245,35 +247,38 @@ em {
 
 
 .hero-title-highlight::before {
+
     content: "";
+
     position: absolute;
-    top: -10px;
-    bottom: -10px;
+
     left: 0;
+
     right: 0;
+
+    top: -20px;
+
+    height: calc(100% + 20px);
+
     background: #002839;
+
     transform: skewX(-12deg);
+
     z-index: -1;
+
 }
 
 
 .hero-title-highlight em {
-
     display: block;
-
-    padding: 4px 20px 8px;
-
+    padding: 4px 20px 25px;
     color: #FFFFFF;
-
     font-family: var(--fonte-titulo);
-
     font-style: italic;
-
     font-weight: 400;
-
     white-space: nowrap;
-
 }
+
 /* =========================================================
    MENU MOBILE
 ========================================================= */
