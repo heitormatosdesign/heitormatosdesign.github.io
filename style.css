@@ -1470,7 +1470,7 @@ em {
 
     .hero-title-highlight::before {
         top: 5px;
-        height: calc(100% - 5px);
+        height: calc(100% + 20px);
     }
 
     .hero-title-highlight em {
