@@ -1468,6 +1468,16 @@ em {
 
     }
 
+       .hero-title-highlight::before {
+        top: 0;
+        height: 100%;
+    }
+
+    .hero-title-highlight em {
+        padding: 0 15px 4px;
+    }
+
+}
 
     .mobile-break {
 
@@ -1649,3 +1659,5 @@ em {
     }
 
 }
+
+
