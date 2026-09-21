@@ -1468,10 +1468,16 @@ em {
 
     }
 
-       .hero-title-highlight::before {
-        top: 0;
-        height: 100%;
+    .hero-title-highlight::before {
+        top: 5px;
+        height: calc(100% - 5px);
     }
+
+    .hero-title-highlight em {
+        padding: 0 15px 4px;
+    }
+
+}   
 
     .hero-title-highlight em {
         padding: 0 15px 4px;
