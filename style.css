@@ -525,13 +525,13 @@ em {
 .eyebrow,
 .section-label {
 
-    font-size: 10px;
+    font-size: 12px;
 
     font-weight: 600;
 
     letter-spacing: .15em;
 
-    color: var(--texto-suave);
+    color: #00595f;
 
 }
 
@@ -591,7 +591,7 @@ em {
 
     right: 0;
 
-    top: -20px;
+    top: -10px;
 
     bottom: 0;
 
