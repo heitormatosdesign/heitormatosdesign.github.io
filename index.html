@@ -32,9 +32,9 @@
 
     <link
         rel="stylesheet"
-        href="style.css?v=3"
+        href="style.css?v=4"
     >
-    
+
     <link rel="icon" type="image/png" href="imagens/favicon.png">
 
 </head>
@@ -139,62 +139,69 @@
 
     <main>
 
-        <section class="hero">
+        <section class="hero-wrapper">
 
-            <span class="eyebrow">
-                DESIGN · BRANDING · DIREÇÃO DE ARTE
-            </span>
+            <div class="hero-background"></div>
 
-            <h1 class="hero-title">
+            <div class="hero">
 
-                <span class="hero-title-line">
-                    Design que<span class="mobile-break"><br></span> dá forma à
+                <span class="eyebrow">
+                    DESIGN · BRANDING · DIREÇÃO DE ARTE
                 </span>
 
-                <span class="hero-title-line hero-title-highlight">
-                    <em>estratégia.</em>
-                </span>
 
-            </h1>
+                <h1 class="hero-title">
 
+                    <span class="hero-title-line">
+                        Design que<span class="mobile-break"><br></span> dá forma à
+                    </span>
 
-            <div class="hero-bottom">
+                    <span class="hero-title-line hero-title-highlight">
+                        <em>estratégia.</em>
+                    </span>
 
-                <p>
-                    Crio identidades, experiências e sistemas visuais
-                    para marcas que precisam comunicar com clareza,
-                    consistência e personalidade.
-                </p>
+                </h1>
 
 
-                <div class="hero-buttons">
+                <div class="hero-bottom">
 
-                    <a
-                        href="#projetos"
-                        class="button dark"
-                    >
-                        Ver projetos
-                        <span>↗</span>
-                    </a>
+                    <p>
+                        Crio identidades, experiências e sistemas visuais
+                        para marcas que precisam comunicar com clareza,
+                        consistência e personalidade.
+                    </p>
 
 
-                    <a
-                        href="https://wa.me/5516992208081"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button light"
-                    >
+                    <div class="hero-buttons">
 
-                        <img
-                            src="imagens/logo-whatsapp.svg"
-                            alt="WhatsApp"
+                        <a
+                            href="#projetos"
+                            class="button dark"
+                        >
+                            Ver projetos
+                            <span>↗</span>
+                        </a>
+
+
+                        <a
+                            href="https://wa.me/5516992208081"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="button light"
                         >
 
-                        Falar pelo WhatsApp
+                            <img
+                                src="imagens/logo-whatsapp.svg"
+                                alt="WhatsApp"
+                            >
 
-                        <span>↗</span>
+                            Falar pelo WhatsApp
 
-                    </a>
+                            <span>↗</span>
+
+                        </a>
+
+                    </div>
 
                 </div>
 
@@ -946,103 +953,7 @@
     </footer>
 
 
-    <script src="script.js?v=2"></script>
-
-
-    <!-- =====================================================
-         MENU SCRIPT
-    ====================================================== -->
-
-    <script>
-
-        const menuToggle =
-            document.querySelector(".menu-toggle");
-
-        const mobileMenu =
-            document.querySelector(".mobile-menu");
-
-        const menuOverlay =
-            document.querySelector(".menu-overlay");
-
-
-        function abrirMenu() {
-
-            document.body.classList.add("menu-open");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "true"
-            );
-
-        }
-
-
-        function fecharMenu() {
-
-            document.body.classList.remove("menu-open");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        }
-
-
-        menuToggle.addEventListener(
-            "click",
-            () => {
-
-                if (
-                    document.body.classList.contains(
-                        "menu-open"
-                    )
-                ) {
-
-                    fecharMenu();
-
-                } else {
-
-                    abrirMenu();
-
-                }
-
-            }
-        );
-
-
-        menuOverlay.addEventListener(
-            "click",
-            fecharMenu
-        );
-
-
-        mobileMenu
-            .querySelectorAll("a")
-            .forEach(link => {
-
-                link.addEventListener(
-                    "click",
-                    fecharMenu
-                );
-
-            });
-
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-                if (event.key === "Escape") {
-
-                    fecharMenu();
-
-                }
-
-            }
-        );
-
-    </script>
+    <script src="script.js?v=4"></script>
 
 
 </body>
