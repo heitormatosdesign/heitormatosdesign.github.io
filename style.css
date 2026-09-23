@@ -1480,246 +1480,169 @@ em {
 
 @media (max-width: 800px) {
 
-    .hero-background {
-
-        background-size: cover;
-
-        background-position: center top;
-
-    }
-
-
     .hero {
-
+        display: block;
         width: calc(100% - 30px);
-
         min-height: 700px;
-
-        padding: 70px 0 40px;
-
+        padding: 50px 0 40px;
     }
 
+    .hero-background {
+        background-size: cover;
+        background-position: left top;
+    }
+
+    .hero .eyebrow {
+        display: block;
+        margin-bottom: 25px;
+    }
 
     .hero-title {
-
         max-width: 100%;
-
         font-size: 58px;
-
+        margin: 0;
     }
-
 
     .hero-title-line:first-child {
-
         white-space: nowrap;
-
     }
-
 
     .hero-title-highlight {
-
-        margin-top: -2px;
-
+        margin-top: 8px;
     }
-
 
     .hero-title-highlight::before {
-
         top: -2px;
-
         height: calc(100% + 8px);
-
         left: -2px;
-
         right: -8px;
-
     }
-
 
     .hero-title-highlight em {
-
         padding: 0 15px 4px;
-
     }
-
 
     .mobile-break {
-
         display: inline;
-
     }
-
 
     .hero-bottom {
-
         display: block;
-
+        margin-top: 80px;
     }
-
 
     .hero-bottom p {
-
-        margin-bottom: 30px;
-
+        margin: 0 0 30px;
     }
-
 
     .hero-buttons {
-
+        display: flex;
         flex-direction: column;
-
         align-items: flex-start;
-
     }
+
 
 
     .section,
     .section-inner,
     .footer {
-
         width: calc(100% - 30px);
-
         padding-top: 90px;
-
         padding-bottom: 90px;
-
     }
 
 
     .two-columns,
     .about-grid {
-
         grid-template-columns: 1fr;
-
         gap: 50px;
-
     }
 
 
     .section h2 {
-
         font-size: 48px;
-
     }
 
 
     .projects-title {
-
         display: block;
-
     }
 
 
     .projects-title p {
-
         margin-top: 30px;
-
     }
 
 
     .project-grid {
-
         grid-template-columns: 1fr;
-
     }
 
 
     .project-big {
-
         grid-column: span 1;
-
     }
 
 
     .process-grid {
-
         grid-template-columns: 1fr;
-
     }
 
 
     .footer-top,
     .footer-bottom {
-
         display: block;
-
     }
 
 
     .footer-top p {
-
         margin-top: 20px;
-
     }
 
 
     .footer-icons {
-
         margin-top: 25px;
-
     }
 
 
     .service {
-
-        grid-template-columns:
-            40px
-            1fr
-            25px;
-
+        grid-template-columns: 40px 1fr 25px;
         gap: 15px;
-
     }
 
 
     .service h3 {
-
         font-size: 21px;
-
     }
 
 
     .service p {
-
         font-size: 13px;
-
     }
 
 
     .problem {
-
-        grid-template-columns:
-            30px
-            1fr;
-
+        grid-template-columns: 30px 1fr;
     }
 
 
     .process-item {
-
         min-height: 200px;
-
     }
 
 
     .process-item > span {
-
         margin-bottom: 40px;
-
     }
 
 
     .cta {
-
         padding: 100px 20px;
-
     }
 
 
     .cta h2 {
-
         font-size: 52px;
-
     }
 
 }
