@@ -1,8 +1,13 @@
 /* =========================================================
    CONFIGURAÇÕES DO SITE
+   ALTERE AS CORES E FONTES SOMENTE AQUI
 ========================================================= */
 
 :root {
+
+    /* =========================
+       CORES
+    ========================== */
 
     --fundo: #F3F1EC;
 
@@ -18,6 +23,13 @@
 
     --borda: #cdd8d7;
 
+    --laranja: #da5700;
+
+
+    /* =========================
+       FONTES
+    ========================== */
+
     --fonte-principal:
         "Albert Sans",
         sans-serif;
@@ -25,6 +37,11 @@
     --fonte-titulo:
         "Playfair Display",
         serif;
+
+
+    /* =========================
+       TAMANHO
+    ========================== */
 
     --largura: 1400px;
 
@@ -151,6 +168,8 @@ em {
 
 .desktop-nav a {
 
+    font-family: var(--fonte-principal);
+
     font-size: 13px;
 
     transition: opacity .3s;
@@ -166,6 +185,8 @@ em {
 
 
 .header-contact {
+
+    font-family: var(--fonte-principal);
 
     font-size: 12px;
 
@@ -204,6 +225,11 @@ em {
 
 
 @media (max-width: 800px) {
+
+
+    /* =========================
+       BOTÃO SANDUÍCHE
+    ========================== */
 
     .menu-toggle {
 
@@ -259,6 +285,10 @@ em {
     }
 
 
+    /* =========================
+       MENU LATERAL
+    ========================== */
+
     .mobile-menu {
 
         display: flex;
@@ -303,6 +333,10 @@ em {
     }
 
 
+    /* =========================
+       LINKS DO MENU
+    ========================== */
+
     .mobile-menu a {
 
         font-family: var(--fonte-titulo);
@@ -314,6 +348,8 @@ em {
         line-height: 1;
 
         color: var(--texto);
+
+        text-decoration: none;
 
         transition: opacity .3s;
 
@@ -333,6 +369,10 @@ em {
 
     }
 
+
+    /* =========================
+       FUNDO ESCURO
+    ========================== */
 
     .menu-overlay {
 
@@ -366,6 +406,10 @@ em {
     }
 
 
+    /* =========================
+       BOTÃO → X
+    ========================== */
+
     body.menu-open .menu-toggle span:nth-child(1) {
 
         transform:
@@ -390,6 +434,10 @@ em {
 
     }
 
+
+    /* =========================
+       HEADER MOBILE
+    ========================== */
 
     .header {
 
@@ -420,7 +468,41 @@ em {
    HERO
 ========================================================= */
 
+.hero-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+}
+
+
+.hero-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image: url("./imagens/header.png");
+
+    background-size: cover;
+
+    background-position: center top;
+
+    background-repeat: no-repeat;
+
+    z-index: 0;
+
+}
+
+
 .hero {
+
+    position: relative;
+
+    z-index: 1;
 
     width: min(
         var(--largura),
@@ -439,27 +521,19 @@ em {
 
     justify-content: space-between;
 
-    background-image: url("imagens/header.png");
-
-    background-size: cover;
-
-    background-position: center top;
-
-    background-repeat: no-repeat;
-
 }
 
 
 .eyebrow,
 .section-label {
 
-    font-size: 10px;
+    font-size: 12px;
 
     font-weight: 600;
 
     letter-spacing: .15em;
 
-    color: var(--texto-suave);
+    color: #00595f;
 
 }
 
@@ -519,7 +593,7 @@ em {
 
     right: 0;
 
-    top: -20px;
+    top: -10px;
 
     bottom: 0;
 
@@ -622,7 +696,7 @@ em {
 
 .button.dark {
 
-    background: var(--texto);
+    background: var(--laranja);
 
     color: var(--branco);
 
@@ -631,9 +705,11 @@ em {
 
 .button.light {
 
-    background: #FFFFFF;
+    background: #ffffff;
 
     color: #111111;
+
+    border: none;
 
     border-radius: 10px;
 
@@ -651,6 +727,8 @@ em {
 
     height: 30px;
 
+    transition: transform .3s ease;
+
 }
 
 
@@ -658,16 +736,16 @@ em {
 
     background: #42c553;
 
-    color: #FFFFFF;
+    color: #ffffff;
 
     transform: scale(1.05);
 
 }
 
 
-.button.span {
+.button.light:hover img {
 
-    font-size: 18px;
+    transform: scale(1.08);
 
 }
 
@@ -806,24 +884,14 @@ em {
 
     border-bottom: 1px solid var(--borda);
 
-    transition:
-        background-color .3s ease,
-        color .3s ease,
-        padding-left .3s ease,
-        padding-right .3s ease;
+    transition: padding-left .3s;
 
 }
 
 
 .service:hover {
 
-    background: #002839;
-
-    color: #FFFFFF;
-
     padding-left: 20px;
-
-    padding-right: 20px;
 
 }
 
@@ -834,22 +902,13 @@ em {
 
     color: var(--texto-suave);
 
-    transition: color .3s ease;
-
-}
-
-
-.service:hover > span {
-
-    color: rgba(255, 255, 255, .55);
-
 }
 
 
 .service h3 {
 
     font-size: 25px;
-
+    color: var(--laranja);
     margin-bottom: 10px;
 
 }
@@ -865,23 +924,12 @@ em {
 
     line-height: 1.6;
 
-    transition: color .3s ease;
-
-}
-
-
-.service:hover p {
-
-    color: rgba(255, 255, 255, .72);
-
 }
 
 
 .service strong {
 
     font-size: 20px;
-
-    color: inherit;
 
 }
 
@@ -890,33 +938,105 @@ em {
    PROJETOS
 ========================================================= */
 
-.projects-title {
+.projects {
 
-    display: flex;
+    width: 100%;
 
-    align-items: flex-end;
+    padding-top: 120px;
 
-    justify-content: space-between;
-
-    gap: 60px;
-
-    margin-bottom: 80px;
+    padding-bottom: 120px;
 
 }
 
 
-.projects-title p {
+/* =========================================================
+   CABEÇALHO DOS PROJETOS
+========================================================= */
 
-    max-width: 320px;
+.projects-header {
+
+    width: min(
+        var(--largura),
+        calc(100% - 80px)
+    );
+
+    margin: 0 auto 80px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        360px;
+
+    column-gap: 80px;
+
+    align-items: start;
+
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.projects-header h2 {
+
+    margin: 0;
+
+    font-family: var(--fonte-principal);
+
+    font-size: clamp(
+        56px,
+        5.2vw,
+        92px
+    );
+
+    font-weight: 500;
+
+    line-height: .95;
+
+    letter-spacing: -0.055em;
+
+    color: var(--texto);
+
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.projects-header p {
+
+    margin: 35px 0 0;
+
+    max-width: 360px;
+
+    font-family: var(--fonte-principal);
+
+    font-size: 15px;
+
+    font-weight: 400;
+
+    line-height: 1.55;
 
     color: var(--texto-suave);
 
-    font-size: 14px;
-
 }
 
 
+/* =========================================================
+   GRADE
+========================================================= */
+
 .project-grid {
+
+    width: min(
+        var(--largura),
+        calc(100% - 80px)
+    );
+
+    margin: 0 auto;
 
     display: grid;
 
@@ -929,6 +1049,21 @@ em {
 }
 
 
+/* =========================================================
+   PROJETO
+========================================================= */
+
+.project {
+
+    min-width: 0;
+
+}
+
+
+/* =========================================================
+   PRIMEIRO PROJETO — GRANDE
+========================================================= */
+
 .project-big {
 
     grid-column: span 2;
@@ -936,11 +1071,15 @@ em {
 }
 
 
+/* =========================================================
+   IMAGEM / ÁREA VISUAL
+========================================================= */
+
 .project-image {
 
     width: 100%;
 
-    aspect-ratio: 16 / 10;
+    height: 500px;
 
     background: var(--destaque-claro);
 
@@ -950,25 +1089,38 @@ em {
 
     justify-content: center;
 
+    overflow: hidden;
+
+    margin-bottom: 20px;
+
     color: var(--texto-suave);
+
+    font-family: var(--fonte-principal);
 
     font-size: 10px;
 
     letter-spacing: .15em;
 
-    margin-bottom: 20px;
-
-    transition: transform .4s;
+    transition:
+        transform .45s ease;
 
 }
 
+
+/* =========================================================
+   IMAGEM DO PROJETO GRANDE
+========================================================= */
 
 .project-big .project-image {
 
-    aspect-ratio: 2 / 1;
+    height: 700px;
 
 }
 
+
+/* =========================================================
+   HOVER
+========================================================= */
 
 .project:hover .project-image {
 
@@ -977,93 +1129,410 @@ em {
 }
 
 
+/* =========================================================
+   INFORMAÇÕES
+========================================================= */
+
 .project-info {
 
     display: flex;
 
     justify-content: space-between;
 
-}
+    align-items: flex-start;
 
-
-.project-info small {
-
-    display: block;
-
-    font-size: 9px;
-
-    letter-spacing: .13em;
-
-    color: var(--texto-suave);
-
-    margin-bottom: 8px;
-
-}
-
-
-.project-info h3 {
-
-    font-size: 22px;
-
-}
-
-
-.project-info strong {
-
-    font-size: 20px;
+    gap: 30px;
 
 }
 
 
 /* =========================================================
-   COMO POSSO AJUDAR
+   CATEGORIA
 ========================================================= */
 
-.problems {
+.project-info small {
 
-    background: var(--texto);
+    display: block;
 
-    color: var(--branco);
+    margin-bottom: 8px;
 
-    padding: 150px 0;
+    font-family: var(--fonte-principal);
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: .13em;
+
+    color: var(--texto-suave);
 
 }
 
 
-.section-inner {
+/* =========================================================
+   NOME
+========================================================= */
+
+.project-info h3 {
+
+    margin: 0;
+
+    font-family: var(--fonte-principal);
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+    line-height: 1.15;
+
+    color: var(--texto);
+
+}
+
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.project-info strong {
+
+    font-family: var(--fonte-principal);
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: var(--texto-suave);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+
+    .projects {
+
+        padding-top: 90px;
+
+        padding-bottom: 100px;
+
+    }
+
+
+    /* CABEÇALHO */
+
+    .projects-header {
+
+        width: calc(100% - 30px);
+
+        margin: 0 auto 50px;
+
+        display: block;
+
+    }
+
+
+    .projects-header h2 {
+
+        font-size: 52px;
+
+        line-height: .95;
+
+    }
+
+
+    .projects-header p {
+
+        max-width: 100%;
+
+        margin-top: 35px;
+
+        font-size: 15px;
+
+        line-height: 1.55;
+
+    }
+
+
+    /* GRADE */
+
+    .project-grid {
+
+        width: calc(100% - 30px);
+
+        margin: 0 auto;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+    }
+
+
+    /* PROJETOS */
+
+    .project-big {
+
+        grid-column: span 1;
+
+    }
+
+
+    .project-image,
+    .project-big .project-image {
+
+        height: 500px;
+
+    }
+
+
+    /* INFORMAÇÕES */
+
+    .project-info h3 {
+
+        font-size: 20px;
+
+    }
+
+
+    .project-info strong {
+
+        font-size: 17px;
+
+    }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .projects-header {
+
+        width: calc(100% - 30px);
+
+        display: block;
+
+        margin-bottom: 50px;
+
+    }
+
+
+    .projects-header h2 {
+
+        font-size: 52px;
+
+        line-height: .95;
+
+    }
+
+
+    .projects-header p {
+
+        max-width: 100%;
+
+        margin-top: 35px;
+
+    }
+
+
+    .project-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+    }
+
+
+    .project-big {
+
+        grid-column: span 1;
+
+    }
+
+
+    .project-image,
+    .project-big .project-image {
+
+        height: 500px;
+
+        aspect-ratio: auto;
+
+    }
+
+}
+/* =========================================================
+   COMO POSSO AJUDAR
+========================================================= */
+
+.help {
+
+    position: relative;
+
+    width: 100%;
+
+    padding: 120px 0;
+
+    background: #171717;
+
+    color: var(--branco);
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   CANVAS — TODA A SEÇÃO
+========================================================= */
+
+.help-particles {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    opacity: .12;
+
+    transition:
+        opacity .7s ease;
+
+}
+
+
+/* =========================================================
+   PARTÍCULAS MAIS VISÍVEIS COM O MOUSE
+========================================================= */
+
+.help:hover .help-particles {
+
+    opacity: .45;
+
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.help-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.help-header {
 
     width: min(
         var(--largura),
         calc(100% - 80px)
     );
 
-    margin: auto;
+    margin: 0 auto 80px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        360px;
+
+    column-gap: 80px;
+
+    align-items: start;
 
 }
 
 
-.problems .section-label {
+.help-header h2 {
 
-    color: #888;
+    margin: 0;
+
+    max-width: 800px;
+
+    font-family: var(--fonte-principal);
+
+    font-size: clamp(
+        56px,
+        5.2vw,
+        92px
+    );
+
+    font-weight: 500;
+
+    line-height: .95;
+
+    letter-spacing: -0.055em;
+
+    color: var(--branco);
 
 }
 
 
-.problems h2 {
+.help-header p {
 
-    margin-bottom: 80px;
+    margin: 35px 0 0;
+
+    max-width: 360px;
+
+    font-family: var(--fonte-principal);
+
+    font-size: 15px;
+
+    line-height: 1.55;
+
+    color: rgba(255, 255, 255, .55);
 
 }
 
 
-.problem-list {
+/* =========================================================
+   PROBLEMAS
+========================================================= */
 
-    border-top: 1px solid #444;
+.problems {
+
+    width: min(
+        var(--largura),
+        calc(100% - 80px)
+    );
+
+    margin: 0 auto;
 
 }
 
+
+/* =========================================================
+   CADA PROBLEMA
+========================================================= */
 
 .problem {
+
+    position: relative;
 
     display: grid;
 
@@ -1073,51 +1542,75 @@ em {
 
     gap: 20px;
 
-    padding: 25px 0;
+    padding: 28px 0;
 
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid rgba(255, 255, 255, .14);
+
+    color: var(--branco);
 
     transition:
-        background-color .55s ease,
-        color .55s ease,
-        padding-left .35s ease,
-        padding-right .35s ease;
+        padding-left .4s ease,
+        padding-right .4s ease,
+        border-color .4s ease;
 
 }
 
 
-.problem:hover {
+/* =========================================================
+   HOVER
+========================================================= */
 
-    background: #002839;
+.problem:hover {
 
     padding-left: 20px;
 
     padding-right: 20px;
 
+    border-color:
+        rgba(255, 255, 255, .3);
+
 }
 
 
-.problem span {
+/* =========================================================
+   NÚMERO
+========================================================= */
 
-    color: #888;
+.problem span {
 
     font-size: 11px;
 
-    transition: color .55s ease;
+    line-height: 1.5;
+
+    color: rgba(255, 255, 255, .42);
+
+    transition:
+        color .4s ease;
 
 }
 
 
 .problem:hover span {
 
-    color: rgba(255, 255, 255, .6);
+    color:
+        rgba(255, 255, 255, .8);
 
 }
 
 
+/* =========================================================
+   TEXTO
+========================================================= */
+
 .problem p {
 
-    font-size: 15px;
+    margin: 0;
+
+    max-width: 850px;
+
+    font-size: 17px;
+
+    line-height: 1.45;
 
     color: var(--branco);
 
@@ -1125,75 +1618,92 @@ em {
 
 
 /* =========================================================
-   PROCESSO
+   MOBILE
 ========================================================= */
 
-.process h2 {
+@media (max-width: 800px) {
 
-    margin-bottom: 80px;
+    .help {
+
+        padding: 90px 0;
+
+    }
+
+
+    .help-header {
+
+        width: calc(100% - 30px);
+
+        display: block;
+
+        margin-bottom: 50px;
+
+    }
+
+
+    .help-header h2 {
+
+        font-size: 52px;
+
+        line-height: .95;
+
+    }
+
+
+    .help-header p {
+
+        max-width: 100%;
+
+        margin-top: 30px;
+
+    }
+
+
+    .problems {
+
+        width: calc(100% - 30px);
+
+    }
+
+
+    .problem {
+
+        grid-template-columns:
+            30px
+            1fr;
+
+        gap: 15px;
+
+        padding: 25px 0;
+
+    }
+
+
+    .problem p {
+
+        font-size: 15px;
+
+    }
+
+
+    /* Sem partículas no celular */
+
+    .help-particles {
+
+        display: none;
+
+    }
+
+
+    .problem:hover {
+
+        padding-left: 10px;
+
+        padding-right: 10px;
+
+    }
 
 }
-
-
-.process-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    border-top: 1px solid var(--borda);
-
-    border-left: 1px solid var(--borda);
-
-}
-
-
-.process-item {
-
-    min-height: 250px;
-
-    padding: 30px;
-
-    border-right: 1px solid var(--borda);
-
-    border-bottom: 1px solid var(--borda);
-
-}
-
-
-.process-item > span {
-
-    display: block;
-
-    color: var(--texto-suave);
-
-    font-size: 11px;
-
-    margin-bottom: 60px;
-
-}
-
-
-.process-item h3 {
-
-    font-size: 22px;
-
-    margin-bottom: 15px;
-
-}
-
-
-.process-item p {
-
-    max-width: 260px;
-
-    color: var(--texto-suave);
-
-    font-size: 13px;
-
-}
-
 
 /* =========================================================
    SOBRE
@@ -1434,6 +1944,8 @@ em {
 
     justify-content: center;
 
+    border: none;
+
     background: transparent;
 
     transition: transform .3s ease;
@@ -1442,6 +1954,8 @@ em {
 
 
 .footer-icons a:hover {
+
+    background: transparent;
 
     transform: scale(1.2);
 
@@ -1460,305 +1974,174 @@ em {
 
 
 /* =========================================================
-   ANIMAÇÕES
-========================================================= */
-
-.section,
-.service,
-.project,
-.process-item,
-.about-content,
-.problem {
-
-    opacity: 0;
-
-    transform: translateY(30px);
-
-}
-
-
-.reveal {
-
-    opacity: 0;
-
-    transform: translateY(30px);
-
-}
-
-
-.reveal.visible {
-
-    opacity: 1;
-
-    transform: translateY(0);
-
-    transition:
-        opacity .7s ease,
-        transform .7s ease;
-
-}
-
-
-/* =========================================================
    CELULAR
 ========================================================= */
 
 @media (max-width: 800px) {
 
-
     .hero {
-
+        display: block;
         width: calc(100% - 30px);
-
         min-height: 700px;
-
         padding: 50px 0 40px;
-
-        justify-content: flex-start;
-
-        align-items: flex-start;
-
     }
 
+    .hero-background {
+        background-size: cover;
+        background-position: left top;
+    }
+
+    .hero .eyebrow {
+        display: block;
+        margin-bottom: 25px;
+    }
 
     .hero-title {
-
         max-width: 100%;
-
         font-size: 58px;
-
+        margin: 0;
     }
-
 
     .hero-title-line:first-child {
-
         white-space: nowrap;
-
     }
-
 
     .hero-title-highlight {
-
-        margin-top: 0;
-
+        margin-top: 8px;
     }
-
 
     .hero-title-highlight::before {
-
         top: -2px;
-
         height: calc(100% + 8px);
-
         left: -2px;
-
         right: -8px;
-
     }
-
 
     .hero-title-highlight em {
-
         padding: 0 15px 4px;
-
     }
-
 
     .mobile-break {
-
         display: inline;
-
     }
-
 
     .hero-bottom {
-
         display: block;
-
         margin-top: 80px;
-
     }
-
 
     .hero-bottom p {
-
-        margin-bottom: 30px;
-
+        margin: 0 0 30px;
     }
-
 
     .hero-buttons {
-
+        display: flex;
         flex-direction: column;
-
         align-items: flex-start;
-
     }
+
 
 
     .section,
     .section-inner,
     .footer {
-
         width: calc(100% - 30px);
-
         padding-top: 90px;
-
         padding-bottom: 90px;
-
     }
 
 
     .two-columns,
     .about-grid {
-
         grid-template-columns: 1fr;
-
         gap: 50px;
-
     }
 
 
     .section h2 {
-
         font-size: 48px;
-
     }
 
 
     .projects-title {
-
         display: block;
-
     }
 
 
     .projects-title p {
-
         margin-top: 30px;
-
     }
 
 
     .project-grid {
-
         grid-template-columns: 1fr;
-
     }
 
 
     .project-big {
-
         grid-column: span 1;
-
     }
 
 
     .process-grid {
-
         grid-template-columns: 1fr;
-
     }
 
 
     .footer-top,
     .footer-bottom {
-
         display: block;
-
     }
 
 
     .footer-top p {
-
         margin-top: 20px;
-
     }
 
 
     .footer-icons {
-
         margin-top: 25px;
-
     }
 
 
     .service {
-
-        grid-template-columns:
-            40px
-            1fr
-            25px;
-
+        grid-template-columns: 40px 1fr 25px;
         gap: 15px;
-
     }
 
 
     .service h3 {
-
         font-size: 21px;
-
     }
 
 
     .service p {
-
         font-size: 13px;
-
     }
 
 
     .problem {
-
-        grid-template-columns:
-            30px
-            1fr;
-
-    }
-
-
-    .problem:hover {
-
-        padding-left: 10px;
-
-        padding-right: 10px;
-
-    }
-
-
-    .problem p {
-
-        font-size: 14px;
-
+        grid-template-columns: 30px 1fr;
     }
 
 
     .process-item {
-
         min-height: 200px;
-
     }
 
 
     .process-item > span {
-
         margin-bottom: 40px;
-
     }
 
 
     .cta {
-
         padding: 100px 20px;
-
     }
 
 
     .cta h2 {
-
         font-size: 52px;
-
     }
 
 }
