@@ -1,13 +1,8 @@
 /* =========================================================
    CONFIGURAÇÕES DO SITE
-   ALTERE AS CORES E FONTES SOMENTE AQUI
 ========================================================= */
 
 :root {
-
-    /* =========================
-       CORES
-    ========================== */
 
     --fundo: #F3F1EC;
 
@@ -23,13 +18,6 @@
 
     --borda: #cdd8d7;
 
-    --laranja: #da5700;
-
-
-    /* =========================
-       FONTES
-    ========================== */
-
     --fonte-principal:
         "Albert Sans",
         sans-serif;
@@ -37,11 +25,6 @@
     --fonte-titulo:
         "Playfair Display",
         serif;
-
-
-    /* =========================
-       TAMANHO
-    ========================== */
 
     --largura: 1400px;
 
@@ -168,8 +151,6 @@ em {
 
 .desktop-nav a {
 
-    font-family: var(--fonte-principal);
-
     font-size: 13px;
 
     transition: opacity .3s;
@@ -185,8 +166,6 @@ em {
 
 
 .header-contact {
-
-    font-family: var(--fonte-principal);
 
     font-size: 12px;
 
@@ -225,11 +204,6 @@ em {
 
 
 @media (max-width: 800px) {
-
-
-    /* =========================
-       BOTÃO SANDUÍCHE
-    ========================== */
 
     .menu-toggle {
 
@@ -285,10 +259,6 @@ em {
     }
 
 
-    /* =========================
-       MENU LATERAL
-    ========================== */
-
     .mobile-menu {
 
         display: flex;
@@ -333,10 +303,6 @@ em {
     }
 
 
-    /* =========================
-       LINKS DO MENU
-    ========================== */
-
     .mobile-menu a {
 
         font-family: var(--fonte-titulo);
@@ -348,8 +314,6 @@ em {
         line-height: 1;
 
         color: var(--texto);
-
-        text-decoration: none;
 
         transition: opacity .3s;
 
@@ -369,10 +333,6 @@ em {
 
     }
 
-
-    /* =========================
-       FUNDO ESCURO
-    ========================== */
 
     .menu-overlay {
 
@@ -406,10 +366,6 @@ em {
     }
 
 
-    /* =========================
-       BOTÃO → X
-    ========================== */
-
     body.menu-open .menu-toggle span:nth-child(1) {
 
         transform:
@@ -434,10 +390,6 @@ em {
 
     }
 
-
-    /* =========================
-       HEADER MOBILE
-    ========================== */
 
     .header {
 
@@ -468,41 +420,7 @@ em {
    HERO
 ========================================================= */
 
-.hero-wrapper {
-
-    position: relative;
-
-    width: 100%;
-
-    overflow: hidden;
-
-}
-
-
-.hero-background {
-
-    position: absolute;
-
-    inset: 0;
-
-    background-image: url("imagens/header.png");
-
-    background-size: cover;
-
-    background-position: center top;
-
-    background-repeat: no-repeat;
-
-    z-index: 0;
-
-}
-
-
 .hero {
-
-    position: relative;
-
-    z-index: 1;
 
     width: min(
         var(--largura),
@@ -521,19 +439,27 @@ em {
 
     justify-content: space-between;
 
+    background-image: url("imagens/header.png");
+
+    background-size: cover;
+
+    background-position: center top;
+
+    background-repeat: no-repeat;
+
 }
 
 
 .eyebrow,
 .section-label {
 
-    font-size: 12px;
+    font-size: 10px;
 
     font-weight: 600;
 
     letter-spacing: .15em;
 
-    color: #00595f;
+    color: var(--texto-suave);
 
 }
 
@@ -593,7 +519,7 @@ em {
 
     right: 0;
 
-    top: -10px;
+    top: -20px;
 
     bottom: 0;
 
@@ -696,7 +622,7 @@ em {
 
 .button.dark {
 
-    background: var(--laranja);
+    background: var(--texto);
 
     color: var(--branco);
 
@@ -705,11 +631,9 @@ em {
 
 .button.light {
 
-    background: #ffffff;
+    background: #FFFFFF;
 
     color: #111111;
-
-    border: none;
 
     border-radius: 10px;
 
@@ -727,8 +651,6 @@ em {
 
     height: 30px;
 
-    transition: transform .3s ease;
-
 }
 
 
@@ -736,16 +658,16 @@ em {
 
     background: #42c553;
 
-    color: #ffffff;
+    color: #FFFFFF;
 
     transform: scale(1.05);
 
 }
 
 
-.button.light:hover img {
+.button.span {
 
-    transform: scale(1.08);
+    font-size: 18px;
 
 }
 
@@ -884,14 +806,24 @@ em {
 
     border-bottom: 1px solid var(--borda);
 
-    transition: padding-left .3s;
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        padding-left .3s ease,
+        padding-right .3s ease;
 
 }
 
 
 .service:hover {
 
+    background: #002839;
+
+    color: #FFFFFF;
+
     padding-left: 20px;
+
+    padding-right: 20px;
 
 }
 
@@ -901,6 +833,15 @@ em {
     font-size: 11px;
 
     color: var(--texto-suave);
+
+    transition: color .3s ease;
+
+}
+
+
+.service:hover > span {
+
+    color: rgba(255, 255, 255, .55);
 
 }
 
@@ -924,12 +865,23 @@ em {
 
     line-height: 1.6;
 
+    transition: color .3s ease;
+
+}
+
+
+.service:hover p {
+
+    color: rgba(255, 255, 255, .72);
+
 }
 
 
 .service strong {
 
     font-size: 20px;
+
+    color: inherit;
 
 }
 
@@ -1067,36 +1019,63 @@ em {
    COMO POSSO AJUDAR
 ========================================================= */
 
-.services h2 {
+.problems {
+
+    background: var(--texto);
+
+    color: var(--branco);
+
+    padding: 150px 0;
+
+}
+
+
+.section-inner {
+
+    width: min(
+        var(--largura),
+        calc(100% - 80px)
+    );
+
+    margin: auto;
+
+}
+
+
+.problems .section-label {
+
+    color: #888;
+
+}
+
+
+.problems h2 {
 
     margin-bottom: 80px;
 
 }
 
 
-.service-list {
+.problem-list {
 
-    border-top: 1px solid var(--borda);
+    border-top: 1px solid #444;
 
 }
 
 
-.service {
+.problem {
 
     display: grid;
 
     grid-template-columns:
-        70px
-        1fr
-        40px;
+        40px
+        1fr;
 
-    gap: 25px;
+    gap: 20px;
 
-    padding: 35px 0;
+    padding: 25px 0;
 
-    border-bottom: 1px solid var(--borda);
-
-    position: relative;
+    border-bottom: 1px solid #444;
 
     transition:
         background-color .3s ease,
@@ -1107,11 +1086,9 @@ em {
 }
 
 
-.service:hover {
+.problem:hover {
 
     background: #002839;
-
-    color: #FFFFFF;
 
     padding-left: 20px;
 
@@ -1120,64 +1097,32 @@ em {
 }
 
 
-.service > span {
+.problem span {
+
+    color: #888;
 
     font-size: 11px;
 
-    color: var(--texto-suave);
-
-    transition:
-        color .3s ease;
+    transition: color .3s ease;
 
 }
 
 
-.service:hover > span {
+.problem:hover span {
 
-    color: rgba(255, 255, 255, .55);
-
-}
-
-
-.service h3 {
-
-    font-size: 25px;
-
-    margin-bottom: 10px;
+    color: rgba(255, 255, 255, .6);
 
 }
 
 
-.service p {
+.problem p {
 
-    max-width: 600px;
+    font-size: 15px;
 
-    color: var(--texto-suave);
-
-    font-size: 14px;
-
-    line-height: 1.6;
-
-    transition:
-        color .3s ease;
+    color: var(--branco);
 
 }
 
-
-.service:hover p {
-
-    color: rgba(255, 255, 255, .72);
-
-}
-
-
-.service strong {
-
-    font-size: 20px;
-
-    color: inherit;
-
-}
 
 /* =========================================================
    PROCESSO
@@ -1489,8 +1434,6 @@ em {
 
     justify-content: center;
 
-    border: none;
-
     background: transparent;
 
     transition: transform .3s ease;
@@ -1499,8 +1442,6 @@ em {
 
 
 .footer-icons a:hover {
-
-    background: transparent;
 
     transform: scale(1.2);
 
@@ -1519,174 +1460,305 @@ em {
 
 
 /* =========================================================
+   ANIMAÇÕES
+========================================================= */
+
+.section,
+.service,
+.project,
+.process-item,
+.about-content,
+.problem {
+
+    opacity: 0;
+
+    transform: translateY(30px);
+
+}
+
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(30px);
+
+}
+
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+}
+
+
+/* =========================================================
    CELULAR
 ========================================================= */
 
 @media (max-width: 800px) {
 
+
     .hero {
-        display: block;
+
         width: calc(100% - 30px);
+
         min-height: 700px;
+
         padding: 50px 0 40px;
+
+        justify-content: flex-start;
+
+        align-items: flex-start;
+
     }
 
-    .hero-background {
-        background-size: cover;
-        background-position: left top;
-    }
-
-    .hero .eyebrow {
-        display: block;
-        margin-bottom: 25px;
-    }
 
     .hero-title {
+
         max-width: 100%;
+
         font-size: 58px;
-        margin: 0;
+
     }
+
 
     .hero-title-line:first-child {
+
         white-space: nowrap;
+
     }
+
 
     .hero-title-highlight {
-        margin-top: 8px;
+
+        margin-top: 0;
+
     }
+
 
     .hero-title-highlight::before {
+
         top: -2px;
+
         height: calc(100% + 8px);
+
         left: -2px;
+
         right: -8px;
+
     }
+
 
     .hero-title-highlight em {
+
         padding: 0 15px 4px;
+
     }
+
 
     .mobile-break {
+
         display: inline;
+
     }
+
 
     .hero-bottom {
+
         display: block;
+
         margin-top: 80px;
+
     }
+
 
     .hero-bottom p {
-        margin: 0 0 30px;
+
+        margin-bottom: 30px;
+
     }
+
 
     .hero-buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
 
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
 
 
     .section,
     .section-inner,
     .footer {
+
         width: calc(100% - 30px);
+
         padding-top: 90px;
+
         padding-bottom: 90px;
+
     }
 
 
     .two-columns,
     .about-grid {
+
         grid-template-columns: 1fr;
+
         gap: 50px;
+
     }
 
 
     .section h2 {
+
         font-size: 48px;
+
     }
 
 
     .projects-title {
+
         display: block;
+
     }
 
 
     .projects-title p {
+
         margin-top: 30px;
+
     }
 
 
     .project-grid {
+
         grid-template-columns: 1fr;
+
     }
 
 
     .project-big {
+
         grid-column: span 1;
+
     }
 
 
     .process-grid {
+
         grid-template-columns: 1fr;
+
     }
 
 
     .footer-top,
     .footer-bottom {
+
         display: block;
+
     }
 
 
     .footer-top p {
+
         margin-top: 20px;
+
     }
 
 
     .footer-icons {
+
         margin-top: 25px;
+
     }
 
 
     .service {
-        grid-template-columns: 40px 1fr 25px;
+
+        grid-template-columns:
+            40px
+            1fr
+            25px;
+
         gap: 15px;
+
     }
 
 
     .service h3 {
+
         font-size: 21px;
+
     }
 
 
     .service p {
+
         font-size: 13px;
+
     }
 
 
     .problem {
-        grid-template-columns: 30px 1fr;
+
+        grid-template-columns:
+            30px
+            1fr;
+
+    }
+
+
+    .problem:hover {
+
+        padding-left: 10px;
+
+        padding-right: 10px;
+
+    }
+
+
+    .problem p {
+
+        font-size: 14px;
+
     }
 
 
     .process-item {
+
         min-height: 200px;
+
     }
 
 
     .process-item > span {
+
         margin-bottom: 40px;
+
     }
 
 
     .cta {
+
         padding: 100px 20px;
+
     }
 
 
     .cta h2 {
+
         font-size: 52px;
+
     }
 
 }
