@@ -23,6 +23,8 @@
 
     --borda: #cdd8d7;
 
+    --laranja: #da5700;
+
 
     /* =========================
        FONTES
@@ -694,7 +696,7 @@ em {
 
 .button.dark {
 
-    background: var(--texto);
+    background: var(--laranja);
 
     color: var(--branco);
 
