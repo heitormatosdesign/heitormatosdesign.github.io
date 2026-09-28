@@ -1067,75 +1067,117 @@ em {
    COMO POSSO AJUDAR
 ========================================================= */
 
-.problems {
+.services h2 {
 
-    background: var(--texto);
-
-    color: var(--branco);
-
-    padding: 150px 0;
+    margin-bottom: 80px;
 
 }
 
 
-.section-inner {
+.service-list {
 
-    width: min(
-        var(--largura),
-        calc(100% - 80px)
-    );
-
-    margin: auto;
+    border-top: 1px solid var(--borda);
 
 }
 
 
-.problems .section-label {
-
-    color: #888;
-
-}
-
-
-.problem-list {
-
-    border-top: 1px solid #444;
-
-}
-
-
-.problem {
+.service {
 
     display: grid;
 
     grid-template-columns:
-        40px
-        1fr;
+        70px
+        1fr
+        40px;
 
-    gap: 20px;
+    gap: 25px;
 
-    padding: 25px 0;
+    padding: 35px 0;
 
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--borda);
+
+    position: relative;
+
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        padding-left .3s ease,
+        padding-right .3s ease;
 
 }
 
 
-.problem span {
+.service:hover {
 
-    color: #888;
+    background: #002839;
+
+    color: #FFFFFF;
+
+    padding-left: 20px;
+
+    padding-right: 20px;
+
+}
+
+
+.service > span {
 
     font-size: 11px;
 
-}
+    color: var(--texto-suave);
 
-
-.problem p {
-
-    font-size: 15px;
+    transition:
+        color .3s ease;
 
 }
 
+
+.service:hover > span {
+
+    color: rgba(255, 255, 255, .55);
+
+}
+
+
+.service h3 {
+
+    font-size: 25px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.service p {
+
+    max-width: 600px;
+
+    color: var(--texto-suave);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    transition:
+        color .3s ease;
+
+}
+
+
+.service:hover p {
+
+    color: rgba(255, 255, 255, .72);
+
+}
+
+
+.service strong {
+
+    font-size: 20px;
+
+    color: inherit;
+
+}
 
 /* =========================================================
    PROCESSO
