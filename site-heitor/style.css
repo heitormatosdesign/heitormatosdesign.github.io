@@ -588,7 +588,7 @@ em {
 }
 
 .project-big .project-image {
-    height: 700px;
+    aspect-ratio: 16 / 9;
 }
 
 .project-image img {
@@ -596,6 +596,10 @@ em {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.project-big .project-image img {
+    object-fit: contain;
 }
 
 .project:hover .project-image {
@@ -1351,7 +1355,7 @@ em {
     }
 
     .project-big .project-image {
-        height: 500px;
+        aspect-ratio: 16 / 9;
     }
 
     .project-info h3 {
