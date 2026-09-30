@@ -199,6 +199,65 @@ projetos.forEach((projeto) => {
 });
 
 
+/* ---------------------------------------------------------
+   FALLBACK DAS IMAGENS DE PROJETO
+--------------------------------------------------------- */
+
+const capasPorPagina = {
+
+    'projeto-branding.html':
+        'imagens/capa-larissaxavier.jpg',
+
+    'projeto-direcao.html':
+        'imagens/capa-mcdia.jpg',
+
+    'projeto-eventos.html':
+        'imagens/Capa-triangulo.png',
+
+    'projeto-institucional.html':
+        'imagens/capa-santacasa.png',
+
+    'projeto-recorrente.html':
+        'imagens/Capa-triangulo.png'
+
+};
+
+
+const nomeDaPagina =
+    window.location.pathname.split('/').pop().toLowerCase();
+
+
+const capaFallback =
+    capasPorPagina[nomeDaPagina];
+
+
+if (capaFallback) {
+
+    const imagensDoProjeto =
+        document.querySelectorAll('.project-page img');
+
+
+    imagensDoProjeto.forEach((imagem) => {
+
+        imagem.addEventListener('error', () => {
+
+            if (imagem.dataset.fallbackApplied) {
+
+                return;
+
+            }
+
+
+            imagem.dataset.fallbackApplied = 'true';
+            imagem.src = capaFallback;
+
+        });
+
+    });
+
+}
+
+
 
 /* =========================================================
    PARTÍCULAS — COMO POSSO AJUDAR

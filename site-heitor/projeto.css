@@ -524,11 +524,6 @@
     }
 
 
-    .project-cover {
-        aspect-ratio: 4 / 5;
-    }
-
-
     .project-intro {
         width: calc(100% - 30px);
 
