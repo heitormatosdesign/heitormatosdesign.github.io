@@ -94,17 +94,6 @@
 }
 
 
-.project-hero h1.project-title-compact {
-    font-size: clamp(
-        36px,
-        8vw,
-        120px
-    );
-
-    white-space: nowrap;
-}
-
-
 .project-hero-content p {
     max-width: 100%;
 
@@ -522,17 +511,6 @@
         );
 
         line-height: .9;
-    }
-
-
-    .project-hero h1.project-title-compact {
-        font-size: clamp(
-            30px,
-            8vw,
-            48px
-        );
-
-        white-space: normal;
     }
 
 
