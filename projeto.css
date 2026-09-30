@@ -80,10 +80,9 @@
 
     font-family: var(--fonte-principal);
 
-    font-size: clamp(
-        70px,
-        10vw,
-        150px
+    font-size: var(
+        --project-title-size,
+        clamp(70px, 10vw, 150px)
     );
 
     font-weight: 500;
@@ -91,6 +90,11 @@
     line-height: .88;
 
     letter-spacing: -.065em;
+}
+
+
+.project-title-triangulo {
+    --project-title-size: clamp(38px, 10vw, 130px);
 }
 
 
@@ -504,10 +508,9 @@
 
 
     .project-hero h1 {
-        font-size: clamp(
-            38px,
-            10vw,
-            60px
+        font-size: var(
+            --project-title-size,
+            clamp(38px, 10vw, 60px)
         );
 
         line-height: .9;
