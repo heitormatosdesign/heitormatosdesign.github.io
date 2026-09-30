@@ -135,6 +135,11 @@
 }
 
 
+.project-cover-contain img {
+    object-fit: contain;
+}
+
+
 /* =========================================================
    INTRODUÇÃO
 ========================================================= */
@@ -524,8 +529,8 @@
     }
 
 
-    .project-cover {
-        aspect-ratio: 4 / 5;
+    .project-cover-contain {
+        aspect-ratio: 16 / 9;
     }
 
 
