@@ -152,7 +152,7 @@
 
     margin: 0 auto;
 
-    padding: 90px 0;
+    padding: 60px 0;
 }
 
 
@@ -218,7 +218,7 @@
         calc(100% - 80px)
     );
 
-    margin: 0 auto 110px;
+    margin: 0 auto 60px;
 
     overflow: hidden;
 
@@ -253,7 +253,7 @@
 
     margin: 0 auto;
 
-    padding: 20px 0 110px;
+    padding: 20px 0 60px;
 
     display: grid;
 
@@ -308,7 +308,12 @@
         calc(100% - 80px)
     );
 
-    margin: 0 auto 110px;
+    margin: 0 auto 60px;
+}
+
+
+.project-gallery.project-gallery-square {
+    margin-bottom: 50px;
 }
 
 
@@ -542,7 +547,7 @@
     .project-intro {
         width: calc(100% - 30px);
 
-        padding: 100px 0;
+        padding: 60px 0;
     }
 
 
@@ -563,7 +568,7 @@
     .project-full-image {
         width: calc(100% - 30px);
 
-        margin-bottom: 100px;
+        margin-bottom: 60px;
     }
 
 
@@ -574,7 +579,7 @@
 
         padding:
             20px 0
-            100px;
+            60px;
     }
 
 
@@ -593,7 +598,7 @@
     .project-gallery {
         width: calc(100% - 30px);
 
-        margin-bottom: 100px;
+        margin-bottom: 60px;
     }
 
 
