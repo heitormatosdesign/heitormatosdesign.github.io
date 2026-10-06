@@ -45,7 +45,8 @@ const traducoesEn = {
     'Institucional & Comercial': 'Corporate & Commercial',
     'Apresentações, materiais corporativos, peças promocionais e comunicação visual para diferentes pontos de contato.':
         'Presentations, corporate materials, promotional assets, and visual communication for different touchpoints.',
-    'Alguns trabalhos, diferentes desafios.': 'Selected work, different challenges.',
+    'Alguns trabalhos,': 'Selected work,',
+    'diferentes desafios.': 'different challenges.',
     'Cada projeto começa de um ponto diferente: uma necessidade, uma ideia, um problema ou uma oportunidade. O que eles têm em comum é a busca por uma solução visual que faça sentido para a marca e para as pessoas que ela quer alcançar.':
         'Every project starts somewhere different: with a need, an idea, a problem, or an opportunity. What they share is the search for a visual solution that makes sense for the brand and the people it wants to reach.',
     'INSTITUCIONAL & COMERCIAL': 'CORPORATE & COMMERCIAL',
