@@ -255,6 +255,72 @@ const traducoesEn = {
         'Corporate material for Larissa Xavier',
     'Detalhe da identidade de Larissa Xavier':
         'Identity detail for Larissa Xavier',
+    'PACKAGING & WEB DESIGN':
+        'PACKAGING & WEB DESIGN',
+    'Packaging & Web Design':
+        'Packaging & Web Design',
+    'Packaging Design & Web Page.':
+        'Packaging Design & Web Page.',
+    'Embalagens e e-commerce para uma linha de cuidados com couro.':
+        'Packaging and e-commerce for a leather care product line.',
+    'Sofisticação para produtos de cuidado com o couro.':
+        'Sophistication for leather care products.',
+    'A Leather Care é uma linha de produtos para limpeza, hidratação e conservação de calçados e acessórios de couro. Desenvolvi as embalagens da linha e a página web para apresentar e vender os produtos.':
+        'Leather Care is a product line for cleaning, conditioning, and preserving leather shoes and accessories. I designed the line’s packaging and the web page that presents and sells the products.',
+    'O projeto uniu embalagem e ambiente digital em uma mesma linguagem visual, do rótulo à navegação.':
+        'The project brought packaging and the digital experience together under one visual language, from label to navigation.',
+    'Transmitir qualidade em um produto do dia a dia.':
+        'Conveying quality in an everyday product.',
+    'Produtos de cuidado com couro costumam ter uma comunicação técnica e pouco atrativa. O desafio era posicionar a Leather Care como uma marca premium, transmitindo qualidade, durabilidade e sofisticação tanto na prateleira quanto na tela.':
+        'Leather care products often rely on technical, uninspiring communication. The challenge was to position Leather Care as a premium brand, conveying quality, durability, and sophistication both on the shelf and on screen.',
+    'Uma linguagem em preto e branco, do rótulo à tela.':
+        'A black-and-white language, from label to screen.',
+    'Criei rótulos em preto e branco com tipografia serifada e um contorno tracejado que remete à costura do couro, aplicados em potes de creme e frascos spray.':
+        'I created black-and-white labels with serif typography and a dashed outline that references leather stitching, applied to cream jars and spray bottles.',
+    'Na web, desenvolvi uma interface minimalista para e-commerce, valorizando os produtos por meio de uma navegação simples, fotografia em destaque e organização das informações.':
+        'Online, I designed a minimalist e-commerce interface that showcases the products through simple navigation, prominent photography, and well-organized information.',
+    'Uma marca com presença consistente entre a embalagem e o ambiente digital.':
+        'A brand with a consistent presence across packaging and digital.',
+    'Leather Care — Heitor Matos':
+        'Leather Care — Heitor Matos',
+    'Packaging design e página web para a Leather Care, desenvolvidos por Heitor Matos.':
+        'Packaging design and web page for Leather Care, by Heitor Matos.',
+    'Página web da Leather Care':
+        'Leather Care web page',
+    'Interface de e-commerce da Leather Care':
+        'Leather Care e-commerce interface',
+    'Embalagem do Creme Graxo Leather Care':
+        'Leather Care Creme Graxo packaging',
+    'Embalagem do Limpador spray Leather Care':
+        'Leather Care spray cleaner packaging',
+    'Página de cremes do e-commerce Leather Care':
+        'Creams page of the Leather Care e-commerce',
+    'Diagnóstico da comunicação do Grupo Santa Casa de Franca':
+        'Communication audit for Grupo Santa Casa de Franca',
+    'Campanha Agosto Lilás aplicada em diferentes formatos':
+        'Agosto Lilás campaign applied across formats',
+    'Site institucional do Grupo Santa Casa de Franca':
+        'Grupo Santa Casa de Franca institutional website',
+    'Sistema visual aplicado às redes sociais do grupo':
+        'Visual system applied to the group’s social media',
+    'Materiais impressos, murais e outdoor do grupo':
+        'The group’s printed materials, murals, and billboard',
+    'Sistema de logotipos do Santa Labs':
+        'Santa Labs logo system',
+    'Banner principal do site da Triângulo Express':
+        'Triângulo Express website main banner',
+    'Posts para Instagram da Triângulo Express':
+        'Instagram posts for Triângulo Express',
+    'Posts institucionais da Triângulo Express':
+        'Corporate posts for Triângulo Express',
+    'Posts promocionais da Triângulo Express':
+        'Promotional posts for Triângulo Express',
+    'Paleta de cores da identidade de Larissa Xavier':
+        'Color palette for Larissa Xavier’s identity',
+    'Aplicação das cores da identidade de Larissa Xavier':
+        'Color application for Larissa Xavier’s identity',
+    'Conceito “É impossível não amar tudo isso” da campanha McDia Feliz 2026':
+        '“It’s impossible not to love all of this” concept for the McDia Feliz 2026 campaign',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
@@ -551,8 +617,8 @@ const capasPorPagina = {
     'projeto-direcao.html':
         'imagens/capa-mcdia.jpg',
 
-    'projeto-eventos.html':
-        'imagens/capa-triangulo.jpg',
+    'projeto-leathercare.html':
+        'imagens/capa-leathercare.jpg',
 
     'projeto-institucional.html':
         'imagens/capa-santacasa.jpg',
