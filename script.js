@@ -419,6 +419,22 @@ const traducoesEn = {
         'Visit the website ↗',
     'Página inicial do novo site do Grupo Santa Casa de Franca':
         'Homepage of the new Grupo Santa Casa de Franca website',
+    'Post com o Dr. Guilherme Gonzales: você cuida de todo mundo, mas quem cuida de você?':
+        'Post with Dr. Guilherme Gonzales: you take care of everyone, but who takes care of you?',
+    'Campanha de doação de sangue com o Hemocentro de Franca':
+        'Blood donation campaign with Hemocentro de Franca',
+    'Post de Dia dos Pais: amor que cuida, protege e inspira':
+        'Father’s Day post: love that cares, protects, and inspires',
+    'Dia Mundial da Segurança do Paciente':
+        'World Patient Safety Day',
+    'Outubro Rosa: prevenção do câncer de mama':
+        'Pink October: breast cancer prevention',
+    'Post do Sino da Vitória com a paciente Elane Ribeiro':
+        'Victory Bell post with patient Elane Ribeiro',
+    'Janeiro Branco: saúde também é bem-estar mental e emocional':
+        'Janeiro Branco: health is also mental and emotional well-being',
+    'Conscientização sobre o diabetes':
+        'Diabetes awareness',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'

@@ -811,8 +811,9 @@
 
 /* ---- item aberto ---- */
 
+/* abre na proporção real do post (4:5 por padrão; stories 9:16 via --pg-ratio) */
 .post-gallery-item.is-active {
-    flex: 0 0 var(--pg-aberto);
+    flex: 0 0 calc(var(--pg-altura) * var(--pg-ratio, .8));
 }
 
 
@@ -898,9 +899,11 @@
 
     .post-gallery-item,
     .post-gallery-item.is-active {
-        flex: 0 0 min(78%, 420px);
+        flex: 0 0 auto;
 
-        aspect-ratio: 4 / 5;
+        height: min(97.5vw, 525px);
+
+        aspect-ratio: var(--pg-ratio, .8);
 
         scroll-snap-align: start;
 
