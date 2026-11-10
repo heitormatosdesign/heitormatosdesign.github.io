@@ -391,6 +391,28 @@ const traducoesEn = {
         'Responsive landing page for the McDia Feliz 2026 campaign',
     'Embalagens Leather Care: Creme Graxo e Limpador':
         'Leather Care packaging: Creme Graxo and cleaner',
+    'O símbolo reúne três elementos: o cérebro, que representa a mente humana e o trabalho da psicóloga na promoção do autoconhecimento; a flor de hibisco, associada à harmonia e ao equilíbrio emocional; e o fruto de pitanga, que traz doçura, simplicidade e o retorno ao essencial.':
+        'The symbol brings together three elements: the brain, representing the human mind and the psychologist’s work in fostering self-knowledge; the hibiscus flower, associated with harmony and emotional balance; and the pitanga fruit, which conveys sweetness, simplicity, and a return to what matters.',
+    'Em torno dele, desenvolvi a tipografia, uma paleta em tons terrosos que transmite calor e aconchego e os elementos gráficos, documentados em um manual de marca com orientações de uso.':
+        'Around it, I developed the typography, an earthy palette that conveys warmth and comfort, and the graphic elements, all documented in a brand manual with usage guidelines.',
+    'As aplicações incluem cartões de visita, um deles no formato do cérebro, e a papelaria de atendimento, reforçando a consistência visual em todos os pontos de contato com o paciente.':
+        'Applications include business cards, one of them shaped like the brain, and patient-care stationery, reinforcing visual consistency at every touchpoint with patients.',
+    'A atuação passou pelas redes sociais, pelo site institucional, por apresentações e campanhas internas, por materiais gráficos e sinalização e pela identidade do Santa Labs, núcleo de tecnologia do grupo.':
+        'The work spanned social media, the institutional website, presentations and internal campaigns, printed materials and signage, and the identity of Santa Labs, the group’s technology hub.',
+    'Criei um sistema visual coeso, limpo e padronizado. A reformulação começou pelas redes sociais, com séries editoriais como Pratas da Casa, Especialista Explica e Sino da Vitória, campanhas de saúde e a divulgação do aplicativo Conecta, e, após a boa receptividade, se expandiu para outros pontos de contato.':
+        'I created a cohesive, clean, and standardized visual system. The redesign began on social media, with editorial series such as Pratas da Casa, Especialista Explica, and Sino da Vitória, health campaigns, and the launch of the Conecta app, and, after a strong reception, expanded to other touchpoints.',
+    'O sistema funciona do desktop ao mobile: de sites e e-mails a apresentações institucionais, campanhas internas, como a de higiene das mãos, uniformes, sinalização, folders e outdoors. Cada peça mantém sua função sem perder a conexão com o todo.':
+        'The system works from desktop to mobile: from websites and emails to corporate presentations, internal campaigns such as hand hygiene, uniforms, signage, brochures, and billboards. Each piece keeps its own function without losing its connection to the whole.',
+    'A identidade também se estendeu ao Santa Labs, com um sistema de logotipos para soluções de autoatendimento, comunicação automatizada, relatórios e gestão, criando unidade entre diferentes produtos e serviços.':
+        'The identity also extended to Santa Labs, with a logo system for self-service solutions, automated communications, reporting, and management, bringing unity to different products and services.',
+    'A produção inclui os banners do site e posts para Instagram que comunicam serviços e diferenciais, como atendimento B2B, agilidade, tecnologia, infraestrutura e segurança, além de anúncios como a expansão para a Região Nordeste.':
+        'The work includes the website banners and Instagram posts communicating services and strengths, such as B2B service, speed, technology, infrastructure, and security, as well as announcements like the expansion into the Northeast region.',
+    'Desenvolvi uma direção visual baseada em uma combinação vibrante de cores, formas, ícones e elementos gráficos que traduzem a leveza e a energia da campanha, tornando a comunicação mais próxima, reconhecível e convidativa.':
+        'I developed a visual direction built on a vibrant combination of colors, shapes, icons, and graphic elements that capture the campaign’s lightness and energy, making communication more approachable, recognizable, and inviting.',
+    'As aplicações incluem os produtos da campanha, como ecobags, camisetas, copos e garrafas, posts de contagem regressiva e do dia da campanha, outdoor, certificados, convites e comunicados.':
+        'Applications include campaign merchandise such as tote bags, T-shirts, cups, and bottles, countdown and campaign-day posts, a billboard, certificates, invitations, and announcements.',
+    'Também desenvolvi uma landing page responsiva para apresentar os produtos, reunindo informações, catálogo digital e direcionamento para a equipe de vendas.':
+        'I also developed a responsive landing page to present the products, bringing together information, a digital catalog, and a direct line to the sales team.',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
