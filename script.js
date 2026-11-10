@@ -321,6 +321,30 @@ const traducoesEn = {
         'Color application for Larissa Xavier’s identity',
     'Conceito “É impossível não amar tudo isso” da campanha McDia Feliz 2026':
         '“It’s impossible not to love all of this” concept for the McDia Feliz 2026 campaign',
+    'POSTAGENS DE INSTAGRAM':
+        'INSTAGRAM POSTS',
+    'Passe o mouse para ampliar':
+        'Hover to enlarge',
+    'Deslize para ver mais':
+        'Swipe to see more',
+    'Post da Triângulo Express: B2B: priorize valor, não apenas custo':
+        'Triângulo Express post: B2B: prioritize value, not just cost',
+    'Post da Triângulo Express: Em breve: Região Nordeste':
+        'Triângulo Express post: Coming soon: Northeast region',
+    'Post da Triângulo Express: Estoque parado é dinheiro perdido':
+        'Triângulo Express post: Idle stock is lost money',
+    'Post da Triângulo Express: Fluxo rápido':
+        'Triângulo Express post: Fast flow',
+    'Post da Triângulo Express: Qualidade e tecnologia':
+        'Triângulo Express post: Quality and technology',
+    'Post da Triângulo Express: Infraestrutura pensada para a segurança do seu produto':
+        'Triângulo Express post: Infrastructure designed to keep your product safe',
+    'Post da Triângulo Express: Nossa casa: sua rota mais rápida':
+        'Triângulo Express post: Our home: your fastest route',
+    'Post da Triângulo Express: Queremos te ouvir':
+        'Triângulo Express post: We want to hear from you',
+    'Post da Triângulo Express: Sofisticação e segurança':
+        'Triângulo Express post: Sophistication and security',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
@@ -1245,3 +1269,24 @@ if (ano) {
         `© ${new Date().getFullYear()} Heitor Matos`;
 
 }
+
+
+/* ---------------------------------------------------------
+   GALERIA DE POSTS EXPANSÍVEL
+   (o último item ativo continua aberto ao tirar o mouse)
+--------------------------------------------------------- */
+
+document.querySelectorAll('.post-gallery-track').forEach((trilha) => {
+
+    const itens = trilha.querySelectorAll('.post-gallery-item');
+
+    const ativar = (item) => {
+        itens.forEach((outro) => outro.classList.toggle('is-active', outro === item));
+    };
+
+    itens.forEach((item) => {
+        item.addEventListener('mouseenter', () => ativar(item));
+        item.addEventListener('focus', () => ativar(item));
+    });
+
+});

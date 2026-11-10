@@ -660,3 +660,282 @@
 .project-gallery-wide img {
     aspect-ratio: 16 / 9;
 }
+
+
+/* =========================================================
+   GALERIA DE POSTS EXPANSÍVEL
+   Desktop: lâminas que se abrem no hover/foco.
+   Touch/telas menores: carrossel com scroll-snap.
+========================================================= */
+
+.post-gallery {
+    --pg-altura: clamp(440px, 40vw, 620px);
+    --pg-aberto: calc(var(--pg-altura) * .8);   /* post 4:5 inteiro */
+    --pg-gap: 10px;
+    --pg-ease: cubic-bezier(.22, 1, .36, 1);
+    --pg-tempo: .9s;
+
+    width: min(
+        var(--largura),
+        calc(100% - 80px)
+    );
+
+    margin: 20px auto 120px;
+}
+
+
+.post-gallery-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+
+.post-gallery-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .15em;
+
+    color: var(--texto-suave);
+}
+
+
+.post-gallery-hint {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: .04em;
+
+    color: var(--texto-suave);
+}
+
+
+.post-gallery-hint-touch {
+    display: none;
+}
+
+
+.post-gallery-track {
+    display: flex;
+    gap: var(--pg-gap);
+
+    height: var(--pg-altura);
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.post-gallery-item {
+    position: relative;
+
+    flex: 1 1 0;
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: var(--destaque-claro);
+
+    cursor: pointer;
+    outline: none;
+
+    transition:
+        flex var(--pg-tempo) var(--pg-ease),
+        filter .6s ease,
+        opacity .6s ease;
+}
+
+
+.post-gallery-item img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scale(1.12);
+
+    transition: transform 1.4s var(--pg-ease);
+}
+
+
+/* véu inferior para o número */
+.post-gallery-item::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, .38) 0%,
+        rgba(0, 0, 0, 0) 32%
+    );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity .6s ease;
+}
+
+
+.post-gallery-index {
+    position: absolute;
+    left: 18px;
+    bottom: 16px;
+    z-index: 1;
+
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .18em;
+    font-variant-numeric: tabular-nums;
+
+    color: var(--branco);
+
+    opacity: 0;
+    transform: translateY(8px);
+
+    transition:
+        opacity .5s ease,
+        transform .7s var(--pg-ease);
+}
+
+
+/* ---- item aberto ---- */
+
+.post-gallery-item.is-active {
+    flex: 0 0 var(--pg-aberto);
+}
+
+
+.post-gallery-item.is-active img {
+    transform: scale(1);
+}
+
+
+.post-gallery-item.is-active::after {
+    opacity: 1;
+}
+
+
+.post-gallery-item.is-active .post-gallery-index {
+    opacity: 1;
+    transform: translateY(0);
+
+    transition-delay: .25s;
+}
+
+
+/* ---- demais itens recuam enquanto a galeria está em uso ---- */
+
+.post-gallery-track:hover .post-gallery-item:not(.is-active),
+.post-gallery-track:focus-within .post-gallery-item:not(.is-active) {
+    filter: grayscale(.45) brightness(.94);
+    opacity: .82;
+}
+
+
+.post-gallery-item:focus-visible {
+    box-shadow: inset 0 0 0 2px var(--destaque);
+}
+
+
+/* ---------------------------------------------------------
+   TOUCH / TELAS MENORES → CARROSSEL
+--------------------------------------------------------- */
+
+@media (max-width: 900px), (hover: none) {
+
+    .post-gallery {
+        width: 100%;
+
+        margin: 0 auto 80px;
+    }
+
+
+    .post-gallery-header {
+        width: calc(100% - 30px);
+
+        margin: 0 auto 22px;
+    }
+
+
+    .post-gallery-hint-hover {
+        display: none;
+    }
+
+
+    .post-gallery-hint-touch {
+        display: inline;
+    }
+
+
+    .post-gallery-track {
+        height: auto;
+
+        padding: 0 15px;
+
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 15px;
+        scrollbar-width: none;
+    }
+
+
+    .post-gallery-track::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .post-gallery-item,
+    .post-gallery-item.is-active {
+        flex: 0 0 min(78%, 420px);
+
+        aspect-ratio: 4 / 5;
+
+        scroll-snap-align: start;
+
+        filter: none !important;
+        opacity: 1 !important;
+    }
+
+
+    .post-gallery-item img,
+    .post-gallery-item.is-active img {
+        transform: none;
+    }
+
+
+    .post-gallery-item::after,
+    .post-gallery-item .post-gallery-index {
+        opacity: 1;
+        transform: none;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   MOVIMENTO REDUZIDO
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .post-gallery-item,
+    .post-gallery-item img,
+    .post-gallery-item::after,
+    .post-gallery-index {
+        transition: none;
+    }
+
+}
