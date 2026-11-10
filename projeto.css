@@ -741,7 +741,7 @@
 
     overflow: hidden;
 
-    background: var(--destaque-claro);
+    background: #E6E2DA;
 
     cursor: pointer;
     outline: none;

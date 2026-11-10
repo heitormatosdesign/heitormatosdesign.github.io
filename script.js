@@ -345,6 +345,10 @@ const traducoesEn = {
         'Triângulo Express post: We want to hear from you',
     'Post da Triângulo Express: Sofisticação e segurança':
         'Triângulo Express post: Sophistication and security',
+    'Banner principal do site da Triângulo Express: a melhor opção de transporte de cargas no Triângulo Mineiro e região':
+        'Triângulo Express website main banner: the best cargo transport option in Triângulo Mineiro and the surrounding region',
+    'Banner do site da Triângulo Express: movendo o que importa':
+        'Triângulo Express website banner: moving what matters',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
