@@ -445,6 +445,36 @@ const traducoesEn = {
         'I also created the editorial line for the group’s corporate policies: covers built on a shared structure, with a photograph of the building, an icon, and typography that identify each topic, published on the website for reference and download.',
     'Capas das políticas corporativas do Grupo Santa Casa de Franca publicadas no site':
         'Corporate policy covers for Grupo Santa Casa de Franca, published on the website',
+    'Assistência Farmacêutica':
+        'Pharmaceutical Care',
+    'Comunicação Institucional':
+        'Corporate Communications',
+    'Direitos e Deveres dos Usuários da Saúde':
+        'Rights and Responsibilities of Health Service Users',
+    'Gestão Administrativa e Financeira':
+        'Administrative and Financial Management',
+    'Gestão de Pessoas':
+        'People Management',
+    'Gestão de Qualidade':
+        'Quality Management',
+    'Incentivo ao Aleitamento Materno':
+        'Breastfeeding Support',
+    'Registro Seguro':
+        'Safe Records',
+    'Relações Institucionais com Fornecedores':
+        'Institutional Relations with Suppliers',
+    'Segurança da Informação':
+        'Information Security',
+    'POLÍTICAS CORPORATIVAS':
+        'CORPORATE POLICIES',
+    'Capas das políticas corporativas do Grupo Santa Casa de Franca':
+        'Corporate policy covers for Grupo Santa Casa de Franca',
+    'Capa anterior':
+        'Previous cover',
+    'Próxima capa':
+        'Next cover',
+    'carrossel':
+        'carousel',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
@@ -1388,5 +1418,157 @@ document.querySelectorAll('.post-gallery-track').forEach((trilha) => {
         item.addEventListener('mouseenter', () => ativar(item));
         item.addEventListener('focus', () => ativar(item));
     });
+
+});
+
+
+
+/* ---------------------------------------------------------
+   PILHA DE CAPAS QUE FOLHEIA
+   - avança sozinha quando visível; pausa no hover/foco
+   - clique, setas do teclado e gesto de arrastar
+--------------------------------------------------------- */
+
+document.querySelectorAll('.cover-stack').forEach((pilha) => {
+
+    const cartas = [...pilha.querySelectorAll('.cover-stack-card')];
+    const titulo = pilha.querySelector('.cover-stack-title');
+    const contador = pilha.querySelector('.cover-stack-current');
+    const deck = pilha.querySelector('.cover-stack-deck');
+    const total = cartas.length;
+    const reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const intervalo = parseFloat(getComputedStyle(pilha).getPropertyValue('--cs-intervalo')) || 3600;
+
+    let atual = 0;
+    let timer = null;
+    let visivel = false;
+    let pausado = false;
+
+    const nomeAtual = () => cartas[atual].querySelector('img').getAttribute('alt');
+
+    const reiniciarProgresso = () => {
+        pilha.classList.remove('is-playing');
+        void pilha.offsetWidth;
+        if (!reduzido && visivel) pilha.classList.add('is-playing');
+    };
+
+    const desenhar = (direcao) => {
+        cartas.forEach((carta, i) => {
+            const pos = (i - atual + total) % total;
+            if (direcao === 1 && pos === total - 1) {
+                carta.dataset.pos = 'saindo';
+            } else if (pos <= 3) {
+                carta.dataset.pos = String(pos);
+            } else {
+                carta.dataset.pos = 'fundo';
+            }
+        });
+        contador.textContent = String(atual + 1).padStart(2, '0');
+        titulo.classList.add('is-changing');
+        setTimeout(() => {
+            titulo.textContent = nomeAtual();
+            titulo.classList.remove('is-changing');
+        }, reduzido ? 0 : 280);
+    };
+
+    const ir = (direcao) => {
+        const anterior = atual;
+        atual = (atual + direcao + total) % total;
+
+        if (direcao === -1) {
+            // a capa que volta entra pela esquerda, por cima da pilha
+            const entrando = cartas[atual];
+            entrando.classList.add('sem-transicao');
+            entrando.dataset.pos = 'saindo';
+            void entrando.offsetWidth;
+            entrando.classList.remove('sem-transicao');
+        }
+
+        desenhar(direcao);
+
+        if (direcao === 1) {
+            // depois de sair, a capa vai discretamente para o fundo
+            const saiu = cartas[anterior];
+            setTimeout(() => {
+                if (saiu.dataset.pos === 'saindo') {
+                    saiu.classList.add('sem-transicao');
+                    saiu.dataset.pos = 'fundo';
+                    void saiu.offsetWidth;
+                    saiu.classList.remove('sem-transicao');
+                }
+            }, 1000);
+        }
+
+        agendar();
+    };
+
+    const agendar = () => {
+        clearTimeout(timer);
+        reiniciarProgresso();
+        if (reduzido || !visivel || pausado) return;
+        timer = setTimeout(() => ir(1), intervalo);
+    };
+
+    const pausar = (valor) => {
+        pausado = valor;
+        pilha.classList.toggle('is-paused', valor);
+        if (valor) {
+            clearTimeout(timer);
+        } else {
+            agendar();
+        }
+    };
+
+    pilha.querySelectorAll('.cover-stack-btn').forEach((botao) => {
+        botao.addEventListener('click', () => ir(Number(botao.dataset.dir)));
+    });
+
+    deck.addEventListener('click', () => ir(1));
+
+    deck.addEventListener('keydown', (evento) => {
+        if (evento.key === 'ArrowRight') { evento.preventDefault(); ir(1); }
+        if (evento.key === 'ArrowLeft') { evento.preventDefault(); ir(-1); }
+    });
+
+    let inicioX = null;
+    deck.addEventListener('pointerdown', (evento) => { inicioX = evento.clientX; });
+    deck.addEventListener('pointerup', (evento) => {
+        if (inicioX === null) return;
+        const dx = evento.clientX - inicioX;
+        inicioX = null;
+        if (Math.abs(dx) > 40) {
+            evento.stopPropagation();
+            ir(dx < 0 ? 1 : -1);
+            deck.dataset.arrastou = '1';
+            setTimeout(() => delete deck.dataset.arrastou, 50);
+        }
+    });
+    deck.addEventListener('click', (evento) => {
+        if (deck.dataset.arrastou) evento.stopImmediatePropagation();
+    }, true);
+
+    pilha.addEventListener('mouseenter', () => pausar(true));
+    pilha.addEventListener('mouseleave', () => pausar(false));
+    pilha.addEventListener('focusin', () => pausar(true));
+    pilha.addEventListener('focusout', (evento) => {
+        if (!pilha.contains(evento.relatedTarget)) pausar(false);
+    });
+
+    new IntersectionObserver((entradas) => {
+        visivel = entradas[0].isIntersecting;
+        agendar();
+    }, { threshold: .35 }).observe(pilha);
+
+    // ao trocar o idioma, atualiza o nome da capa atual
+    document.querySelectorAll('.language-switch button').forEach((botao) => {
+        botao.addEventListener('click', () => setTimeout(() => {
+            titulo.textContent = nomeAtual();
+        }, 0));
+    });
+
+    // pré-carrega as próximas capas logo que a seção aparece
+    cartas.forEach((carta) => carta.querySelector('img').loading = 'eager');
+
+    desenhar(0);
 
 });

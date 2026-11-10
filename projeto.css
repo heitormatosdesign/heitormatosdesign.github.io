@@ -1039,3 +1039,334 @@
     }
 
 }
+
+
+
+/* =========================================================
+   PILHA DE CAPAS QUE FOLHEIA (cover stack)
+========================================================= */
+
+.cover-stack {
+    --cs-ease: cubic-bezier(.22, 1, .36, 1);
+    --cs-tempo: 1s;
+    --cs-intervalo: 3600ms;
+
+    width: min(
+        var(--largura),
+        calc(100% - 80px)
+    );
+
+    margin: 0 auto 60px;
+    padding: clamp(60px, 8vw, 120px) clamp(30px, 6vw, 100px);
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(40px, 6vw, 100px);
+
+    overflow: hidden;
+
+    background: #ECE8E1;
+}
+
+
+/* ---- texto ---- */
+
+.cover-stack-label {
+    display: block;
+
+    margin-bottom: 26px;
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .15em;
+
+    color: var(--texto-suave);
+}
+
+
+.cover-stack-title {
+    min-height: 2.3em;
+
+    margin: 0 0 42px;
+
+    font-size: clamp(26px, 2.8vw, 40px);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -.015em;
+
+    color: var(--texto);
+
+    transition:
+        opacity .45s ease,
+        transform .6s var(--cs-ease);
+}
+
+
+.cover-stack-title.is-changing {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+
+.cover-stack-controls {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+
+.cover-stack-btn {
+    width: 46px;
+    height: 46px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0;
+
+    font: inherit;
+    font-size: 17px;
+
+    color: var(--texto);
+
+    background: transparent;
+    border: 1px solid rgba(23, 23, 23, .22);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        border-color .35s ease,
+        transform .35s var(--cs-ease);
+}
+
+
+.cover-stack-btn:hover,
+.cover-stack-btn:focus-visible {
+    color: var(--branco);
+    background: var(--texto);
+    border-color: var(--texto);
+
+    outline: none;
+}
+
+
+.cover-stack-btn:active {
+    transform: scale(.94);
+}
+
+
+.cover-stack-count {
+    min-width: 70px;
+
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    font-variant-numeric: tabular-nums;
+
+    text-align: center;
+
+    color: var(--texto);
+}
+
+
+.cover-stack-sep {
+    margin: 0 4px;
+
+    color: var(--texto-suave);
+}
+
+
+.cover-stack-progress {
+    width: min(100%, 260px);
+    height: 1px;
+
+    margin-top: 34px;
+
+    overflow: hidden;
+
+    background: rgba(23, 23, 23, .14);
+}
+
+
+.cover-stack-progress span {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background: var(--texto);
+
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+
+.cover-stack.is-playing .cover-stack-progress span {
+    animation: cover-stack-progresso var(--cs-intervalo) linear forwards;
+}
+
+
+.cover-stack.is-paused .cover-stack-progress span {
+    animation-play-state: paused;
+}
+
+
+@keyframes cover-stack-progresso {
+    to { transform: scaleX(1); }
+}
+
+
+/* ---- pilha ---- */
+
+.cover-stack-deck {
+    position: relative;
+
+    width: min(100%, 400px);
+    aspect-ratio: 1000 / 1414;
+
+    margin: 0 auto;
+
+    cursor: pointer;
+    outline: none;
+
+    touch-action: pan-y;
+}
+
+
+.cover-stack-deck:focus-visible {
+    box-shadow: 0 0 0 2px var(--destaque);
+}
+
+
+.cover-stack-card {
+    position: absolute;
+    inset: 0;
+
+    margin: 0;
+
+    background: var(--branco);
+
+    box-shadow:
+        0 1px 2px rgba(23, 23, 23, .06),
+        0 18px 40px -12px rgba(23, 23, 23, .22);
+
+    transform-origin: 50% 100%;
+
+    /* posição padrão: escondida no fundo da pilha */
+    transform: translate(17%, -7%) rotate(8deg) scale(.86);
+    opacity: 0;
+    z-index: 1;
+
+    transition:
+        transform var(--cs-tempo) var(--cs-ease),
+        opacity .8s ease,
+        filter .8s ease;
+
+    will-change: transform, opacity;
+}
+
+
+.cover-stack-card img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+.cover-stack-card[data-pos="0"] {
+    transform: none;
+    opacity: 1;
+    z-index: 6;
+}
+
+
+.cover-stack-card[data-pos="1"] {
+    transform: translate(5.5%, -2.4%) rotate(2.6deg) scale(.96);
+    opacity: 1;
+    filter: brightness(.97);
+    z-index: 5;
+}
+
+
+.cover-stack-card[data-pos="2"] {
+    transform: translate(10.5%, -4.6%) rotate(5deg) scale(.92);
+    opacity: 1;
+    filter: brightness(.94);
+    z-index: 4;
+}
+
+
+.cover-stack-card[data-pos="3"] {
+    transform: translate(14.5%, -6.2%) rotate(7deg) scale(.89);
+    opacity: .55;
+    filter: brightness(.92);
+    z-index: 3;
+}
+
+
+/* capa que acabou de ser folheada: sai para a esquerda */
+.cover-stack-card[data-pos="saindo"] {
+    transform: translate(-78%, 5%) rotate(-11deg) scale(.97);
+    opacity: 0;
+    z-index: 7;
+}
+
+
+.cover-stack-card.sem-transicao {
+    transition: none;
+}
+
+
+/* ---- celular ---- */
+
+@media (max-width: 900px) {
+
+    .cover-stack {
+        width: calc(100% - 30px);
+
+        grid-template-columns: 1fr;
+
+        padding: 56px 24px 48px;
+
+        gap: 44px;
+    }
+
+
+    .cover-stack-deck {
+        width: min(72%, 320px);
+
+        order: -1;
+    }
+
+
+    .cover-stack-title {
+        margin-bottom: 30px;
+    }
+
+}
+
+
+/* ---- movimento reduzido ---- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cover-stack {
+        --cs-tempo: .01s;
+    }
+
+
+    .cover-stack-title {
+        transition: none;
+    }
+
+}
