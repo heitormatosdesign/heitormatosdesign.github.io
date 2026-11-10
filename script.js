@@ -475,6 +475,40 @@ const traducoesEn = {
         'Next cover',
     'carrossel':
         'carousel',
+    'Cartilha Transplante de Rins':
+        'Kidney Transplant Guide',
+    'Prontuário Afetivo: Pediatria':
+        'Affective Medical Record: Pediatrics',
+    'Política de Direitos e Deveres dos Usuários':
+        'Policy on Patients’ Rights and Responsibilities',
+    'Campanha do Silêncio':
+        'Quiet Campaign',
+    'Consumo Eficiente e Redução de Despesas':
+        'Efficient Consumption and Cost Reduction',
+    'Prontuário Afetivo: UTI Neonatal':
+        'Affective Medical Record: Neonatal ICU',
+    'Política de Gestão de Qualidade':
+        'Quality Management Policy',
+    'Dezembro Vermelho':
+        'Red December',
+    'Cartilha Transplante de Rins: miolo':
+        'Kidney Transplant Guide: inside pages',
+    'Descarte Correto de Perfurocortantes':
+        'Proper Sharps Disposal',
+    'Prontuário Afetivo: UTI Adulto':
+        'Affective Medical Record: Adult ICU',
+    'Política de Segurança da Informação':
+        'Information Security Policy',
+    'PAPELARIA E IMPRESSOS':
+        'STATIONERY AND PRINT',
+    'Materiais impressos do Grupo Santa Casa de Franca':
+        'Printed materials for Grupo Santa Casa de Franca',
+    'Peça anterior':
+        'Previous piece',
+    'Próxima peça':
+        'Next piece',
+    'Nos impressos, a mesma linguagem chega a cartilhas para pacientes, prontuários afetivos para pediatria e UTIs, cartazes de campanhas internas e de saúde e a linha editorial das políticas corporativas.':
+        'In print, the same language extends to patient guides, affective medical records for pediatrics and ICUs, posters for internal and health campaigns, and the editorial line for corporate policies.',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
