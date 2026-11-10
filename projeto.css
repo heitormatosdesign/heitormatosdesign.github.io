@@ -971,3 +971,68 @@
     border-color: var(--destaque);
     padding-left: 6px;
 }
+
+
+
+/* =========================================================
+   CAPA QUADRADA NO TOPO DO PROJETO
+   Mostra a capa inteira sobre um fundo desfocado
+   gerado pela própria imagem (sem recorte).
+========================================================= */
+
+.project-cover-square {
+    position: relative;
+
+    isolation: isolate;
+
+    background: #E9E5DE;
+}
+
+
+.project-cover-square::before {
+    content: "";
+
+    position: absolute;
+    inset: -60px;
+    z-index: -1;
+
+    background: var(--capa) center / cover no-repeat;
+
+    filter: blur(56px) saturate(1.1);
+    opacity: .5;
+
+    transform: scale(1.08);
+}
+
+
+.project-cover-square img {
+    width: 100%;
+    height: 100%;
+
+    padding: 4.5% 0;
+
+    object-fit: contain;
+
+    filter: drop-shadow(0 24px 40px rgba(23, 23, 23, .18));
+}
+
+
+@media (max-width: 900px) {
+
+    .project-cover-square {
+        aspect-ratio: 1 / 1;
+    }
+
+
+    .project-cover-square::before {
+        display: none;
+    }
+
+
+    .project-cover-square img {
+        padding: 0;
+
+        filter: none;
+    }
+
+}
