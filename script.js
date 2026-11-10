@@ -435,6 +435,12 @@ const traducoesEn = {
         'Janeiro Branco: health is also mental and emotional well-being',
     'Conscientização sobre o diabetes':
         'Diabetes awareness',
+    'A atuação passou pelas redes sociais, pelo site institucional, por apresentações e campanhas internas e por materiais gráficos e sinalização.':
+        'The work spanned social media, the institutional website, presentations and internal campaigns, and printed materials and signage.',
+    'O sistema funciona do desktop ao mobile: de sites e e-mails a apresentações institucionais, campanhas internas, sinalização, folders e outdoors. Cada peça mantém sua função sem perder a conexão com o todo.':
+        'The system works from desktop to mobile: from websites and emails to corporate presentations, internal campaigns, signage, brochures, and billboards. Each piece keeps its own function without losing its connection to the whole.',
+    'Criei um sistema visual coeso, limpo e padronizado. A reformulação começou pelas redes sociais, com séries editoriais como Pratas da Casa e Sino da Vitória, campanhas de saúde como Outubro Rosa, Janeiro Branco e doação de sangue e datas comemorativas, e, após a boa receptividade, se expandiu para outros pontos de contato.':
+        'I created a cohesive, clean, and standardized visual system. The redesign began on social media, with editorial series such as Pratas da Casa and Sino da Vitória, health campaigns such as Pink October, Janeiro Branco, and blood donation, and commemorative dates, and, after a strong reception, expanded to other touchpoints.',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
