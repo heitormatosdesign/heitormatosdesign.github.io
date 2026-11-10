@@ -441,6 +441,10 @@ const traducoesEn = {
         'The system works from desktop to mobile: from websites and emails to corporate presentations, internal campaigns, signage, brochures, and billboards. Each piece keeps its own function without losing its connection to the whole.',
     'Criei um sistema visual coeso, limpo e padronizado. A reformulação começou pelas redes sociais, com séries editoriais como Pratas da Casa e Sino da Vitória, campanhas de saúde como Outubro Rosa, Janeiro Branco e doação de sangue e datas comemorativas, e, após a boa receptividade, se expandiu para outros pontos de contato.':
         'I created a cohesive, clean, and standardized visual system. The redesign began on social media, with editorial series such as Pratas da Casa and Sino da Vitória, health campaigns such as Pink October, Janeiro Branco, and blood donation, and commemorative dates, and, after a strong reception, expanded to other touchpoints.',
+    'Também criei a linha editorial das políticas corporativas do grupo: capas com uma estrutura comum, com a fotografia do prédio, um ícone e a tipografia que identificam cada tema, publicadas no site para consulta e download.':
+        'I also created the editorial line for the group’s corporate policies: covers built on a shared structure, with a photograph of the building, an icon, and typography that identify each topic, published on the website for reference and download.',
+    'Capas das políticas corporativas do Grupo Santa Casa de Franca publicadas no site':
+        'Corporate policy covers for Grupo Santa Casa de Franca, published on the website',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
