@@ -234,10 +234,9 @@
 }
 
 
+/* destaque: respeita a proporção original da imagem (sem recorte) */
 .project-image-tall img {
-    aspect-ratio: 16 / 10;
-
-    object-fit: cover;
+    height: auto;
 }
 
 

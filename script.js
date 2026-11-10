@@ -349,6 +349,48 @@ const traducoesEn = {
         'Triângulo Express website main banner: the best cargo transport option in Triângulo Mineiro and the surrounding region',
     'Banner do site da Triângulo Express: movendo o que importa':
         'Triângulo Express website banner: moving what matters',
+    'Cartões de visita da identidade de Larissa Xavier':
+        'Business cards from Larissa Xavier’s identity',
+    'Logotipo de Larissa Xavier, psicóloga clínica':
+        'Logo for Larissa Xavier, clinical psychologist',
+    'Cartão de visita em formato de cérebro de Larissa Xavier':
+        'Brain-shaped business card for Larissa Xavier',
+    'Manual da persona de Larissa Xavier':
+        'Larissa Xavier persona manual',
+    'Série Pratas da Casa: Gilson Cleber':
+        'Pratas da Casa series: Gilson Cleber',
+    'Carrossel do aplicativo Conecta Santa Casa':
+        'Carousel for the Conecta Santa Casa app',
+    'Especialista Explica: câncer de pele':
+        'Specialist Explains: skin cancer',
+    'Carrossel Janeiro Branco sobre saúde mental':
+        'Janeiro Branco carousel on mental health',
+    'Série Pratas da Casa: Leda Junqueira':
+        'Pratas da Casa series: Leda Junqueira',
+    'Sino da Vitória: história de paciente':
+        'Victory Bell: a patient’s story',
+    'Dia Mundial de Luta contra a Aids':
+        'World AIDS Day',
+    'Carrossel do aplicativo Conecta: informações sobre o tratamento':
+        'Conecta app carousel: treatment information',
+    'Especialista Explica: câncer de próstata':
+        'Specialist Explains: prostate cancer',
+    'POSTAGENS PARA REDES SOCIAIS':
+        'SOCIAL MEDIA POSTS',
+    'Posts para redes sociais do Grupo Santa Casa de Franca':
+        'Social media posts for Grupo Santa Casa de Franca',
+    'Campanha Agosto Lilás aplicada em apresentação institucional':
+        'Agosto Lilás campaign applied to a corporate presentation',
+    'Camiseta da campanha Higiene das Mãos':
+        'Hand Hygiene campaign T-shirt',
+    'Uniformes institucionais do grupo':
+        'The group’s corporate uniforms',
+    'Sistema de logotipos e paleta do Santa Labs':
+        'Santa Labs logo system and palette',
+    'Landing page responsiva da campanha McDia Feliz 2026':
+        'Responsive landing page for the McDia Feliz 2026 campaign',
+    'Embalagens Leather Care: Creme Graxo e Limpador':
+        'Leather Care packaging: Creme Graxo and cleaner',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
