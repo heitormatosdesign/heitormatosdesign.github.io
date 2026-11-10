@@ -329,7 +329,7 @@ function aplicarIdioma(idioma) {
         );
     });
 
-    localStorage.setItem('site-language', emIngles ? 'en' : 'pt-BR');
+    try { localStorage.setItem('site-language', emIngles ? 'en' : 'pt-BR'); } catch (erro) {}
 }
 
 document.querySelectorAll('[data-language]').forEach((botao) => {
@@ -338,7 +338,9 @@ document.querySelectorAll('[data-language]').forEach((botao) => {
     });
 });
 
-aplicarIdioma(localStorage.getItem('site-language') === 'en' ? 'en' : 'pt-BR');
+let idiomaSalvo = 'pt-BR';
+try { idiomaSalvo = localStorage.getItem('site-language') === 'en' ? 'en' : 'pt-BR'; } catch (erro) {}
+aplicarIdioma(idiomaSalvo);
 
 
 /* ---------------------------------------------------------
@@ -550,13 +552,13 @@ const capasPorPagina = {
         'imagens/capa-mcdia.jpg',
 
     'projeto-eventos.html':
-        'imagens/Capa-triangulo.png',
+        'imagens/capa-triangulo.jpg',
 
     'projeto-institucional.html':
-        'imagens/capa-santacasa.png',
+        'imagens/capa-santacasa.jpg',
 
     'projeto-recorrente.html':
-        'imagens/Capa-triangulo.png'
+        'imagens/capa-triangulo.jpg'
 
 };
 
