@@ -413,6 +413,12 @@ const traducoesEn = {
         'Applications include campaign merchandise such as tote bags, T-shirts, cups, and bottles, countdown and campaign-day posts, a billboard, certificates, invitations, and announcements.',
     'Também desenvolvi uma landing page responsiva para apresentar os produtos, reunindo informações, catálogo digital e direcionamento para a equipe de vendas.':
         'I also developed a responsive landing page to present the products, bringing together information, a digital catalog, and a direct line to the sales team.',
+    'Também projetei o novo site institucional, com uma interface que organiza informações e serviços de forma mais clara, navegação intuitiva, destaque para as doações e adaptação para diferentes dispositivos.':
+        'I also designed the new institutional website, with an interface that organizes information and services more clearly, intuitive navigation, a focus on donations, and responsive layouts for different devices.',
+    'Visitar o site ↗':
+        'Visit the website ↗',
+    'Página inicial do novo site do Grupo Santa Casa de Franca':
+        'Homepage of the new Grupo Santa Casa de Franca website',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
