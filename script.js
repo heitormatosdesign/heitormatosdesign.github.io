@@ -509,6 +509,8 @@ const traducoesEn = {
         'Next piece',
     'Nos impressos, a mesma linguagem chega a cartilhas para pacientes, prontuários afetivos para pediatria e UTIs, cartazes de campanhas internas e de saúde e a linha editorial das políticas corporativas.':
         'In print, the same language extends to patient guides, affective medical records for pediatrics and ICUs, posters for internal and health campaigns, and the editorial line for corporate policies.',
+    'Ver projeto':
+        'View project',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
@@ -709,57 +711,155 @@ if (menuToggle && mobileMenu && menuOverlay) {
 
 /* ---------------------------------------------------------
    REVELAR ELEMENTOS AO ROLAR A PÁGINA
+   - títulos sobem por trás de uma máscara
+   - blocos de texto sobem com fade
+   - imagens abrem com leve zoom de saída
+   - itens irmãos entram em sequência
 --------------------------------------------------------- */
 
-const elementos = document.querySelectorAll(
-    '.section, .service, .project, .process-item, .about-content, .problem'
-);
+(() => {
 
+    const reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const observer = new IntersectionObserver(
-
-    (entries) => {
-
-        entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add(
-                    'reveal'
-                );
-
-
-                setTimeout(() => {
-
-                    entry.target.classList.add(
-                        'visible'
-                    );
-
-                }, 50);
-
-
-                observer.unobserve(
-                    entry.target
-                );
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.1
+    if (reduzido || !('IntersectionObserver' in window)) {
+        return;
     }
 
-);
+    const marcar = (seletor, tipo, passo = 0) => {
+        const grupos = new Map();
+        document.querySelectorAll(seletor).forEach((el) => {
+            if (el.closest('[data-reveal]') || el.hasAttribute('data-reveal')) return;
+            el.dataset.reveal = tipo;
+            if (passo) {
+                const pai = el.parentElement;
+                const i = grupos.get(pai) || 0;
+                el.style.setProperty('--rv-delay', (i * passo) + 's');
+                grupos.set(pai, i + 1);
+            }
+        });
+    };
+
+    // títulos
+    marcar([
+        '.section h2', '.projects-header h2', '.help-header h2', '.cta h2',
+        '.project-intro-content > h2', '.project-text-content > h2', '.project-result h2'
+    ].join(','), 'title');
+
+    // imagens
+    marcar([
+        '.project-image', '.about-photo', '.project-cover',
+        '.project-full-image', '.project-gallery > div', '.project-gallery-three > img'
+    ].join(','), 'img');
+
+    // blocos em sequência
+    marcar('.service', 'up', .08);
+    marcar('.problem', 'up', .1);
+    marcar('.project-grid > .project .project-info', 'up');
+
+    // demais blocos de texto
+    marcar([
+        '.section-label', '.section .text', '.projects-header p', '.help-header p',
+        '.about-content > p', '.tags', '.cta > span', '.cta > p', '.cta > .button',
+        '.project-intro-label', '.project-intro-content > div', '.project-section-label',
+        '.project-text-content > p', '.project-result > span', '.post-gallery', '.cover-stack',
+        '.project-navigation'
+    ].join(','), 'up');
+
+    const observador = new IntersectionObserver((entradas) => {
+        entradas.forEach((entrada) => {
+            if (!entrada.isIntersecting) return;
+            entrada.target.classList.add('is-in');
+            observador.unobserve(entrada.target);
+        });
+    }, { threshold: .12, rootMargin: '0px 0px -6% 0px' });
+
+    document.documentElement.classList.add('has-reveal');
+
+    requestAnimationFrame(() => {
+        document.querySelectorAll('[data-reveal]').forEach((el) => observador.observe(el));
+    });
+
+})();
 
 
-elementos.forEach((elemento) => {
 
-    observer.observe(elemento);
+/* ---------------------------------------------------------
+   HEADER QUE SE ADAPTA AO SCROLL
+   - fundo de vidro fosco depois do topo
+   - some ao descer, volta ao subir
+--------------------------------------------------------- */
 
-});
+(() => {
+
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    let ultimoY = window.scrollY;
+    const atualizar = () => {
+        const y = window.scrollY;
+        const altura = header.offsetHeight;
+
+        header.classList.toggle('is-solid', y > 8);
+
+        if (document.body.classList.contains('menu-open')) {
+            header.classList.remove('is-hidden');
+        } else if (y > altura * 2 && y > ultimoY + 4) {
+            header.classList.add('is-hidden');
+        } else if (y < ultimoY - 4 || y <= altura) {
+            header.classList.remove('is-hidden');
+        }
+
+        ultimoY = y;
+    };
+
+    window.addEventListener('scroll', atualizar, { passive: true });
+
+    header.addEventListener('focusin', () => header.classList.remove('is-hidden'));
+
+    atualizar();
+
+})();
+
+
+
+/* ---------------------------------------------------------
+   CAPAS DA HOME QUE REAGEM AO MOUSE
+--------------------------------------------------------- */
+
+(() => {
+
+    const finoComHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!finoComHover) return;
+
+    document.querySelectorAll('.project').forEach((projeto) => {
+
+        const capa = projeto.querySelector('.project-image');
+        if (!capa) return;
+
+        let quadro = null;
+
+        projeto.addEventListener('pointermove', (evento) => {
+            if (quadro) return;
+            quadro = requestAnimationFrame(() => {
+                const r = capa.getBoundingClientRect();
+                const x = Math.min(Math.max(evento.clientX - r.left, 0), r.width);
+                const y = Math.min(Math.max(evento.clientY - r.top, 0), r.height);
+                capa.style.setProperty('--mx', x + 'px');
+                capa.style.setProperty('--my', y + 'px');
+                capa.style.setProperty('--px', (x / r.width - .5).toFixed(3));
+                capa.style.setProperty('--py', (y / r.height - .5).toFixed(3));
+                quadro = null;
+            });
+        });
+
+        projeto.addEventListener('pointerleave', () => {
+            capa.style.setProperty('--px', 0);
+            capa.style.setProperty('--py', 0);
+        });
+
+    });
+
+})();
 
 
 

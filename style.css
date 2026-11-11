@@ -471,8 +471,7 @@ em {
 
     grid-template-columns:
         70px
-        1fr
-        40px;
+        1fr;
 
     gap: 25px;
 
@@ -509,9 +508,7 @@ em {
     line-height: 1.6;
 }
 
-.service strong {
-    font-size: 20px;
-}
+
 
 
 /* =========================================================
@@ -641,9 +638,7 @@ em {
     object-fit: contain;
 }
 
-.project:hover .project-image {
-    transform: scale(.985);
-}
+
 
 .project-info {
     display: flex;
@@ -1340,8 +1335,7 @@ em {
     .service {
         grid-template-columns:
             40px
-            1fr
-            25px;
+            1fr;
 
         gap: 15px;
     }
@@ -1507,6 +1501,282 @@ em {
 
     .cta h2 {
         font-size: 52px;
+    }
+
+}
+
+
+/* =========================================================
+   REFINAMENTOS DE INTERAÇÃO
+========================================================= */
+
+:root {
+    --ease-suave: cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* ---------------------------------------------------------
+   6) HEADER QUE SE ADAPTA AO SCROLL
+--------------------------------------------------------- */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+
+    transition:
+        transform .6s var(--ease-suave),
+        border-color .4s ease;
+}
+
+
+/* fundo de vidro fosco em largura total */
+.header::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    left: 50%;
+    z-index: -1;
+
+    width: 100vw;
+
+    transform: translateX(-50%);
+
+    background: rgba(243, 241, 236, .78);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    backdrop-filter: blur(18px) saturate(1.4);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity .4s ease;
+}
+
+
+.header.is-solid::before {
+    opacity: 1;
+}
+
+
+.header.is-solid {
+    border-color: transparent;
+}
+
+
+.header.is-hidden {
+    transform: translateY(-100%);
+}
+
+
+body.menu-open .header {
+    z-index: 10002;
+
+    transform: none;
+}
+
+
+html {
+    scroll-padding-top: 100px;
+}
+
+
+/* ---------------------------------------------------------
+   1) ENTRADA AO ROLAR
+--------------------------------------------------------- */
+
+html.has-reveal [data-reveal] {
+    opacity: 0;
+    transform: translateY(36px);
+
+    transition:
+        opacity 1s ease var(--rv-delay, 0s),
+        transform 1.2s var(--ease-suave) var(--rv-delay, 0s);
+}
+
+
+/* títulos: sobem por trás de uma máscara */
+html.has-reveal [data-reveal="title"] {
+    opacity: 1;
+    transform: translateY(.35em);
+
+    clip-path: inset(0 0 100% 0);
+
+    transition:
+        clip-path 1.2s var(--ease-suave) var(--rv-delay, 0s),
+        transform 1.2s var(--ease-suave) var(--rv-delay, 0s);
+}
+
+
+/* imagens: o bloco aparece e a foto faz um leve zoom de saída */
+html.has-reveal [data-reveal="img"] {
+    transform: none;
+
+    clip-path: inset(8% 0 0 0);
+
+    transition:
+        opacity 1s ease var(--rv-delay, 0s),
+        clip-path 1.4s var(--ease-suave) var(--rv-delay, 0s);
+}
+
+
+html.has-reveal [data-reveal="img"] img {
+    scale: 1.08;
+
+    transition: scale 1.8s var(--ease-suave) var(--rv-delay, 0s);
+}
+
+
+html.has-reveal [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+
+    clip-path: inset(-20% -20% -20% -20%);
+}
+
+
+html.has-reveal [data-reveal="img"].is-in img {
+    scale: 1;
+}
+
+
+/* ---------------------------------------------------------
+   3) CAPAS DA HOME QUE REAGEM AO MOUSE
+--------------------------------------------------------- */
+
+.project-image {
+    position: relative;
+}
+
+
+.project-image img {
+    transition:
+        transform 1.1s var(--ease-suave),
+        scale 1.8s var(--ease-suave);
+}
+
+
+.project-cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    padding: 13px 20px;
+
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    color: var(--branco);
+
+    background: rgba(23, 23, 23, .88);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-radius: 999px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translate(var(--mx, 50%), var(--my, 50%))
+        translate(-50%, -50%)
+        scale(.6);
+
+    transition:
+        opacity .35s ease,
+        transform .5s var(--ease-suave);
+}
+
+
+.project-cursor::after {
+    content: " →";
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .project-image {
+        cursor: none;
+    }
+
+
+    .project:hover .project-image img {
+        transform:
+            scale(1.045)
+            translate(
+                calc(var(--px, 0) * -14px),
+                calc(var(--py, 0) * -14px)
+            );
+    }
+
+
+    .project:hover .project-cursor {
+        opacity: 1;
+
+        transform:
+            translate(var(--mx, 50%), var(--my, 50%))
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+}
+
+
+/* teclado: etiqueta centralizada */
+.project:focus-visible {
+    outline: none;
+}
+
+
+.project:focus-visible .project-cursor {
+    opacity: 1;
+
+    transform: translate(50%, 50%) translate(-50%, -50%) scale(1);
+
+    left: 50%;
+    top: 50%;
+    --mx: 0px;
+    --my: 0px;
+}
+
+
+.project:focus-visible .project-image {
+    box-shadow: 0 0 0 2px var(--destaque);
+}
+
+
+/* ---------------------------------------------------------
+   MOVIMENTO REDUZIDO
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html.has-reveal [data-reveal],
+    html.has-reveal [data-reveal] img {
+        opacity: 1 !important;
+        transform: none !important;
+        clip-path: none !important;
+        scale: 1 !important;
+
+        transition: none !important;
+    }
+
+
+    .header,
+    .project-image img,
+    .project-cursor {
+        transition: none;
+    }
+
+
+    .project:hover .project-image img {
+        transform: none;
     }
 
 }
