@@ -721,7 +721,7 @@ if (menuToggle && mobileMenu && menuOverlay) {
 
     const reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (reduzido || !('IntersectionObserver' in window)) {
+    if (reduzido) {
         return;
     }
 
@@ -765,19 +765,46 @@ if (menuToggle && mobileMenu && menuOverlay) {
         '.project-navigation'
     ].join(','), 'up');
 
-    const observador = new IntersectionObserver((entradas) => {
-        entradas.forEach((entrada) => {
-            if (!entrada.isIntersecting) return;
-            entrada.target.classList.add('is-in');
-            observador.unobserve(entrada.target);
-        });
-    }, { threshold: .12, rootMargin: '0px 0px -6% 0px' });
+    // cada elemento é conferido pela posição na tela a cada rolagem.
+    // títulos usam a posição do elemento pai (eles começam 100% mascarados)
+    const pendentes = [...document.querySelectorAll('[data-reveal]')].map((el) => ({
+        el,
+        ref: el.dataset.reveal === 'title' ? el.parentElement : el
+    }));
+
+    let agendado = false;
+
+    const conferir = () => {
+        agendado = false;
+        const limite = window.innerHeight * .94;
+        for (let i = pendentes.length - 1; i >= 0; i--) {
+            const { el, ref } = pendentes[i];
+            const r = ref.getBoundingClientRect();
+            if (r.top < limite && r.bottom > 0) {
+                el.classList.add('is-in');
+                pendentes.splice(i, 1);
+            }
+        }
+        if (!pendentes.length) {
+            window.removeEventListener('scroll', agendar);
+            window.removeEventListener('resize', agendar);
+        }
+    };
+
+    const agendar = () => {
+        if (agendado) return;
+        agendado = true;
+        // requestAnimationFrame quando disponível, com segurança por timeout
+        const id = setTimeout(conferir, 120);
+        requestAnimationFrame(() => { clearTimeout(id); conferir(); });
+    };
 
     document.documentElement.classList.add('has-reveal');
 
-    requestAnimationFrame(() => {
-        document.querySelectorAll('[data-reveal]').forEach((el) => observador.observe(el));
-    });
+    window.addEventListener('scroll', agendar, { passive: true });
+    window.addEventListener('resize', agendar);
+    window.addEventListener('load', agendar);
+    agendar();
 
 })();
 
