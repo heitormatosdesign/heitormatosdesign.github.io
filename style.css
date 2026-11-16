@@ -30,6 +30,11 @@
     box-sizing: border-box;
 }
 
+/* largura/altura no HTML reservam o espaço; a proporção final vem do CSS */
+img {
+    height: auto;
+}
+
 html {
     scroll-behavior: smooth;
 }

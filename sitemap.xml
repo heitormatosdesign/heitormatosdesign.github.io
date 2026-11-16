@@ -1,31 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://heitormatosdesign.github.io/</loc>
         <lastmod>2026-11-16</lastmod>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/capa-larissaxavier.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/capa-santacasa.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/capa-triangulo.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/capa-mcdia.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/capa-leathercare.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/sobre-heitor.webp</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://heitormatosdesign.github.io/curriculo.html</loc>
         <lastmod>2026-11-16</lastmod>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/sobre-heitor.webp</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://heitormatosdesign.github.io/projeto-branding.html</loc>
         <lastmod>2026-11-16</lastmod>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/capa-larissaxavier.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/larissa-papelaria.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/larissa-logo.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/larissa-cartao.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/larissa-tipografia.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/larissa-cores1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/larissa-cores2.webp</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://heitormatosdesign.github.io/projeto-direcao.html</loc>
         <lastmod>2026-11-16</lastmod>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/capa-mcdia.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/mcdia-pack.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/mcdia-hoje.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/mcdia-restaurantes.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/mcdia-produtos.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/mcdia-slogan.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/mcdia-landing.webp</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://heitormatosdesign.github.io/projeto-institucional.html</loc>
         <lastmod>2026-11-16</lastmod>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/capa-santacasa.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-post-01.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-post-02.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-post-03.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-post-04.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-post-05.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-post-06.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-post-07.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-post-08.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-post-09.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-site.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-impresso-01.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-impresso-02.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-impresso-03.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-impresso-04.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-impresso-05.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-impresso-06.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-impresso-07.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-impresso-08.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-impresso-09.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-impresso-10.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-impresso-11.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/santacasa-impresso-12.webp</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://heitormatosdesign.github.io/projeto-packaging.html</loc>
         <lastmod>2026-11-16</lastmod>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/capa-leathercare.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/leathercare-site.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/leathercare-graxo.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/leathercare-limpador.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/leathercare-cremes.webp</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://heitormatosdesign.github.io/projeto-recorrente.html</loc>
         <lastmod>2026-11-16</lastmod>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/capa-triangulo.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/triangulo-banner.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/triangulo-post-01.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/triangulo-post-02.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/triangulo-post-03.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/triangulo-post-04.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/triangulo-post-05.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/triangulo-post-06.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/triangulo-post-07.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/triangulo-post-08.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/triangulo-post-09.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://heitormatosdesign.github.io/imagens/triangulo-banner-2.webp</image:loc>
+        </image:image>
     </url>
 </urlset>
