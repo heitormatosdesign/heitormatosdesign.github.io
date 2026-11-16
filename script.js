@@ -567,6 +567,18 @@ const traducoesEn = {
     'PÁGINA NÃO ENCONTRADA': 'PAGE NOT FOUND',
     'Essa página saiu do layout.': 'This page fell off the layout.',
     'O endereço que você procurou não existe ou mudou de lugar. Os projetos continuam todos no portfólio.': 'The address you were looking for does not exist or has moved. All the projects are still in the portfolio.',
+    'INSTITUCIONAL, COMERCIAL & WEB': 'CORPORATE, COMMERCIAL & WEB',
+    'SITE INSTITUCIONAL': 'CORPORATE WEBSITE',
+    'Uma interface que organiza informações e serviços.': 'An interface that organizes information and services.',
+    'Navegação': 'Navigation',
+    'Conteúdo organizado em Institucional, Unidades, Saúde Digital e Transparência.': 'Content organized into About, Units, Digital Health and Transparency.',
+    'Doação em destaque': 'Donations up front',
+    'Botão “Doar” sempre visível no topo da página.': 'A “Donate” button always visible at the top of the page.',
+    'Busca': 'Search',
+    'Campo de busca no cabeçalho para chegar rápido a serviços e unidades.': 'Search field in the header for quick access to services and units.',
+    'Responsivo': 'Responsive',
+    'Layout pensado do desktop ao celular.': 'Layout designed from desktop to mobile.',
+    'Arquitetura de Informação': 'Information Architecture',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
@@ -805,12 +817,13 @@ if (menuToggle && mobileMenu && menuOverlay) {
     marcar('.cv-item', 'up', .1);
     marcar('.cv-skill-group', 'up', .1);
     marcar('.cv-contacts', 'up');
+    marcar('.web-features li', 'up', .08);
 
     // imagens
     marcar([
         '.cv-hero-photo',
         '.project-image', '.about-photo', '.project-cover',
-        '.project-full-image', '.project-gallery > div', '.project-gallery-three > img'
+        '.project-full-image', '.browser-mockup', '.project-gallery > div', '.project-gallery-three > img'
     ].join(','), 'img');
 
     // blocos em sequência
