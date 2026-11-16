@@ -81,7 +81,89 @@
 }
 
 
-.cv-contacts span {
+.cv-contacts li {
+    display: grid;
+
+    grid-template-columns:
+        46px
+        minmax(0, 1fr);
+
+    gap: 16px;
+
+    align-items: center;
+
+    transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+.cv-contacts li:hover {
+    transform: translateY(-3px);
+}
+
+
+.cv-contact-badge {
+    position: relative;
+
+    isolation: isolate;
+
+    display: grid;
+
+    place-items: center;
+
+    width: 46px;
+    height: 46px;
+
+    border: 1px solid var(--borda);
+    border-radius: 50%;
+
+    color: var(--destaque);
+
+    transition:
+        color .4s ease,
+        border-color .4s ease;
+}
+
+
+.cv-contact-badge::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -1px;
+
+    z-index: -1;
+
+    border-radius: 50%;
+
+    background: var(--destaque);
+
+    transform: scale(0);
+
+    transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+.cv-contact-badge .icon {
+    width: 21px;
+    height: 21px;
+
+    vertical-align: 0;
+}
+
+
+.cv-contacts li:hover .cv-contact-badge {
+    color: #fff;
+
+    border-color: var(--destaque);
+}
+
+
+.cv-contacts li:hover .cv-contact-badge::before {
+    transform: scale(1);
+}
+
+
+.cv-contacts li > div > span {
     display: block;
 
     margin-bottom: 8px;
@@ -352,4 +434,49 @@
         padding: 0 0 55px 28px;
     }
 
+}
+
+
+/* números da trajetória */
+
+.stats-career {
+    align-self: start;
+}
+
+
+/* idiomas */
+
+.cv-languages {
+    list-style: none;
+
+    margin-top: 25px;
+
+    border-top: 1px solid var(--borda);
+}
+
+
+.cv-languages li {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 16px 0;
+
+    border-bottom: 1px solid var(--borda);
+
+    font-size: 16px;
+}
+
+
+.cv-languages strong {
+    font-weight: 500;
+}
+
+
+.cv-languages span {
+    font-size: 13px;
+
+    color: var(--texto-suave);
 }

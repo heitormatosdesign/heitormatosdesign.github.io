@@ -1756,14 +1756,28 @@ html.has-reveal [data-reveal="img"].is-in img {
 
 
 .project-cursor::after {
-    content: " →";
+    content: "";
+
+    display: inline-block;
+
+    width: 1em;
+    height: 1em;
+
+    margin-left: .35em;
+
+    vertical-align: -.15em;
+
+    background: currentColor;
+
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 
 @media (hover: hover) and (pointer: fine) {
 
     .project-image {
-        cursor: none;
+        cursor: pointer;
     }
 
 
@@ -1776,15 +1790,6 @@ html.has-reveal [data-reveal="img"].is-in img {
             );
     }
 
-
-    .project:hover .project-cursor {
-        opacity: 1;
-
-        transform:
-            translate(var(--mx, 50%), var(--my, 50%))
-            translate(-50%, -50%)
-            scale(1);
-    }
 
 }
 
@@ -1838,6 +1843,408 @@ html.has-reveal [data-reveal="img"].is-in img {
 
     .project:hover .project-image img {
         transform: none;
+    }
+
+}
+
+
+/* =========================================================
+   ÍCONES (Phosphor Icons — peso Light, licença MIT)
+========================================================= */
+
+.icon {
+    display: inline-block;
+
+    flex-shrink: 0;
+
+    width: 1em;
+    height: 1em;
+
+    vertical-align: -.14em;
+}
+
+
+/* ---------------------------------------------------------
+   SETAS: saem na direção que apontam e voltam pelo lado oposto
+--------------------------------------------------------- */
+
+.icon-mask {
+    display: inline-flex;
+
+    position: relative;
+
+    overflow: hidden;
+
+    width: 1em;
+    height: 1em;
+
+    vertical-align: -.14em;
+}
+
+.icon-mask .icon {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    vertical-align: 0;
+}
+
+a:hover .icon-mask[data-dir="ur"] .icon,
+a:focus-visible .icon-mask[data-dir="ur"] .icon,
+button:hover .icon-mask[data-dir="ur"] .icon {
+    animation: seta-diagonal .6s cubic-bezier(.65, 0, .35, 1);
+}
+
+a:hover .icon-mask[data-dir="r"] .icon,
+a:focus-visible .icon-mask[data-dir="r"] .icon,
+button:hover .icon-mask[data-dir="r"] .icon {
+    animation: seta-direita .6s cubic-bezier(.65, 0, .35, 1);
+}
+
+a:hover .icon-mask[data-dir="l"] .icon,
+a:focus-visible .icon-mask[data-dir="l"] .icon,
+button:hover .icon-mask[data-dir="l"] .icon {
+    animation: seta-esquerda .6s cubic-bezier(.65, 0, .35, 1);
+}
+
+@keyframes seta-diagonal {
+    0%   { transform: translate(0, 0); }
+    45%  { transform: translate(115%, -115%); }
+    46%  { transform: translate(-115%, 115%); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes seta-direita {
+    0%   { transform: translateX(0); }
+    45%  { transform: translateX(115%); }
+    46%  { transform: translateX(-115%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes seta-esquerda {
+    0%   { transform: translateX(0); }
+    45%  { transform: translateX(-115%); }
+    46%  { transform: translateX(115%); }
+    100% { transform: translateX(0); }
+}
+
+
+/* ---------------------------------------------------------
+   SERVIÇOS DA HOME
+--------------------------------------------------------- */
+
+.service {
+    position: relative;
+
+    grid-template-columns:
+        70px
+        1fr
+        auto;
+}
+
+/* linha laranja que percorre a borda inferior */
+.service::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -1px;
+
+    height: 1px;
+
+    background: var(--laranja);
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform .7s cubic-bezier(.22, 1, .36, 1);
+}
+
+.service:hover::after {
+    transform: scaleX(1);
+}
+
+.service > span:first-child {
+    transition: color .3s ease;
+}
+
+.service:hover > span:first-child {
+    color: var(--laranja);
+}
+
+.service-badge {
+    position: relative;
+
+    isolation: isolate;
+
+    display: grid;
+
+    place-items: center;
+
+    align-self: center;
+
+    width: 72px;
+    height: 72px;
+
+    border: 1px solid var(--borda);
+    border-radius: 50%;
+
+    color: var(--texto);
+
+    transition:
+        color .45s ease,
+        border-color .45s ease,
+        transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* preenchimento que cresce do centro */
+.service-badge::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -1px;
+
+    z-index: -1;
+
+    border-radius: 50%;
+
+    background: var(--laranja);
+
+    transform: scale(0);
+
+    transition: transform .55s cubic-bezier(.22, 1, .36, 1);
+}
+
+.service-badge .icon {
+    width: 32px;
+    height: 32px;
+
+    vertical-align: 0;
+
+    transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+.service:hover .service-badge {
+    color: #fff;
+
+    border-color: var(--laranja);
+
+    transform: translateX(-10px);
+}
+
+.service:hover .service-badge::before {
+    transform: scale(1);
+}
+
+/* movimento próprio de cada ícone */
+.service:hover .service-badge[data-anim="spin"] .icon {
+    transform: rotate(180deg);
+}
+
+.service:hover .service-badge[data-anim="tilt"] .icon {
+    animation: icone-inclina .8s cubic-bezier(.36, .07, .19, .97);
+}
+
+.service:hover .service-badge[data-anim="pulse"] .icon {
+    animation: icone-pulsa .9s ease;
+}
+
+.service:hover .service-badge[data-anim="rise"] .icon {
+    animation: icone-sobe .7s cubic-bezier(.22, 1, .36, 1);
+}
+
+@keyframes icone-inclina {
+    0%, 100% { transform: rotate(0); }
+    25%      { transform: rotate(-14deg); }
+    55%      { transform: rotate(9deg); }
+    80%      { transform: rotate(-4deg); }
+}
+
+@keyframes icone-pulsa {
+    0%, 100% { transform: scale(1); }
+    30%      { transform: scale(1.18); }
+    60%      { transform: scale(.94); }
+}
+
+@keyframes icone-sobe {
+    0%   { transform: translateY(0); }
+    40%  { transform: translateY(-7px); }
+    100% { transform: translateY(0); }
+}
+
+@media (max-width: 800px) {
+
+    .service {
+        grid-template-columns:
+            40px
+            1fr
+            auto;
+    }
+
+    .service-badge {
+        width: 48px;
+        height: 48px;
+
+        align-self: start;
+    }
+
+    .service-badge .icon {
+        width: 22px;
+        height: 22px;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   MOVIMENTO REDUZIDO
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .icon-mask .icon,
+    .service-badge,
+    .service-badge .icon,
+    .service-badge::before,
+    .service::after,
+    .cv-contact-badge,
+    .cv-contacts li {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .service:hover .service-badge,
+    .service:hover .service-badge .icon {
+        transform: none;
+    }
+
+}
+
+
+/* =========================================================
+   NÚMEROS (contadores)
+========================================================= */
+
+.sr-only {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+}
+
+.stats {
+    list-style: none;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    border-top: 1px solid var(--borda);
+}
+
+.stat {
+    padding: 28px 24px 4px 0;
+}
+
+.stat + .stat {
+    padding-left: 24px;
+
+    border-left: 1px solid var(--borda);
+}
+
+.stat-number {
+    display: block;
+
+    font-size: clamp(44px, 5vw, 72px);
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: -.05em;
+
+    font-variant-numeric: tabular-nums;
+
+    color: var(--texto);
+}
+
+.stat-prefix {
+    color: var(--laranja);
+}
+
+.stat-label {
+    display: block;
+
+    max-width: 200px;
+
+    margin-top: 14px;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    color: var(--texto-suave);
+}
+
+/* versão compacta dentro do Sobre */
+.stats-about {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    margin: 40px 0 35px;
+}
+
+.stats-about .stat:nth-child(3) {
+    padding-left: 0;
+
+    border-left: 0;
+}
+
+.stats-about .stat:nth-child(n + 3) {
+    border-top: 1px solid var(--borda);
+}
+
+.stats-about .stat-number {
+    font-size: clamp(38px, 3.6vw, 54px);
+}
+
+@media (max-width: 800px) {
+
+    .stats {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .stat:nth-child(3) {
+        padding-left: 0;
+
+        border-left: 0;
+    }
+
+    .stat:nth-child(n + 3) {
+        border-top: 1px solid var(--borda);
+    }
+
+    .stat {
+        padding: 22px 16px 18px 0;
+    }
+
+    .stat + .stat {
+        padding-left: 16px;
     }
 
 }

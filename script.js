@@ -593,6 +593,60 @@ const traducoesEn = {
     "Packaging design e e-commerce para a Leather Care, linha de cuidados com couro: rótulos em preto e branco e interface web minimalista.": "Packaging design and e-commerce for Leather Care, a leather care product line: black-and-white labels and a minimalist web interface.",
     "Social Media Triângulo Express — Heitor Matos": "Triângulo Express Social Media — Heitor Matos",
     "Design recorrente para a Triângulo Express: posts para Instagram e banners do site com uma linguagem visual consistente entre conteúdos.": "Ongoing design for Triângulo Express: Instagram posts and website banners with a consistent visual language across content.",
+    "Falar comigo": "Get in touch",
+    "Voltar aos projetos": "Back to projects",
+    "Projeto anterior": "Previous project",
+    "Próximo projeto": "Next project",
+    "Visitar o site": "Visit the website",
+    "Voltar ao início": "Back to home",
+    "Ver projeto Santa Casa": "View Santa Casa project",
+    "Ver currículo completo": "View full résumé",
+    "EM NÚMEROS": "IN NUMBERS",
+    "Uma produção constante, mês a mês.": "Consistent output, month after month.",
+    "artes publicadas nas redes": "pieces published on social media",
+    "publicações": "posts",
+    "campanhas de saúde em carrossel": "health campaigns in carousel format",
+    "artes por mês, em média": "pieces per month on average",
+    "Artes publicadas por mês": "Pieces published per month",
+    "Redes sociais do Grupo Santa Casa de Franca, de outubro de 2025 a novembro de 2026": "Grupo Santa Casa de Franca social media, October 2025 to November 2026",
+    "Outubro de 2025 e novembro de 2026 são meses parciais.": "October 2025 and November 2026 are partial months.",
+    "Mês": "Month",
+    "Artes": "Pieces",
+    "clientes atendidos ao mesmo tempo como social media": "clients handled at the same time as a social media designer",
+    "marcas com redes sociais sob minha gestão, em posts e vídeos": "brands whose social media I managed, with posts and videos",
+    "artes publicadas para a Santa Casa em 13 meses": "pieces published for Santa Casa in 13 months",
+    "anos de experiência em design": "years of design experience",
+    "out": "Oct",
+    "nov": "Nov",
+    "dez": "Dec",
+    "jan": "Jan",
+    "fev": "Feb",
+    "mar": "Mar",
+    "abr": "Apr",
+    "mai": "May",
+    "jun": "Jun",
+    "jul": "Jul",
+    "ago": "Aug",
+    "set": "Sep",
+    "Fev 2025 — Set 2025": "Feb 2025 — Sep 2025",
+    "Analista de Marketing Digital": "Digital Marketing Analyst",
+    "Análise de dados e métricas, com relatórios de performance e proposição de melhorias.": "Data and metrics analysis, performance reporting and improvement proposals.",
+    "Gestão de conteúdos e pesquisa de mercado.": "Content management and market research.",
+    "Elaboração de campanhas de vendas e de posicionamento de marca.": "Sales and brand positioning campaigns.",
+    "Abr 2023 — Mai 2023": "Apr 2023 — May 2023",
+    "Estagiário de Marketing": "Marketing Intern",
+    "Criação de banners promocionais e campanhas de marketing.": "Promotional banners and marketing campaigns.",
+    "Manutenção de site de vendas e tratamento de fotos.": "E-commerce site maintenance and photo editing.",
+    "Mar 2021 — Out 2021": "Mar 2021 — Oct 2021",
+    "Criação de flyers promocionais e catálogos de produtos.": "Promotional flyers and product catalogs.",
+    "Formulação de fichas técnicas de marca própria e pesquisa de pós-venda.": "Private-label product spec sheets and after-sales research.",
+    "Idiomas": "Languages",
+    "Português": "Portuguese",
+    "Nativo": "Native",
+    "Inglês": "English",
+    "Espanhol": "Spanish",
+    "Profissional completo": "Full professional",
+    "anos de experiência em design e marketing": "years of experience in design and marketing",
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
@@ -1822,3 +1876,151 @@ document.querySelectorAll('.cover-stack').forEach((pilha) => {
     desenhar(0);
 
 });
+
+
+/* ---------------------------------------------------------
+   CONTADORES E GRÁFICO MENSAL
+--------------------------------------------------------- */
+
+(() => {
+
+    const semMovimento =
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const formatar = (n) =>
+        n.toLocaleString(document.documentElement.lang === 'en' ? 'en-GB' : 'pt-BR');
+
+
+    /* contadores: sobem de 0 até o valor quando aparecem */
+
+    const contadores = [...document.querySelectorAll('[data-count]')];
+
+    const animarContador = (el) => {
+        const alvo = Number(el.dataset.count);
+
+        if (semMovimento) {
+            el.textContent = formatar(alvo);
+            return;
+        }
+
+        const duracao = 1600;
+        const inicio = performance.now();
+
+        const passo = (agora) => {
+            const t = Math.min((agora - inicio) / duracao, 1);
+            const suave = 1 - Math.pow(1 - t, 4);
+
+            el.textContent = formatar(Math.round(alvo * suave));
+
+            if (t < 1) requestAnimationFrame(passo);
+        };
+
+        requestAnimationFrame(passo);
+    };
+
+
+    /* gráfico: barras crescem ao aparecer */
+
+    const graficos = [...document.querySelectorAll('.chart')];
+
+    if (!semMovimento) {
+        graficos.forEach((g) => g.classList.add('is-waiting'));
+    }
+
+
+    if ('IntersectionObserver' in window) {
+
+        const observador = new IntersectionObserver((entradas) => {
+            entradas.forEach((entrada) => {
+                if (!entrada.isIntersecting) return;
+
+                const el = entrada.target;
+
+                if (el.matches('[data-count]')) {
+                    animarContador(el);
+                } else {
+                    el.classList.remove('is-waiting');
+                }
+
+                observador.unobserve(el);
+            });
+        }, { threshold: .35 });
+
+        contadores.forEach((el) => {
+            if (!semMovimento) el.textContent = '0';
+            observador.observe(el);
+        });
+
+        graficos.forEach((g) => observador.observe(g));
+
+    } else {
+        graficos.forEach((g) => g.classList.remove('is-waiting'));
+    }
+
+
+    /* gráfico: tooltip por mês */
+
+    const nomesMes = {
+        'pt-BR': {
+            out: 'Outubro', nov: 'Novembro', dez: 'Dezembro', jan: 'Janeiro', fev: 'Fevereiro', mar: 'Março',
+            abr: 'Abril', mai: 'Maio', jun: 'Junho', jul: 'Julho', ago: 'Agosto', set: 'Setembro'
+        },
+        en: {
+            out: 'October', nov: 'November', dez: 'December', jan: 'January', fev: 'February', mar: 'March',
+            abr: 'April', mai: 'May', jun: 'June', jul: 'July', ago: 'August', set: 'September'
+        }
+    };
+
+    document.querySelectorAll('.chart-plot').forEach((plot) => {
+
+        const tooltip = plot.querySelector('.chart-tooltip');
+        const barras = [...plot.querySelectorAll('.chart-bar')];
+        const alvos = [...plot.querySelectorAll('.chart-hit')];
+
+        const mostrar = (alvo) => {
+            const i = alvos.indexOf(alvo);
+            const emIngles = document.documentElement.lang === 'en';
+            const nomes = nomesMes[emIngles ? 'en' : 'pt-BR'];
+            const valor = Number(alvo.dataset.valor);
+            const parcial = alvo.dataset.parcial === '1';
+
+            barras.forEach((b, j) => b.classList.toggle('is-active', j === i));
+            plot.classList.add('is-hovering');
+
+            tooltip.innerHTML = '';
+
+            const titulo = document.createElement('strong');
+            titulo.textContent = `${valor} ${emIngles ? 'pieces' : 'artes'}`;
+
+            const linha = document.createElement('span');
+            linha.textContent =
+                `${nomes[alvo.dataset.mes]} ${alvo.dataset.ano}` +
+                (parcial ? (emIngles ? ' · partial month' : ' · mês parcial') : '');
+
+            tooltip.append(titulo, linha);
+
+            const caixa = plot.getBoundingClientRect();
+            const barra = barras[i].getBoundingClientRect();
+
+            tooltip.style.left = `${barra.left - caixa.left + barra.width / 2}px`;
+            tooltip.style.top = `${barra.top - caixa.top}px`;
+            tooltip.classList.add('is-visible');
+        };
+
+        const esconder = () => {
+            plot.classList.remove('is-hovering');
+            barras.forEach((b) => b.classList.remove('is-active'));
+            tooltip.classList.remove('is-visible');
+        };
+
+        alvos.forEach((alvo) => {
+            alvo.addEventListener('pointerenter', () => mostrar(alvo));
+            alvo.addEventListener('focus', () => mostrar(alvo));
+            alvo.addEventListener('blur', esconder);
+        });
+
+        plot.addEventListener('pointerleave', esconder);
+
+    });
+
+})();
