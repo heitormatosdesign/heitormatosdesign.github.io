@@ -989,19 +989,19 @@ projetos.forEach((projeto) => {
 const capasPorPagina = {
 
     'projeto-branding.html':
-        'imagens/capa-larissaxavier.jpg',
+        'imagens/capa-larissaxavier.webp',
 
     'projeto-direcao.html':
-        'imagens/capa-mcdia.jpg',
+        'imagens/capa-mcdia.webp',
 
     'projeto-packaging.html':
-        'imagens/capa-leathercare.jpg',
+        'imagens/capa-leathercare.webp',
 
     'projeto-institucional.html':
-        'imagens/capa-santacasa.jpg',
+        'imagens/capa-santacasa.webp',
 
     'projeto-recorrente.html':
-        'imagens/capa-triangulo.jpg'
+        'imagens/capa-triangulo.webp'
 
 };
 
