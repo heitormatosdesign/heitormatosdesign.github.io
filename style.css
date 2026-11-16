@@ -1211,6 +1211,10 @@ em {
         opacity: .5;
     }
 
+    .mobile-menu a[aria-current="page"] {
+        color: var(--laranja);
+    }
+
     .mobile-menu a + a {
         margin-top: 25px;
     }
