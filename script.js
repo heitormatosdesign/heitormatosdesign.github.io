@@ -511,6 +511,57 @@ const traducoesEn = {
         'In print, the same language extends to patient guides, affective medical records for pediatrics and ICUs, posters for internal and health campaigns, and the editorial line for corporate policies.',
     'Ver projeto':
         'View project',
+
+    /* currículo e contato */
+    'Currículo': 'Résumé',
+    'Currículo — Heitor Matos': 'Résumé — Heitor Matos',
+    'Currículo de Heitor Matos: experiência, formação, habilidades e ferramentas em design, branding e comunicação.':
+        'Heitor Matos’s résumé: experience, education, skills, and tools in design, branding, and communications.',
+    '← Voltar ao início': '← Back to home',
+    'CURRÍCULO': 'RÉSUMÉ',
+    'Designer & Publicitário.': 'Designer & Advertising Professional.',
+    'Estudante de Publicidade e Propaganda com atuação em design gráfico e comunicação visual. Desenvolvo projetos de branding, comunicação institucional, interfaces digitais e materiais gráficos para diferentes plataformas, unindo criatividade, estratégia e organização para criar soluções visuais consistentes e alinhadas aos objetivos de cada projeto.':
+        'Advertising student working in graphic design and visual communication. I develop branding, corporate communications, digital interfaces, and print materials for different platforms, combining creativity, strategy, and organization to build consistent visual solutions aligned with each project’s goals.',
+    'E-MAIL': 'EMAIL',
+    'EXPERIÊNCIA': 'EXPERIENCE',
+    'Out 2025 — Atual': 'Oct 2025 — Present',
+    'Analista de Marketing': 'Marketing Analyst',
+    'Desenvolvimento de identidades visuais, campanhas e materiais de comunicação institucional.':
+        'Development of visual identities, campaigns, and corporate communication materials.',
+    'Criação de peças digitais e impressas, incluindo materiais editoriais, sinalização e landing pages.':
+        'Design of digital and print pieces, including editorial materials, signage, and landing pages.',
+    'Desenvolvimento de layouts em HTML/CSS e suporte à implementação de soluções visuais em WordPress.':
+        'HTML/CSS layout development and support for implementing visual solutions in WordPress.',
+    'Padronização da identidade visual e preparação de materiais para produção gráfica, incluindo a comunicação da campanha McDia Feliz 2026.':
+        'Visual identity standardization and print-ready production files, including communication for the McDia Feliz 2026 campaign.',
+    'Ver projeto Santa Casa →': 'View Santa Casa project →',
+    'Out 2023 — Fev 2025': 'Oct 2023 — Feb 2025',
+    'Criação de peças para redes sociais e campanhas digitais.':
+        'Design of social media content and digital campaigns.',
+    'Desenvolvimento de materiais para e-commerce e comunicação visual.':
+        'Development of e-commerce and visual communication materials.',
+    'Produção de conteúdos audiovisuais institucionais.':
+        'Production of corporate audiovisual content.',
+    'FORMAÇÃO': 'EDUCATION',
+    'Jan 2023 — Dez 2026': 'Jan 2023 — Dec 2026',
+    'Bacharelado em Publicidade e Propaganda': 'Bachelor’s Degree in Advertising',
+    'HABILIDADES': 'SKILLS',
+    'Áreas de atuação': 'Areas of expertise',
+    'Ferramentas': 'Tools',
+    'Identidade Visual': 'Visual Identity',
+    'Design Editorial': 'Editorial Design',
+    'Design para Campanhas': 'Campaign Design',
+    'Diagramação': 'Layout',
+    'Pacote Office': 'Microsoft Office',
+    'Vamos trabalhar juntos?': 'Shall we work together?',
+    'Conte um pouco sobre a oportunidade ou o projeto e eu retorno o quanto antes.':
+        'Tell me a bit about the opportunity or project and I’ll get back to you as soon as possible.',
+    'ou escreva para hmatospublicidade@gmail.com': 'or write to hmatospublicidade@gmail.com',
+    'Hoje sou Analista de Marketing na Fundação Santa Casa de Misericórdia de Franca, onde desenvolvo identidades visuais, campanhas, materiais editoriais, sinalização e landing pages. Antes, na R2 Performance Digital, criei peças para redes sociais, e-commerce e conteúdos audiovisuais. Concluo em 2026 a graduação em Publicidade e Propaganda pela Universidade de Franca.':
+        'I currently work as a Marketing Analyst at Fundação Santa Casa de Misericórdia de Franca, where I develop visual identities, campaigns, editorial materials, signage, and landing pages. Before that, at R2 Performance Digital, I designed content for social media, e-commerce, and audiovisual projects. I complete my degree in Advertising at Universidade de Franca in 2026.',
+    'Web Design': 'Web Design',
+    'Ver currículo completo →': 'View full résumé →',
+
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
@@ -745,8 +796,14 @@ if (menuToggle && mobileMenu && menuOverlay) {
         '.project-intro-content > h2', '.project-text-content > h2', '.project-result h2'
     ].join(','), 'title');
 
+    // currículo: itens da linha do tempo e grupos de habilidades em sequência
+    marcar('.cv-item', 'up', .1);
+    marcar('.cv-skill-group', 'up', .1);
+    marcar('.cv-contacts', 'up');
+
     // imagens
     marcar([
+        '.cv-hero-photo',
         '.project-image', '.about-photo', '.project-cover',
         '.project-full-image', '.project-gallery > div', '.project-gallery-three > img'
     ].join(','), 'img');

@@ -1,0 +1,355 @@
+/* =========================================================
+   PÁGINA DE CURRÍCULO
+   usa a base de projeto.css (hero, rótulos) e
+   acrescenta linha do tempo, contatos e habilidades
+========================================================= */
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.cv-hero {
+    padding-bottom: 90px;
+}
+
+
+.cv-hero-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.35fr
+        .65fr;
+
+    gap: 90px;
+
+    align-items: end;
+}
+
+
+.cv-hero .project-hero-content {
+    margin-bottom: 0;
+}
+
+
+.cv-hero h2 {
+    font-size: clamp(24px, 2.6vw, 38px);
+
+    line-height: 1.1;
+
+    letter-spacing: -.03em;
+}
+
+
+.cv-hero-photo {
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+
+    background: var(--destaque-claro);
+}
+
+
+.cv-hero-photo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   CONTATOS
+========================================================= */
+
+.cv-contacts {
+    list-style: none;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 28px 40px;
+
+    margin-top: 55px;
+    padding-top: 35px;
+
+    border-top: 1px solid var(--borda);
+}
+
+
+.cv-contacts span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: .15em;
+
+    color: var(--texto-suave);
+}
+
+
+.cv-contacts a {
+    font-size: 16px;
+
+    overflow-wrap: anywhere;
+
+    border-bottom: 1px solid transparent;
+
+    transition:
+        color .3s ease,
+        border-color .3s ease;
+}
+
+
+.cv-contacts a:hover {
+    color: var(--laranja);
+
+    border-color: var(--laranja);
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.cv-section {
+    width: min(
+        var(--largura),
+        calc(100% - 80px)
+    );
+
+    margin: 0 auto;
+
+    padding: 90px 0;
+
+    border-top: 1px solid var(--borda);
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        2fr;
+
+    gap: 80px;
+}
+
+
+/* =========================================================
+   LINHA DO TEMPO
+========================================================= */
+
+.cv-timeline {
+    list-style: none;
+}
+
+
+.cv-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        170px
+        1fr;
+
+    gap: 40px;
+
+    padding: 0 0 70px 40px;
+
+    border-left: 1px solid var(--borda);
+}
+
+
+.cv-item:last-child {
+    padding-bottom: 0;
+}
+
+
+.cv-item::before {
+    content: "";
+
+    position: absolute;
+
+    top: 4px;
+    left: -6px;
+
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    background: var(--laranja);
+}
+
+
+.cv-period {
+    padding-top: 2px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: .04em;
+
+    color: var(--laranja);
+}
+
+
+.cv-role h3 {
+    font-size: clamp(28px, 3vw, 42px);
+
+    line-height: 1.02;
+
+    letter-spacing: -.04em;
+}
+
+
+.cv-company {
+    margin: 12px 0 28px;
+
+    font-size: 15px;
+
+    color: var(--texto-suave);
+}
+
+
+.cv-role ul {
+    list-style: none;
+
+    max-width: 650px;
+}
+
+
+.cv-role ul li {
+    position: relative;
+
+    padding-left: 22px;
+
+    margin-bottom: 12px;
+
+    font-size: 16px;
+    line-height: 1.65;
+
+    color: var(--texto-suave);
+}
+
+
+.cv-role ul li::before {
+    content: "—";
+
+    position: absolute;
+
+    left: 0;
+
+    color: var(--destaque);
+}
+
+
+.cv-link {
+    display: inline-block;
+
+    margin-top: 18px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    border-bottom: 1px solid var(--texto);
+
+    padding-bottom: 4px;
+
+    transition:
+        color .3s ease,
+        border-color .3s ease;
+}
+
+
+.cv-link:hover {
+    color: var(--laranja);
+
+    border-color: var(--laranja);
+}
+
+
+/* =========================================================
+   HABILIDADES
+========================================================= */
+
+.cv-skills {
+    display: grid;
+
+    gap: 60px;
+}
+
+
+.cv-skill-group h3 {
+    font-size: clamp(26px, 2.6vw, 36px);
+
+    letter-spacing: -.04em;
+}
+
+
+.cv-skill-group .tags {
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .cv-hero-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+
+    .cv-hero-photo {
+        max-width: 420px;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .cv-hero {
+        padding-bottom: 60px;
+    }
+
+
+    .cv-contacts {
+        grid-template-columns: 1fr;
+
+        margin-top: 40px;
+    }
+
+
+    .cv-section {
+        width: calc(100% - 30px);
+
+        padding: 60px 0;
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+
+    .cv-item {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        padding: 0 0 55px 28px;
+    }
+
+}
