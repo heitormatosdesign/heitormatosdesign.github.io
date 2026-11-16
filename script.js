@@ -562,6 +562,11 @@ const traducoesEn = {
     'Web Design': 'Web Design',
     'Ver currículo completo →': 'View full résumé →',
 
+    'Página não encontrada — Heitor Matos': 'Page not found — Heitor Matos',
+    'A página que você procurou não existe ou mudou de endereço.': 'The page you were looking for does not exist or has moved.',
+    'PÁGINA NÃO ENCONTRADA': 'PAGE NOT FOUND',
+    'Essa página saiu do layout.': 'This page fell off the layout.',
+    'O endereço que você procurou não existe ou mudou de lugar. Os projetos continuam todos no portfólio.': 'The address you were looking for does not exist or has moved. All the projects are still in the portfolio.',
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'

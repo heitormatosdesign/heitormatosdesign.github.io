@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://heitormatosdesign.github.io/sitemap.xml
