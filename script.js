@@ -932,7 +932,7 @@ const capasPorPagina = {
     'projeto-direcao.html':
         'imagens/capa-mcdia.jpg',
 
-    'projeto-leathercare.html':
+    'projeto-packaging.html':
         'imagens/capa-leathercare.jpg',
 
     'projeto-institucional.html':
