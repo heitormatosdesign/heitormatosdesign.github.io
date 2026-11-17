@@ -526,6 +526,7 @@ const traducoesEn = {
     'EXPERIÊNCIA': 'EXPERIENCE',
     'Out 2025 — Atual': 'Oct 2025 — Present',
     'Analista de Marketing': 'Marketing Analyst',
+    'Analista de Comunicação': 'Communications Analyst',
     'Desenvolvimento de identidades visuais, campanhas e materiais de comunicação institucional.':
         'Development of visual identities, campaigns, and corporate communication materials.',
     'Criação de peças digitais e impressas, incluindo materiais editoriais, sinalização e landing pages.':
@@ -557,8 +558,8 @@ const traducoesEn = {
     'Conte um pouco sobre a oportunidade ou o projeto e eu retorno o quanto antes.':
         'Tell me a bit about the opportunity or project and I’ll get back to you as soon as possible.',
     'ou escreva para hmatospublicidade@gmail.com': 'or write to hmatospublicidade@gmail.com',
-    'Hoje sou Analista de Marketing na Fundação Santa Casa de Misericórdia de Franca, onde desenvolvo identidades visuais, campanhas, materiais editoriais, sinalização e landing pages. Antes, na R2 Performance Digital, criei peças para redes sociais, e-commerce e conteúdos audiovisuais. Concluo em 2026 a graduação em Publicidade e Propaganda pela Universidade de Franca.':
-        'I currently work as a Marketing Analyst at Fundação Santa Casa de Misericórdia de Franca, where I develop visual identities, campaigns, editorial materials, signage, and landing pages. Before that, at R2 Performance Digital, I designed content for social media, e-commerce, and audiovisual projects. I complete my degree in Advertising at Universidade de Franca in 2026.',
+    'Hoje sou Analista de Comunicação na Fundação Santa Casa de Misericórdia de Franca, onde desenvolvo identidades visuais, campanhas, materiais editoriais, sinalização e landing pages. Antes, na R2 Performance Digital, criei peças para redes sociais, e-commerce e conteúdos audiovisuais. Concluo em 2026 a graduação em Publicidade e Propaganda pela Universidade de Franca.':
+        'I currently work as a Communications Analyst at Fundação Santa Casa de Misericórdia de Franca, where I develop visual identities, campaigns, editorial materials, signage, and landing pages. Before that, at R2 Performance Digital, I designed content for social media, e-commerce, and audiovisual projects. I complete my degree in Advertising at Universidade de Franca in 2026.',
     'Web Design': 'Web Design',
     'Ver currículo completo →': 'View full résumé →',
 
