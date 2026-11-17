@@ -648,6 +648,7 @@ const traducoesEn = {
     "Espanhol": "Spanish",
     "Profissional completo": "Full professional",
     "anos de experiência em design e marketing": "years of experience in design and marketing",
+    "Baixar currículo em PDF": "Download résumé (PDF)",
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
@@ -1953,6 +1954,15 @@ document.querySelectorAll('.cover-stack').forEach((pilha) => {
         });
 
         graficos.forEach((g) => observador.observe(g));
+
+        /* impressão: mostra os valores finais, sem animação */
+        window.addEventListener('beforeprint', () => {
+            contadores.forEach((el) => {
+                observador.unobserve(el);
+                el.textContent = formatar(Number(el.dataset.count));
+            });
+            graficos.forEach((g) => g.classList.remove('is-waiting'));
+        });
 
     } else {
         graficos.forEach((g) => g.classList.remove('is-waiting'));
