@@ -614,7 +614,7 @@ const traducoesEn = {
     "Mês": "Month",
     "Artes": "Pieces",
     "clientes atendidos ao mesmo tempo como social media": "clients handled at the same time as a social media designer",
-    "marcas com redes sociais sob minha gestão, em posts e vídeos": "brands whose social media I managed, with posts and videos",
+    "marcas atendidas ao longo da carreira": "brands served throughout my career",
     "artes publicadas para a Santa Casa em 13 meses": "pieces published for Santa Casa in 13 months",
     "anos de experiência em design": "years of design experience",
     "out": "Oct",
