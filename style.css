@@ -90,6 +90,47 @@ em {
     color: var(--destaque);
 }
 
+/* Raposa — marca pessoal */
+.logo {
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo-raposa {
+    width: auto;
+    height: 30px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    transform-origin: 50% 100%;
+    transition: transform .35s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.logo:hover .logo-raposa,
+.logo:focus-visible .logo-raposa {
+    transform: translateY(-3px) rotate(-4deg);
+}
+
+.footer .logo {
+    display: inline-block;
+}
+
+.logo-raposa-footer {
+    display: block;
+    height: 60px;
+    margin: 0 0 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo-raposa {
+        transition: none;
+    }
+
+    .logo:hover .logo-raposa,
+    .logo:focus-visible .logo-raposa {
+        transform: none;
+    }
+}
+
 .desktop-nav {
     display: flex;
     gap: 35px;
@@ -2240,4 +2281,27 @@ button:hover .icon-mask[data-dir="l"] .icon {
         padding-left: 16px;
     }
 
+}
+
+/* Raposa na página 404 */
+.error-raposa {
+    display: block;
+    width: clamp(160px, 22vw, 260px);
+    height: auto;
+    margin: 0 0 28px;
+    transform-origin: 50% 100%;
+    animation: raposa-fareja 3.2s ease-in-out infinite;
+}
+
+@keyframes raposa-fareja {
+    0%, 60%, 100% { transform: rotate(0); }
+    70% { transform: rotate(-3deg) translateY(-2px); }
+    80% { transform: rotate(1.5deg); }
+    90% { transform: rotate(-1.5deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .error-raposa {
+        animation: none;
+    }
 }
