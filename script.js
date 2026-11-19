@@ -716,6 +716,14 @@ function aplicarIdioma(idioma) {
         }
     });
 
+    // Links com versão em inglês (ex.: currículo em PDF)
+    document.querySelectorAll('a[data-href-en]').forEach((link) => {
+        if (!link.dataset.hrefPt) {
+            link.dataset.hrefPt = link.getAttribute('href');
+        }
+        link.setAttribute('href', emIngles ? link.dataset.hrefEn : link.dataset.hrefPt);
+    });
+
     document.querySelectorAll('[data-language]').forEach((botao) => {
         botao.setAttribute(
             'aria-pressed',
