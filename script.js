@@ -649,6 +649,16 @@ const traducoesEn = {
     "Profissional completo": "Full professional",
     "anos de experiência em design e marketing": "years of experience in design and marketing",
     "Baixar currículo em PDF": "Download résumé (PDF)",
+    "IA NA CRIAÇÃO": "AI IN CREATION",
+    "Inteligência artificial a serviço da direção de arte.": "Artificial intelligence in service of art direction.",
+    "Nas campanhas de saúde, uso IA generativa para criar imagens que o banco de fotos não entrega: cenas com pessoas reais e diversas, objetos e situações específicas de cada tema.": "In health campaigns, I use generative AI to create images that stock libraries can’t deliver: scenes with real, diverse people, and objects and situations specific to each theme.",
+    "A direção continua sendo minha. Defino conceito, cena, luz e enquadramento, faço a curadoria do que é gerado e integro cada imagem ao sistema visual da marca.": "The direction is still mine. I define the concept, scene, lighting and framing, curate what is generated and integrate each image into the brand’s visual system.",
+    "IA Generativa": "Generative AI",
+    "Social Media": "Social Media",
+    "Story": "Story",
+    "Dia da Prevenção ao Câncer": "Cancer Prevention Day",
+    "Carrossel": "Carousel",
+    "Animais peçonhentos · 5 cards, role para o lado": "Venomous animals · 5 cards, scroll sideways",
     'WhatsApp': 'WhatsApp',
     'LinkedIn': 'LinkedIn',
     'Behance': 'Behance'
@@ -896,6 +906,7 @@ if (menuToggle && mobileMenu && menuOverlay) {
     marcar('.cv-skill-group', 'up', .1);
     marcar('.cv-contacts', 'up');
     marcar('.web-features li', 'up', .08);
+    marcar('.ai-showcase figure', 'up', .12);
 
     // imagens
     marcar([
