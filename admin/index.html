@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+
+    <meta name="referrer" content="no-referrer">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Painel — Heitor Matos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100..900&family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css?v=16">
+
+    <link rel="icon" type="image/png" href="/imagens/favicon.png">
+
+    <style>
+        .admin {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 72px 16px 96px;
+        }
+
+        .admin-raposa {
+            display: block;
+            width: 96px;
+            height: auto;
+            margin-bottom: 28px;
+        }
+
+        .admin h1 {
+            font-family: var(--fonte-titulo);
+            font-size: clamp(2.2rem, 6vw, 3.2rem);
+            line-height: 1.1;
+            margin-bottom: 14px;
+        }
+
+        .admin-intro {
+            color: var(--texto-suave);
+            margin-bottom: 32px;
+        }
+
+        .admin-botao {
+            display: inline-block;
+            background: var(--texto);
+            color: var(--fundo);
+            padding: 16px 28px;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .admin-botao:hover,
+        .admin-botao:focus-visible {
+            background: var(--destaque);
+        }
+
+        .admin-bloco {
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid var(--borda);
+        }
+
+        .admin-bloco h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .admin-bloco ul {
+            padding-left: 20px;
+            color: var(--texto-suave);
+        }
+
+        .admin-bloco li + li {
+            margin-top: 4px;
+        }
+
+        .admin-opcao {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+
+        .admin-opcao input {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: var(--destaque);
+            flex-shrink: 0;
+        }
+
+        .admin-status {
+            margin-top: 10px;
+            color: var(--texto-suave);
+            font-size: 0.95rem;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <main class="admin">
+
+        <img src="/imagens/raposa.webp" alt="" class="admin-raposa" width="96" height="76">
+
+        <h1>Painel do site</h1>
+
+        <p class="admin-intro">
+            As estatísticas ficam no GoatCounter. Entre com o seu e-mail e senha de lá para ver os acessos.
+        </p>
+
+        <a class="admin-botao" href="https://heitormatos.goatcounter.com" rel="noopener noreferrer">
+            Abrir estatísticas
+        </a>
+
+        <section class="admin-bloco">
+            <h2>Não contar as minhas visitas</h2>
+
+            <label class="admin-opcao">
+                <input type="checkbox" id="ignorar-visitas">
+                <span>Ignorar as visitas deste navegador. Marque em cada navegador e celular que você usa para ver o site.</span>
+            </label>
+
+            <p class="admin-status" id="status-visitas" aria-live="polite"></p>
+        </section>
+
+        <section class="admin-bloco">
+            <h2>O que é medido</h2>
+            <ul>
+                <li>Visitas por página e de onde a pessoa veio (LinkedIn, Google, WhatsApp…)</li>
+                <li>País, navegador e tipo de aparelho</li>
+                <li>Cliques no WhatsApp, e-mail, LinkedIn e Behance</li>
+                <li>Downloads do currículo, em português e em inglês</li>
+                <li>Troca de idioma do site</li>
+            </ul>
+            <p class="admin-status">
+                Sem cookies e sem guardar IP ou dados pessoais. Os cliques aparecem no painel com o nome do evento, como <code>clique-whatsapp</code>.
+            </p>
+        </section>
+
+    </main>
+
+    <script src="/admin/admin.js?v=1"></script>
+
+</body>
+
+</html>

@@ -2055,3 +2055,69 @@ document.querySelectorAll('.cover-stack').forEach((pilha) => {
     });
 
 })();
+
+
+/* ---------------------------------------------------------
+   MEDIÇÃO DE ACESSOS (GoatCounter: sem cookies e sem dados pessoais)
+   Painel: https://heitormatos.goatcounter.com (atalho em /admin/)
+--------------------------------------------------------- */
+
+(function medirAcessos() {
+    const ENDERECO = 'https://heitormatos.goatcounter.com/count';
+
+    // só conta no site publicado; testes locais ficam de fora
+    if (location.hostname !== 'heitormatosdesign.github.io') return;
+    // robôs de automação
+    if (navigator.webdriver) return;
+    // quem marcou "não contar minhas visitas" na página /admin/
+    try { if (localStorage.getItem('skipgc') === 't') return; } catch (erro) {}
+
+    function enviar(dados) {
+        const parametros = new URLSearchParams(dados);
+        parametros.set('rnd', Math.random().toString(36).slice(2));
+        const url = `${ENDERECO}?${parametros.toString()}`;
+        if (navigator.sendBeacon && navigator.sendBeacon(url)) return;
+        new Image().src = url;
+    }
+
+    // visita à página (origem só quando vem de fora do site)
+    let origem = document.referrer;
+    try {
+        if (origem && new URL(origem).hostname === location.hostname) origem = '';
+    } catch (erro) { origem = ''; }
+
+    enviar({
+        p: location.pathname,
+        t: document.title.trim(),
+        r: origem
+    });
+
+    // cliques que interessam
+    function evento(nome) {
+        enviar({ p: nome, t: location.pathname, e: 'true' });
+    }
+
+    document.addEventListener('click', (clique) => {
+        const alvo = clique.target.closest('a, [data-language]');
+        if (!alvo) return;
+
+        if (alvo.matches('[data-language]')) {
+            evento(alvo.dataset.language === 'en' ? 'idioma-ingles' : 'idioma-portugues');
+            return;
+        }
+
+        const href = alvo.getAttribute('href') || '';
+
+        if (alvo.classList.contains('cv-download')) {
+            evento(href.includes('resume') ? 'download-curriculo-ingles' : 'download-curriculo-portugues');
+        } else if (href.includes('wa.me')) {
+            evento('clique-whatsapp');
+        } else if (href.startsWith('mailto:')) {
+            evento('clique-email');
+        } else if (href.includes('linkedin.com')) {
+            evento('clique-linkedin');
+        } else if (href.includes('behance.net')) {
+            evento('clique-behance');
+        }
+    }, { capture: true });
+})();
