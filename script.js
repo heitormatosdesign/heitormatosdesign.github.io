@@ -2059,11 +2059,11 @@ document.querySelectorAll('.cover-stack').forEach((pilha) => {
 
 /* ---------------------------------------------------------
    MEDIÇÃO DE ACESSOS (GoatCounter: sem cookies e sem dados pessoais)
-   Painel: https://heitormatos.goatcounter.com (atalho em /admin/)
+   Painel: https://heitormatosdesign.goatcounter.com (atalho em /admin/)
 --------------------------------------------------------- */
 
 (function medirAcessos() {
-    const ENDERECO = 'https://heitormatos.goatcounter.com/count';
+    const ENDERECO = 'https://heitormatosdesign.goatcounter.com/count';
 
     // só conta no site publicado; testes locais ficam de fora
     if (location.hostname !== 'heitormatosdesign.github.io') return;
