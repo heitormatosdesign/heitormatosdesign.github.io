@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://raw.githubusercontent.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 
     <meta name="referrer" content="no-referrer">
 
@@ -20,138 +20,128 @@
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100..900&family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/style.css?v=16">
+    <link rel="stylesheet" href="/admin/admin.css?v=2">
 
     <link rel="icon" type="image/png" href="/imagens/favicon.png">
 
-    <style>
-        .admin {
-            max-width: 640px;
-            margin: 0 auto;
-            padding: 72px 16px 96px;
-        }
-
-        .admin-raposa {
-            display: block;
-            width: 96px;
-            height: auto;
-            margin-bottom: 28px;
-        }
-
-        .admin h1 {
-            font-family: var(--fonte-titulo);
-            font-size: clamp(2.2rem, 6vw, 3.2rem);
-            line-height: 1.1;
-            margin-bottom: 14px;
-        }
-
-        .admin-intro {
-            color: var(--texto-suave);
-            margin-bottom: 32px;
-        }
-
-        .admin-botao {
-            display: inline-block;
-            background: var(--texto);
-            color: var(--fundo);
-            padding: 16px 28px;
-            border-radius: 999px;
-            font-weight: 600;
-        }
-
-        .admin-botao:hover,
-        .admin-botao:focus-visible {
-            background: var(--destaque);
-        }
-
-        .admin-bloco {
-            margin-top: 48px;
-            padding-top: 28px;
-            border-top: 1px solid var(--borda);
-        }
-
-        .admin-bloco h2 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .admin-bloco ul {
-            padding-left: 20px;
-            color: var(--texto-suave);
-        }
-
-        .admin-bloco li + li {
-            margin-top: 4px;
-        }
-
-        .admin-opcao {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-            cursor: pointer;
-        }
-
-        .admin-opcao input {
-            width: 20px;
-            height: 20px;
-            margin-top: 2px;
-            accent-color: var(--destaque);
-            flex-shrink: 0;
-        }
-
-        .admin-status {
-            margin-top: 10px;
-            color: var(--texto-suave);
-            font-size: 0.95rem;
-        }
-    </style>
-
 </head>
 
-<body>
+<body class="painel">
 
-    <main class="admin">
+    <!-- TELA DE SENHA -->
+    <main class="entrada" id="entrada">
 
-        <img src="/imagens/raposa.webp" alt="" class="admin-raposa" width="96" height="76">
+        <img src="/imagens/raposa.webp" alt="" class="entrada-raposa" width="96" height="76">
 
         <h1>Painel do site</h1>
 
-        <p class="admin-intro">
-            As estatísticas ficam no GoatCounter. Entre com o seu e-mail e senha de lá para ver os acessos.
-        </p>
+        <p class="suave">Digite a senha do painel para ver os acessos.</p>
 
-        <a class="admin-botao" href="https://heitormatosdesign.goatcounter.com" rel="noopener noreferrer">
-            Abrir estatísticas
-        </a>
+        <form id="form-senha" class="entrada-form" autocomplete="off">
+            <label for="senha" class="oculto">Senha do painel</label>
+            <input type="password" id="senha" name="senha" placeholder="Senha" required autocomplete="current-password">
+            <button type="submit" class="botao" id="botao-entrar">Entrar</button>
+        </form>
 
-        <section class="admin-bloco">
+        <p class="aviso" id="aviso-entrada" role="alert" aria-live="assertive"></p>
+
+    </main>
+
+
+    <!-- PAINEL -->
+    <main class="painel-conteudo" id="painel" hidden>
+
+        <header class="topo">
+            <div class="topo-titulo">
+                <img src="/imagens/raposa.webp" alt="" width="48" height="38">
+                <div>
+                    <h1>Painel do site</h1>
+                    <p class="suave" id="atualizado"></p>
+                </div>
+            </div>
+            <div class="topo-acoes">
+                <a class="botao claro" href="https://heitormatosdesign.goatcounter.com" rel="noopener noreferrer" target="_blank">Abrir no GoatCounter</a>
+                <button type="button" class="botao claro" id="botao-sair">Sair</button>
+            </div>
+        </header>
+
+        <section class="numeros" aria-label="Resumo">
+            <article class="numero">
+                <span class="numero-rotulo">Visitas em 30 dias</span>
+                <strong id="kpi-30">–</strong>
+            </article>
+            <article class="numero">
+                <span class="numero-rotulo">Últimos 7 dias</span>
+                <strong id="kpi-7">–</strong>
+                <span class="numero-variacao" id="kpi-7-var"></span>
+            </article>
+            <article class="numero">
+                <span class="numero-rotulo">Cliques para falar com você</span>
+                <strong id="kpi-contato">–</strong>
+                <span class="numero-variacao">WhatsApp, e-mail, LinkedIn, Behance</span>
+            </article>
+            <article class="numero">
+                <span class="numero-rotulo">Currículos baixados</span>
+                <strong id="kpi-cv">–</strong>
+                <span class="numero-variacao" id="kpi-cv-det"></span>
+            </article>
+        </section>
+
+        <section class="cartao cartao-largo">
+            <div class="cartao-cabeca">
+                <h2>Visitas por dia</h2>
+                <p class="suave" id="grafico-resumo"></p>
+            </div>
+            <div class="grafico" id="grafico-dias"></div>
+        </section>
+
+        <div class="grade">
+            <section class="cartao">
+                <h2>Páginas mais vistas</h2>
+                <ol class="barras" id="lista-paginas"></ol>
+            </section>
+
+            <section class="cartao">
+                <h2>De onde vieram</h2>
+                <ol class="barras" id="lista-origens"></ol>
+                <p class="nota">Dica: mande o site como <code>heitormatosdesign.github.io/?ref=nome-da-empresa</code> e o nome aparece aqui.</p>
+            </section>
+
+            <section class="cartao">
+                <h2>O que clicaram</h2>
+                <ol class="barras" id="lista-eventos"></ol>
+            </section>
+
+            <section class="cartao">
+                <h2>Países</h2>
+                <ol class="barras" id="lista-paises"></ol>
+            </section>
+
+            <section class="cartao">
+                <h2>Aparelhos</h2>
+                <ol class="barras" id="lista-telas"></ol>
+            </section>
+
+            <section class="cartao">
+                <h2>Sistemas e navegadores</h2>
+                <ol class="barras" id="lista-sistemas"></ol>
+                <ol class="barras barras-separadas" id="lista-navegadores"></ol>
+            </section>
+        </div>
+
+        <section class="cartao rodape-painel">
             <h2>Não contar as minhas visitas</h2>
-
-            <label class="admin-opcao">
+            <label class="opcao">
                 <input type="checkbox" id="ignorar-visitas">
                 <span>Ignorar as visitas deste navegador. Marque em cada navegador e celular que você usa para ver o site.</span>
             </label>
-
-            <p class="admin-status" id="status-visitas" aria-live="polite"></p>
-        </section>
-
-        <section class="admin-bloco">
-            <h2>O que é medido</h2>
-            <ul>
-                <li>Visitas por página e de onde a pessoa veio (LinkedIn, Google, WhatsApp…)</li>
-                <li>País, navegador e tipo de aparelho</li>
-                <li>Cliques no WhatsApp, e-mail, LinkedIn e Behance</li>
-                <li>Downloads do currículo, em português e em inglês</li>
-                <li>Troca de idioma do site</li>
-            </ul>
-            <p class="admin-status">
-                Sem cookies e sem guardar IP ou dados pessoais. Os cliques aparecem no painel com o nome do evento, como <code>clique-whatsapp</code>.
-            </p>
+            <p class="suave" id="status-visitas" aria-live="polite"></p>
+            <p class="nota">Os dados vêm do GoatCounter, sem cookies e sem guardar IP. Atualizam de hora em hora.</p>
         </section>
 
     </main>
 
-    <script src="/admin/admin.js?v=1"></script>
+    <script src="/admin/admin.js?v=2"></script>
 
 </body>
 

@@ -2086,10 +2086,16 @@ document.querySelectorAll('.cover-stack').forEach((pilha) => {
         if (origem && new URL(origem).hostname === location.hostname) origem = '';
     } catch (erro) { origem = ''; }
 
+    // links marcados, ex.: heitormatosdesign.github.io/?ref=cba
+    const busca = new URLSearchParams(location.search);
+    const marcador = (busca.get('ref') || busca.get('utm_source') || '').trim().slice(0, 60);
+    if (marcador) origem = marcador;
+
     enviar({
         p: location.pathname,
         t: document.title.trim(),
-        r: origem
+        r: origem,
+        q: location.search
     });
 
     // cliques que interessam
