@@ -51,10 +51,20 @@ def api(caminho, **params):
             if erro.code == 429 and tentativa < 3:
                 time.sleep(2 + tentativa * 2)
                 continue
-            # só o código e o caminho no log (o log do Actions é público)
-            raise SystemExit(f"Erro {erro.code} ao ler {caminho}") from None
+            # o log do Actions é público: só o código e a mensagem de erro da API
+            # (a mensagem não traz estatísticas nem a chave)
+            try:
+                corpo = json.loads(erro.read().decode("utf-8", "replace"))
+                mensagem = corpo.get("error") or corpo.get("errors") or ""
+            except Exception:
+                mensagem = ""
+            raise ErroAPI(f"Erro {erro.code} ao ler {caminho}: {str(mensagem)[:200]}") from None
         finally:
             time.sleep(0.4)  # respeita o limite de requisições da API
+
+
+class ErroAPI(Exception):
+    pass
 
 
 def contagem(item):
@@ -62,7 +72,11 @@ def contagem(item):
 
 
 def lista(pagina, inicio, fim, limite=10):
-    dados = api(f"stats/{pagina}", start=inicio, end=fim, limit=limite)
+    try:
+        dados = api(f"stats/{pagina}", start=inicio, end=fim, limit=limite)
+    except ErroAPI as erro:
+        print(f"Aviso: {erro}")  # uma lista com problema não derruba o painel
+        return []
     return [
         {"id": str(i.get("id") or ""), "nome": (i.get("name") or "").strip() or "(direto)", "total": contagem(i)}
         for i in dados.get("stats") or []
@@ -71,11 +85,18 @@ def lista(pagina, inicio, fim, limite=10):
 
 
 def coletar():
-    hoje = dt.datetime.now(dt.timezone.utc).date()
-    inicio = (hoje - dt.timedelta(days=DIAS - 1)).isoformat()
-    fim = hoje.isoformat()
+    agora = dt.datetime.now(dt.timezone.utc).replace(minute=0, second=0, microsecond=0)
+    hoje = agora.date()
+    primeiro_dia = hoje - dt.timedelta(days=DIAS - 1)
+    # a API pede data e hora (RFC 3339), arredondadas para a hora cheia
+    inicio = f"{primeiro_dia.isoformat()}T00:00:00Z"
+    fim = (agora + dt.timedelta(hours=1)).strftime("%Y-%m-%dT%H:00:00Z")
 
-    hits = api("stats/hits", start=inicio, end=fim, limit=100).get("hits") or []
+    try:
+        resposta = api("stats/hits", start=inicio, end=fim, limit=100)
+    except ErroAPI as erro:
+        raise SystemExit(str(erro)) from None
+    hits = resposta.get("hits") or []
 
     por_dia = {(hoje - dt.timedelta(days=d)).isoformat(): 0 for d in range(DIAS)}
     paginas, eventos = [], []
@@ -97,8 +118,8 @@ def coletar():
 
     return {
         "gerado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"),
-        "inicio": inicio,
-        "fim": fim,
+        "inicio": primeiro_dia.isoformat(),
+        "fim": hoje.isoformat(),
         "dias": [{"dia": d, "total": por_dia[d]} for d in sorted(por_dia)],
         "paginas": sorted(paginas, key=lambda x: -x["total"])[:12],
         "eventos": sorted(eventos, key=lambda x: -x["total"]),
